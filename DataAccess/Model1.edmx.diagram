@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aec95257fe0840d8964eaa255076743c" Name="Diagram1" ZoomLevel="121">
+        <EntityTypeShape EntityType="RedaV1Model.ItemCategory" Width="1.5" PointX="0.5" PointY="3.125" />
+        <EntityTypeShape EntityType="RedaV1Model.PurchaseInvoice" Width="1.5" PointX="7.25" PointY="3" />
+        <EntityTypeShape EntityType="RedaV1Model.PurchaseInvoiceDetail" Width="1.5" PointX="4.75" PointY="3" />
+        <AssociationConnector Association="RedaV1Model.FK_PurchaseInvoiceDetails_PurchaseInvoice" />
+        <EntityTypeShape EntityType="RedaV1Model.Inventory" Width="1.5" PointX="7" PointY="8.25" />
+        <EntityTypeShape EntityType="RedaV1Model.SaleInvoiceDetail" Width="1.5" PointX="11.125" PointY="6.375" />
+        <AssociationConnector Association="RedaV1Model.FK_Inventory_PurchaseInvoiceDetails" />
+        <AssociationConnector Association="RedaV1Model.FK_SaleInvoiceDetails_Inventory" />
+        <EntityTypeShape EntityType="RedaV1Model.TempItem" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="RedaV1Model.TempItemGroup" Width="1.5" PointX="2.625" PointY="0.5" />
+        <AssociationConnector Association="RedaV1Model.FK_TempItem_TempItemGroup" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_TempItem" Width="1.5" PointX="8.75" PointY="13.375" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_Inventory" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_SaleReport" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="RedaV1Model.Branch" Width="1.5" PointX="2.5" PointY="7.25" />
+        <EntityTypeShape EntityType="RedaV1Model.SaleInvoice" Width="1.5" PointX="11.25" PointY="11.25" />
+        <AssociationConnector Association="RedaV1Model.FK_Inventory_Branch" />
+        <AssociationConnector Association="RedaV1Model.FK_PurchaseInvoice_Branch" />
+        <AssociationConnector Association="RedaV1Model.FK_SaleInvoice_Branch" />
+        <AssociationConnector Association="RedaV1Model.FK_SaleInvoiceDetails_SaleInvoice" />
+        <EntityTypeShape EntityType="RedaV1Model.Expense" Width="1.5" PointX="14.25" PointY="7.75" />
+        <AssociationConnector Association="RedaV1Model.FK_Expense_Branch" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_Expense" Width="1.5" PointX="14.375" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedaV1Model.Stocking" Width="1.5" PointX="7.625" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="RedaV1Model.StockingDetail" Width="1.5" PointX="17.5" PointY="6.25" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_Stocking" Width="1.5" PointX="0.75" PointY="17.625" />
+        <AssociationConnector Association="RedaV1Model.FK_Stocking_Branch" />
+        <AssociationConnector Association="RedaV1Model.FK_StockingDetail_Inventory" />
+        <AssociationConnector Association="RedaV1Model.FK_Stocking_ItemCategory" />
+        <AssociationConnector Association="RedaV1Model.FK_StockingDetail_Stocking" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_Sale2" Width="1.5" PointX="3.375" PointY="15.75" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_StockingDetails" Width="1.5" PointX="5.375" PointY="15.75" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_SaleInvoiceSummary" Width="1.5" PointX="11.375" PointY="15.75" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_PurchaseDetails" Width="1.5" PointX="16.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RedaV1Model.ItemBarcode" Width="1.5" PointX="11.125" PointY="20" />
+        <EntityTypeShape EntityType="RedaV1Model.Payment" Width="1.5" PointX="18.625" PointY="10.875" />
+        <EntityTypeShape EntityType="RedaV1Model.PaymentType" Width="1.5" PointX="16.375" PointY="11" />
+        <AssociationConnector Association="RedaV1Model.FK_Payment_PaymentType" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_Payment" Width="1.5" PointX="16.375" PointY="14.75" />
+        <EntityTypeShape EntityType="RedaV1Model.Company" Width="1.5" PointX="18.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_TopSale" Width="1.5" PointX="7.375" PointY="18.75" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_SalesByMonth" Width="1.5" PointX="18.375" PointY="14.75" />
+        <EntityTypeShape EntityType="RedaV1Model.Item" Width="1.5" PointX="2.75" PointY="22" />
+        <AssociationConnector Association="RedaV1Model.FK_Item_ItemCategory" />
+        <AssociationConnector Association="RedaV1Model.FK_ItemBarcode_Item" />
+        <AssociationConnector Association="RedaV1Model.FK_PurchaseInvoiceDetails_Item" />
+        <AssociationConnector Association="RedaV1Model.FK_SaleInvoiceDetails_Item" />
+        <AssociationConnector Association="RedaV1Model.FK_TempItem_Item" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_NetSummary" Width="1.5" PointX="13.375" PointY="19.75" />
+        <EntityTypeShape EntityType="RedaV1Model.MessageType" Width="1.5" PointX="18.375" PointY="23.125" />
+        <EntityTypeShape EntityType="RedaV1Model.UserMessage" Width="1.5" PointX="20.625" PointY="19" />
+        <AssociationConnector Association="RedaV1Model.FK_UserMessage_MessageType" />
+        <EntityTypeShape EntityType="RedaV1Model.User" Width="1.5" PointX="0.75" PointY="10" />
+        <AssociationConnector Association="RedaV1Model.FK_Expense_User" />
+        <AssociationConnector Association="RedaV1Model.FK_Expense_User1" />
+        <AssociationConnector Association="RedaV1Model.FK_PurchaseInvoice_User" />
+        <AssociationConnector Association="RedaV1Model.FK_SaleInvoice_User" />
+        <AssociationConnector Association="RedaV1Model.FK_UserMessage_User" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_PushoverMessage" Width="1.5" PointX="16.375" PointY="18.75" />
+        <EntityTypeShape EntityType="RedaV1Model.MarqueeMessage" Width="1.5" PointX="4.75" PointY="8.5" />
+        <AssociationConnector Association="RedaV1Model.FK_MarqueeMessage_Branch" />
+        <AssociationConnector Association="RedaV1Model.FK_MarqueeMessage_User" />
+        <EntityTypeShape EntityType="RedaV1Model.UserLogin" Width="1.5" PointX="5.75" PointY="21.625" />
+        <AssociationConnector Association="RedaV1Model.FK_UserLogin_Branch" />
+        <AssociationConnector Association="RedaV1Model.FK_UserLogin_UserLogin" />
+        <EntityTypeShape EntityType="RedaV1Model.Shift" Width="1.5" PointX="8.75" PointY="21.625" />
+        <AssociationConnector Association="RedaV1Model.FK_Shift_Branch" />
+        <AssociationConnector Association="RedaV1Model.FK_Expense_Shift" />
+        <AssociationConnector Association="RedaV1Model.FK_Shift_User" />
+        <EntityTypeShape EntityType="RedaV1Model.ShiftUser" Width="1.5" PointX="11" PointY="23.75" />
+        <AssociationConnector Association="RedaV1Model.FK_ShiftUser_Shift" />
+        <EntityTypeShape EntityType="RedaV1Model.UserPayment" Width="1.5" PointX="3" PointY="12.125" />
+        <AssociationConnector Association="RedaV1Model.FK_UserPayment_User" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_ShiftUser" Width="1.5" PointX="13.375" PointY="12.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

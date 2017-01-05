@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5A7D99D8-BCBD-434D-9C6B-2A7828002C87}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WinForm</RootNamespace>
+    <AssemblyName>WinForm</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1.UI, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v14.1.Extensions, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v14.1.Core, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\..\..\..\..\WorkingFolder\Aircraft Monitoring and Stock\WinFormApp\LIB\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
+      <HintPath>..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Zlib.Portable">
+      <HintPath>..\..\packages\Zlib.Portable.1.10.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalculateInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalculateInventory.Designer.cs">
+      <DependentUpon>CalculateInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelImporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExcelImporter.designer.cs">
+      <DependentUpon>ExcelImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemForm.Designer.cs">
+      <DependentUpon>ItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReorderRPT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReorderRPT.Designer.cs">
+      <DependentUpon>ReorderRPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SaleRpt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SaleRpt.Designer.cs">
+      <DependentUpon>SaleRpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SaleSummaryRPT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SaleSummaryRPT.Designer.cs">
+      <DependentUpon>SaleSummaryRPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SaleSummaryReportOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SaleSummaryReportOptions.Designer.cs">
+      <DependentUpon>SaleSummaryReportOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\UserLoginOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\UserLoginOptions.Designer.cs">
+      <DependentUpon>UserLoginOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReturnForm.Designer.cs">
+      <DependentUpon>ReturnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaleInvoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleInvoiceForm.Designer.cs">
+      <DependentUpon>SaleInvoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaleUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SaleUC.Designer.cs">
+      <DependentUpon>SaleUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseInvoiceUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PurchaseInvoiceUC.Designer.cs">
+      <DependentUpon>PurchaseInvoiceUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ItemUC.Designer.cs">
+      <DependentUpon>ItemUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GategoryUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GategoryUC.Designer.cs">
+      <DependentUpon>GategoryUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainScreen.Designer.cs">
+      <DependentUpon>MainScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseInvoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchaseInvoiceForm.Designer.cs">
+      <DependentUpon>PurchaseInvoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PurchaseInvoiceRPT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PurchaseInvoiceRPT.Designer.cs">
+      <DependentUpon>PurchaseInvoiceRPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XtraReport1.designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\StockReportOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\StockReportOptions.Designer.cs">
+      <DependentUpon>StockReportOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared.cs" />
+    <Compile Include="TempItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TempItem.Designer.cs">
+      <DependentUpon>TempItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transfer.Designer.cs">
+      <DependentUpon>Transfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>UserData.settings</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalculateInventory.resx">
+      <DependentUpon>CalculateInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExcelImporter.resx">
+      <DependentUpon>ExcelImporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemForm.resx">
+      <DependentUpon>ItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReorderRPT.resx">
+      <DependentUpon>ReorderRPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SaleRpt.resx">
+      <DependentUpon>SaleRpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SaleSummaryRPT.resx">
+      <DependentUpon>SaleSummaryRPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SaleSummaryReportOptions.resx">
+      <DependentUpon>SaleSummaryReportOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\UserLoginOptions.resx">
+      <DependentUpon>UserLoginOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReturnForm.resx">
+      <DependentUpon>ReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaleInvoiceForm.resx">
+      <DependentUpon>SaleInvoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchaseInvoiceForm.resx">
+      <DependentUpon>PurchaseInvoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaleUC.resx">
+      <DependentUpon>SaleUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchaseInvoiceUC.resx">
+      <DependentUpon>PurchaseInvoiceUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemUC.resx">
+      <DependentUpon>ItemUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GategoryUC.resx">
+      <DependentUpon>GategoryUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainScreen.resx">
+      <DependentUpon>MainScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\PurchaseInvoiceRPT.resx">
+      <DependentUpon>PurchaseInvoiceRPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\StockReportOptions.resx">
+      <DependentUpon>StockReportOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TempItem.resx">
+      <DependentUpon>TempItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer.resx">
+      <DependentUpon>Transfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\BusinessLogic.ItemCategory.datasource" />
+    <None Include="Properties\DataSources\DataAccess.BarCodeTemplate.datasource" />
+    <None Include="Properties\DataSources\DataAccess.BarCodeTemplateList.datasource" />
+    <None Include="Properties\DataSources\DataAccess.Branch.datasource" />
+    <None Include="Properties\DataSources\DataAccess.EmployeeInfo.datasource" />
+    <None Include="Properties\DataSources\DataAccess.Inventory.datasource" />
+    <None Include="Properties\DataSources\DataAccess.Item.datasource" />
+    <None Include="Properties\DataSources\DataAccess.ItemCategory.datasource" />
+    <None Include="Properties\DataSources\DataAccess.PurchaseInvoice.datasource" />
+    <None Include="Properties\DataSources\DataAccess.PurchaseInvoiceDetail.datasource" />
+    <None Include="Properties\DataSources\DataAccess.RedaV1Entities.datasource" />
+    <None Include="Properties\DataSources\DataAccess.RedaV1Entities1.datasource" />
+    <None Include="Properties\DataSources\DataAccess.SaleInvoice.datasource" />
+    <None Include="Properties\DataSources\DataAccess.SaleInvoiceDetail.datasource" />
+    <None Include="Properties\DataSources\DataAccess.TempItem.datasource" />
+    <None Include="Properties\DataSources\DataAccess.TempItemGroup.datasource" />
+    <None Include="Properties\DataSources\DataAccess.User.datasource" />
+    <None Include="Properties\DataSources\DataAccess.vw_Inventory.datasource" />
+    <None Include="Properties\DataSources\DataAccess.vw_InventoryCompare.datasource" />
+    <None Include="Properties\DataSources\DataAccess.vw_Sale.datasource" />
+    <None Include="Properties\DataSources\DataAccess.vw_Sale2.datasource" />
+    <None Include="Properties\DataSources\DataAccess.vw_SaleReport.datasource" />
+    <None Include="Properties\DataSources\DataAccess.vw_TempItem.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="UserData.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>UserData.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataAccess\DataAccess.csproj">
+      <Project>{708e0f4a-d30a-4682-aaf3-5a7ef90da070}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\InputBox\MsgBox.csproj">
+      <Project>{9b4ab36e-1ae8-4f63-b4f8-23291e7577d7}</Project>
+      <Name>MsgBox</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\Save-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barcode_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Magnifier_tool_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-icon32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-icon48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedaLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\Calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\Logout-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\password-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\dashboard-alt-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\report_check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\Reports-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\Cash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\Time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\32\get.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\Items.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\Invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\16\barcode-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64\Transfer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\32\print.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
