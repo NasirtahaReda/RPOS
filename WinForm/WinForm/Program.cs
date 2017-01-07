@@ -16,6 +16,7 @@ namespace WinForm
         {
             try
             {
+                //stable version
 
                 //Application.EnableVisualStyles();
                 //Application.SetCompatibleTextRenderingDefault(false);

@@ -9,6 +9,8 @@ using RedaPOS;
 using System.Reflection;
 using System.Data.SqlClient;
 using System.Data.Entity;
+using System.ComponentModel;
+using DevExpress.XtraEditors;
 
 namespace WinForm
 {
@@ -49,8 +51,8 @@ namespace WinForm
                                 cmbSearch.Properties.DisplayMember = "Name";
                                 */
 
-                cmbSearch.Properties.ValueMember = "ID";
-                cmbSearch.Properties.DisplayMember = "Value";
+                //cmbSearch.Properties.ValueMember = "ID";
+               // cmbSearch.Properties.DisplayMember = "Value";
 
                 //cmbSearch.Properties.PopupFilterMode = PopupFilterMode.Contains
                 //  myLookUpEdit1.Properties.PopulateColumns();
@@ -68,9 +70,14 @@ namespace WinForm
         }
         private void AddUserToShift_Load(object sender, EventArgs e)
         {
-
+            
         }
-
+        void popupContainerEdit1Properties_EditValueChanged(object sender, EventArgs e)
+        {
+            PopupContainerEdit popupContainerEdit = sender as PopupContainerEdit;
+            lblItem.Text = popupContainerEdit.EditValue.ToString();
+        }
+        
         private void labelControl2_Click(object sender, EventArgs e)
         {
 
@@ -322,8 +329,8 @@ namespace WinForm
         {
             try
             {
-                var val = cmbSearch.EditValue.ToString();
-                lblItem.Text = cmbSearch.Text;
+             ///  // var val = cmbSearch.EditValue.ToString();
+             //   lblItem.Text = cmbSearch.Text;
             }
             catch (Exception ex)
             {
@@ -368,5 +375,54 @@ namespace WinForm
                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
+
+        private void popupContainerEdit1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                listBoxControl1.Items.Clear();
+                string query = popupContainerEdit1.Text;
+                Console.WriteLine(query);
+                var list = (from s in db.Items.Local where s.Name.Contains(query) select s).ToList();
+                int i = 0;
+                foreach (var item in list)
+                {
+                    if(i++ > 10)
+                    {
+                        break;
+                    }
+                    listBoxControl1.Items.Add(item.Name);
+                }
+                popupContainerEdit1.ShowPopup();
+                popupContainerEdit1.Focus();
+
+            }
+            catch (Exception ex)
+            {
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+            }
+        }
+
+        private void listBoxControl1_TextChanged(object sender, EventArgs e)
+        {
+            //lblItem.Text = listBoxControl1.SelectedItem.ToString();
+            //popupContainerEdit1.Hide();
+        }
+
+        private void listBoxControl1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (listBoxControl1.SelectedItem != null)
+            {
+                lblItem.Text = listBoxControl1.SelectedItem.ToString();
+              //  popupContainerEdit1.ClosePopup();
+            }
+        }
+
+        private void listBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
     }
+
+    
 }

@@ -249,6 +249,7 @@
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomEditor\MyLookUpEdit.cs" />
+    <Compile Include="CustomEditor\PopupContainerEditHelper.cs" />
     <Compile Include="CustomEditor\RepositoryItemMyLookUpEdit.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
