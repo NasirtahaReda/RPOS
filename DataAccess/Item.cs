@@ -20,6 +20,7 @@ namespace DataAccess
             this.PurchaseInvoiceDetails = new HashSet<PurchaseInvoiceDetail>();
             this.SaleInvoiceDetails = new HashSet<SaleInvoiceDetail>();
             this.TempItems = new HashSet<TempItem>();
+            this.Requests = new HashSet<Request>();
         }
     
         public int ID { get; set; }
@@ -42,5 +43,6 @@ namespace DataAccess
         public virtual ICollection<PurchaseInvoiceDetail> PurchaseInvoiceDetails { get; set; }
         public virtual ICollection<SaleInvoiceDetail> SaleInvoiceDetails { get; set; }
         public virtual ICollection<TempItem> TempItems { get; set; }
+        public virtual ICollection<Request> Requests { get; set; }
     }
 }

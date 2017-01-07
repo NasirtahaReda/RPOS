@@ -24,6 +24,7 @@ namespace DataAccess
             this.MarqueeMessages = new HashSet<MarqueeMessage>();
             this.UserLogins = new HashSet<UserLogin>();
             this.Shifts = new HashSet<Shift>();
+            this.Requests = new HashSet<Request>();
         }
     
         public int ID { get; set; }
@@ -40,5 +41,6 @@ namespace DataAccess
         public virtual ICollection<MarqueeMessage> MarqueeMessages { get; set; }
         public virtual ICollection<UserLogin> UserLogins { get; set; }
         public virtual ICollection<Shift> Shifts { get; set; }
+        public virtual ICollection<Request> Requests { get; set; }
     }
 }

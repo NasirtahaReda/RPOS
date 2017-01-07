@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleInvoiceForm_Tab));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleInvoiceForm_Tab));
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.bindingSourceSaleInvoice = new System.Windows.Forms.BindingSource(this.components);
             this.txtBar = new System.Windows.Forms.TextBox();
@@ -792,7 +792,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = global::RedaPOS.Properties.Resources.search_icon32;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(394, 72);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(66, 28);
@@ -803,7 +803,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::RedaPOS.Properties.Resources.Barcode_64;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(394, 14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(66, 32);
@@ -979,7 +979,7 @@
             // btnNoVisible
             // 
             this.btnNoVisible.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNoVisible.Image = global::RedaPOS.Properties.Resources.plus;
+            this.btnNoVisible.Image = ((System.Drawing.Image)(resources.GetObject("btnNoVisible.Image")));
             this.btnNoVisible.Location = new System.Drawing.Point(88, 16);
             this.btnNoVisible.Name = "btnNoVisible";
             this.btnNoVisible.Size = new System.Drawing.Size(70, 70);
@@ -1000,7 +1000,7 @@
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPrint.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.errorProvider1.SetIconAlignment(this.btnPrint, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
-            this.btnPrint.Image = global::RedaPOS.Properties.Resources.print_icon1;
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnPrint.Location = new System.Drawing.Point(3, 16);
             this.btnPrint.Name = "btnPrint";

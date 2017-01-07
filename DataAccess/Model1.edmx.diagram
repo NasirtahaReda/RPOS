@@ -79,6 +79,11 @@
         <EntityTypeShape EntityType="RedaV1Model.UserPayment" Width="1.5" PointX="3" PointY="12.125" />
         <AssociationConnector Association="RedaV1Model.FK_UserPayment_User" />
         <EntityTypeShape EntityType="RedaV1Model.vw_ShiftUser" Width="1.5" PointX="13.375" PointY="12.75" />
+        <EntityTypeShape EntityType="RedaV1Model.Request" Width="1.5" PointX="14" PointY="23.625" />
+        <EntityTypeShape EntityType="RedaV1Model.vw_Request" Width="1.5" PointX="20.375" PointY="0.75" />
+        <AssociationConnector Association="RedaV1Model.FK_Request_Branch" />
+        <AssociationConnector Association="RedaV1Model.FK_Request_Item" />
+        <AssociationConnector Association="RedaV1Model.FK_Request_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

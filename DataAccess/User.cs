@@ -25,6 +25,7 @@ namespace DataAccess
             this.UserLogins = new HashSet<UserLogin>();
             this.Shifts = new HashSet<Shift>();
             this.UserPayments = new HashSet<UserPayment>();
+            this.Requests = new HashSet<Request>();
         }
     
         public int ID { get; set; }
@@ -49,5 +50,6 @@ namespace DataAccess
         public virtual ICollection<UserLogin> UserLogins { get; set; }
         public virtual ICollection<Shift> Shifts { get; set; }
         public virtual ICollection<UserPayment> UserPayments { get; set; }
+        public virtual ICollection<Request> Requests { get; set; }
     }
 }

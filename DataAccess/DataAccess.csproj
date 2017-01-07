@@ -119,6 +119,9 @@
     <Compile Include="PurchaseInvoiceDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Request.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="SaleInvoice.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -177,6 +180,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="vw_ReorderItem.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_Request.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="vw_Sale2.cs">

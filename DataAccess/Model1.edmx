@@ -166,6 +166,18 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.Company' does not have a primar
           <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
           <Property Name="DiscountPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="BranchID" Type="int" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="SaleInvoice">
           <Key>
             <PropertyRef Name="ID" />
@@ -485,6 +497,32 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_ReorderItem' does not have a
           <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_98398_reda3.dbo.vw_Request' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Request">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="BranchID" />
+            <PropertyRef Name="RequestDate" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="BranchName" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="BranchID" Type="int" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DB_98398_reda3.dbo.vw_Sale' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -883,6 +921,42 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Request_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="BranchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Request" Type="Self.Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SaleInvoice_Branch">
           <End Role="Branch" Type="Self.Branch" Multiplicity="1" />
           <End Role="SaleInvoice" Type="Self.SaleInvoice" Multiplicity="*" />
@@ -1111,6 +1185,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <EntitySet Name="PaymentType" EntityType="Self.PaymentType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PurchaseInvoice" EntityType="Self.PurchaseInvoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PurchaseInvoiceDetails" EntityType="Self.PurchaseInvoiceDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Request" EntityType="Self.Request" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaleInvoice" EntityType="Self.SaleInvoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaleInvoiceDetails" EntityType="Self.SaleInvoiceDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shift" EntityType="Self.Shift" Schema="dbo" store:Type="Tables" />
@@ -1232,6 +1307,21 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
     [vw_ReorderItem].[UserName] AS [UserName], 
     [vw_ReorderItem].[CategoryID] AS [CategoryID]
     FROM [dbo].[vw_ReorderItem] AS [vw_ReorderItem]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Request" EntityType="Self.vw_Request" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Request].[ID] AS [ID], 
+    [vw_Request].[ItemID] AS [ItemID], 
+    [vw_Request].[UserID] AS [UserID], 
+    [vw_Request].[BranchID] AS [BranchID], 
+    [vw_Request].[RequestDate] AS [RequestDate], 
+    [vw_Request].[Quantity] AS [Quantity], 
+    [vw_Request].[Description] AS [Description], 
+    [vw_Request].[Name] AS [Name], 
+    [vw_Request].[BranchName] AS [BranchName], 
+    [vw_Request].[FullName] AS [FullName], 
+    [vw_Request].[UserName] AS [UserName]
+    FROM [dbo].[vw_Request] AS [vw_Request]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_Sale" EntityType="Self.vw_Sale" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1419,6 +1509,18 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <AssociationSet Name="FK_PurchaseInvoiceDetails_PurchaseInvoice" Association="Self.FK_PurchaseInvoiceDetails_PurchaseInvoice">
             <End Role="PurchaseInvoice" EntitySet="PurchaseInvoice" />
             <End Role="PurchaseInvoiceDetails" EntitySet="PurchaseInvoiceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Branch" Association="Self.FK_Request_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Item" Association="Self.FK_Request_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Request" EntitySet="Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_User" Association="Self.FK_Request_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Request" EntitySet="Request" />
           </AssociationSet>
           <AssociationSet Name="FK_SaleInvoice_Branch" Association="Self.FK_SaleInvoice_Branch">
             <End Role="Branch" EntitySet="Branch" />
@@ -1671,6 +1773,20 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             <Parameter Name="From" Mode="In" Type="DateTime" />
             <Parameter Name="To" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="Requests" EntityType="RedaV1Model.Request" />
+          <EntitySet Name="vw_Request" EntityType="RedaV1Model.vw_Request" />
+          <AssociationSet Name="FK_Request_Branch" Association="RedaV1Model.FK_Request_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Request" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_Item" Association="RedaV1Model.FK_Request_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="Request" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Request_User" Association="RedaV1Model.FK_Request_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Request" EntitySet="Requests" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="ItemCategory">
           <Key>
@@ -1914,6 +2030,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <NavigationProperty Name="MarqueeMessages" Relationship="RedaV1Model.FK_MarqueeMessage_Branch" FromRole="Branch" ToRole="MarqueeMessage" />
           <NavigationProperty Name="UserLogins" Relationship="RedaV1Model.FK_UserLogin_Branch" FromRole="Branch" ToRole="UserLogin" />
           <NavigationProperty Name="Shifts" Relationship="RedaV1Model.FK_Shift_Branch" FromRole="Branch" ToRole="Shift" />
+          <NavigationProperty Name="Requests" Relationship="RedaV1Model.FK_Request_Branch" FromRole="Branch" ToRole="Request" />
         </EntityType>
         <EntityType Name="SaleInvoice">
           <Key>
@@ -2365,6 +2482,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <NavigationProperty Name="SaleInvoiceDetails" Relationship="RedaV1Model.FK_SaleInvoiceDetails_Item" FromRole="Item" ToRole="SaleInvoiceDetail" />
           <NavigationProperty Name="TempItems" Relationship="RedaV1Model.FK_TempItem_Item" FromRole="Item" ToRole="TempItem" />
           <Property Name="QuickCode" Type="Int32" />
+          <NavigationProperty Name="Requests" Relationship="RedaV1Model.FK_Request_Item" FromRole="Item" ToRole="Request" />
         </EntityType>
         <Association Name="FK_Item_ItemCategory">
           <End Type="RedaV1Model.ItemCategory" Role="ItemCategory" Multiplicity="1" />
@@ -2499,6 +2617,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <NavigationProperty Name="Shifts" Relationship="RedaV1Model.FK_Shift_User" FromRole="User" ToRole="Shift" />
           <Property Name="HourRate" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="UserPayments" Relationship="RedaV1Model.FK_UserPayment_User" FromRole="User" ToRole="UserPayment" />
+          <NavigationProperty Name="Requests" Relationship="RedaV1Model.FK_Request_User" FromRole="User" ToRole="Request" />
         </EntityType>
         <Association Name="FK_Expense_User">
           <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
@@ -2805,6 +2924,81 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <Property Type="Decimal" Name="OtherExpences" Nullable="true" Precision="18" Scale="0" />
           <Property Type="Decimal" Name="Net" Nullable="true" Precision="18" Scale="0" />
         </ComplexType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="BranchID" Type="Int32" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Branch" Relationship="RedaV1Model.FK_Request_Branch" FromRole="Request" ToRole="Branch" />
+          <NavigationProperty Name="Item" Relationship="RedaV1Model.FK_Request_Item" FromRole="Request" ToRole="Item" />
+          <NavigationProperty Name="User" Relationship="RedaV1Model.FK_Request_User" FromRole="Request" ToRole="User" />
+        </EntityType>
+        <EntityType Name="vw_Request">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="BranchID" />
+            <PropertyRef Name="RequestDate" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="BranchName" />
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="BranchID" Type="Int32" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Request_Branch">
+          <End Type="RedaV1Model.Branch" Role="Branch" Multiplicity="1" />
+          <End Type="RedaV1Model.Request" Role="Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="BranchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_Item">
+          <End Type="RedaV1Model.Item" Role="Item" Multiplicity="1" />
+          <End Type="RedaV1Model.Request" Role="Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Request_User">
+          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
+          <End Type="RedaV1Model.Request" Role="Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Request">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3424,6 +3618,36 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Requests">
+            <EntityTypeMapping TypeName="RedaV1Model.Request">
+              <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Request">
+            <EntityTypeMapping TypeName="RedaV1Model.vw_Request">
+              <MappingFragment StoreEntitySet="vw_Request">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

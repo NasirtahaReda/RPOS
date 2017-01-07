@@ -248,6 +248,20 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomEditor\MyLookUpEdit.cs" />
+    <Compile Include="CustomEditor\RepositoryItemMyLookUpEdit.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RequestItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestItem.Designer.cs">
+      <DependentUpon>RequestItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ProfitlossRPT.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -816,6 +830,12 @@
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestItem.resx">
+      <DependentUpon>RequestItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ProfitlossRPT.resx">
       <DependentUpon>ProfitlossRPT.cs</DependentUpon>
