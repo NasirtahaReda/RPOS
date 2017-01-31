@@ -21,6 +21,8 @@ namespace DataAccess
         public System.DateTime RequestDate { get; set; }
         public int Quantity { get; set; }
         public string Description { get; set; }
+        public string CustomerMobileNo { get; set; }
+        public bool RequestByCustomer { get; set; }
     
         public virtual Branch Branch { get; set; }
         public virtual Item Item { get; set; }

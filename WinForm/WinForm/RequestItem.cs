@@ -11,6 +11,9 @@ using System.Data.SqlClient;
 using System.Data.Entity;
 using System.ComponentModel;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Popup;
+using DevExpress.XtraEditors.ViewInfo;
+using System.Collections.Generic;
 
 namespace WinForm
 {
@@ -105,17 +108,10 @@ namespace WinForm
         void WriteSesssion(DataAccess.User ValidUser, bool sendEmai, string emailTitle)
         {
         }
-
-
-
-
         private void txtUserName_EditValueChanged(object sender, EventArgs e)
         {
 
         }
-
-
-
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -123,7 +119,6 @@ namespace WinForm
                 btnRequest.Focus();
             }
         }
-
         private void cmbBranches_EditValueChanged(object sender, EventArgs e)
         {
             try
@@ -138,7 +133,6 @@ namespace WinForm
 
             }
         }
-
         private void btnReload_Click(object sender, EventArgs e)
         {
             try
@@ -185,7 +179,6 @@ namespace WinForm
                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
-
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             try
@@ -231,7 +224,6 @@ namespace WinForm
                 db = ModuleClass.GetConnection();
             }
         }
-
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
             try
@@ -252,7 +244,6 @@ namespace WinForm
 
             }
         }
-
         private void cmbSearch_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
         {
             try
@@ -268,7 +259,6 @@ namespace WinForm
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void myLookUpEdit1_Properties_GetAutoCompleteList(object sender, AutoCompleteListEventArgs e)
         {
             try
@@ -289,7 +279,7 @@ namespace WinForm
 
                     var list = (from s in db.Items.Local where s.Name.Contains(query) select s).ToList();
 
-                    int i = 0;
+                    
                     foreach (var item in list)
                     {
                         dt.Rows.Add(new object[] { item.ID, item.Name });
@@ -311,20 +301,6 @@ namespace WinForm
             //e.AutoCompleteList = dt;
         }
         Random random = new Random();
-        private string RandomString(int size, bool lowerCase)
-        {
-            StringBuilder builder = new StringBuilder();
-            char ch;
-            for (int i = 0; i < size; i++)
-            {
-                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
-                builder.Append(ch);
-            }
-            if (lowerCase)
-                return builder.ToString().ToLower();
-            return builder.ToString();
-        }
-
         private void cmbSearch_EditValueChanged(object sender, EventArgs e)
         {
             try
@@ -337,7 +313,6 @@ namespace WinForm
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void txtBar_KeyDown(object sender, KeyEventArgs e)
         {
             try
@@ -375,54 +350,163 @@ namespace WinForm
                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
-
         private void popupContainerEdit1_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                listBoxControl1.Items.Clear();
+                bool result = false;
+                 listBoxControl1.Items.Clear();
                 string query = popupContainerEdit1.Text;
-                Console.WriteLine(query);
-                var list = (from s in db.Items.Local where s.Name.Contains(query) select s).ToList();
-                int i = 0;
-                foreach (var item in list)
+                if (query.Count() > 2)
                 {
-                    if(i++ > 10)
+                    IEnumerable<DataAccess.Item> list = from s in db.Items.Local
+                                                        where s.Name.Contains(query)
+                                                        select s;
+                    if (list.Any())
                     {
-                        break;
+                        AddToListbox(list);
+                        result = true;
                     }
-                    listBoxControl1.Items.Add(item.Name);
-                }
-                popupContainerEdit1.ShowPopup();
-                popupContainerEdit1.Focus();
+                    //End with 
+                    if (query.EndsWith("ه"))
+                    {
+                        query = query.Replace('ه', 'ة');
+                        list = from s in db.Items.Local
+                                   where s.Name.Contains(query)
+                                   select s;
+                        if (list.Any())
+                        {
+                            AddToListbox(list);
+                            result = true;
+                        }
+                    }
+                    else
+                    if (query.EndsWith("ة"))
+                    {
+                        query = query.Replace('ة', 'ه');
+                        list = from s in db.Items.Local
+                               where s.Name.Contains(query)
+                               select s;
+                      
+                        if (list.Any())
+                        {
+                            AddToListbox(list);
+                            result = true;
+                        }
 
+                    }
+                    else
+                    if (query.EndsWith("ي"))
+                    {
+                        query = query.Replace('ي', 'ى');
+                        list = from s in db.Items.Local
+                               where s.Name.Contains(query)
+                               select s;
+                        if (list.Any())
+                        {
+                            AddToListbox(list);
+                            result = true;
+                        }
+
+                    }
+                    else
+                    if (query.EndsWith("ى"))
+                    {
+                        query = query.Replace('ى', 'ي');
+                       list = from s in db.Items.Local
+                               where s.Name.Contains(query)
+                               select s;
+                        if (list.Any())
+                        {
+                            AddToListbox(list);
+                            result = true;
+                        }
+
+                    }
+                    //Start with
+                    if (query.StartsWith("أ"))
+                    {
+                        query = query.Replace('أ', 'ا');
+                        list = from s in db.Items.Local
+                               where s.Name.Contains(query)
+                               select s;
+                        if (list.Any())
+                        {
+                            AddToListbox(list);
+                            result = true;
+                        }
+
+                    }
+                    if (query.StartsWith("ا"))
+                    {
+                        query = query.Replace('ا', 'أ');
+                        list = from s in db.Items.Local
+                               where s.Name.Contains(query)
+                               select s;
+                        if (list.Any())
+                        {
+                            AddToListbox(list);
+                            result = true;
+                        }
+
+                    }
+
+
+                 
+                    if (result)
+                    {
+                        //AddToListbox(list);
+                        popupContainerEdit1.ShowPopup();
+                        popupContainerEdit1.Focus();
+                    }
+                    else
+                    {
+                        popupContainerEdit1.ClosePopup();
+                    }
+                }
             }
             catch (Exception ex)
             {
                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
+            
         }
-
-        private void listBoxControl1_TextChanged(object sender, EventArgs e)
+        void AddToListbox(IEnumerable<DataAccess.Item> list)
         {
-            //lblItem.Text = listBoxControl1.SelectedItem.ToString();
-            //popupContainerEdit1.Hide();
-        }
-
-        private void listBoxControl1_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (listBoxControl1.SelectedItem != null)
+            list = list.ToList();
+            foreach (var item in list)
             {
-                lblItem.Text = listBoxControl1.SelectedItem.ToString();
-              //  popupContainerEdit1.ClosePopup();
+                listBoxControl1.Items.Add(item.Name);
             }
         }
-
+        private void listBoxControl1_TextChanged(object sender, EventArgs e)
+        {
+        }
+        private void listBoxControl1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            
+            if (popupContainerEdit1.IsPopupOpen && listBoxControl1.SelectedItem != null)
+            {
+                Console.WriteLine("SelectedValueChanged: " + listBoxControl1.SelectedItem.ToString());
+                lblItem.Text = listBoxControl1.SelectedItem.ToString();
+                 popupContainerEdit1.ClosePopup();
+                itemID = Convert.ToInt32(listBoxControl1.SelectedValue);
+                //popupContainerControl1.Hide();
+            }
+        }
         private void listBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            
+        }
+        private void listBoxControl1_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+        private void listBoxControl1_ValueMemberChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 
     
-}
+} 

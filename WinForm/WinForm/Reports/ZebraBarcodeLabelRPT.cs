@@ -6,9 +6,13 @@ using DevExpress.XtraReports.UI;
 
 namespace WinForm.Reports
 {
-    public partial class XtraReport1 : DevExpress.XtraReports.UI.XtraReport
+    public partial class ZebraBarcodeLabelRPT : DevExpress.XtraReports.UI.XtraReport
     {
-        public XtraReport1(string barcode, string Name, string price)
+        public ZebraBarcodeLabelRPT()
+        {
+            InitializeComponent();
+        }
+        public ZebraBarcodeLabelRPT(string barcode, string Name, string price)
         {
             InitializeComponent();
             txtBarcode.Text = barcode;

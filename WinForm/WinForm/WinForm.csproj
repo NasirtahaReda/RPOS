@@ -257,6 +257,12 @@
     <Compile Include="Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\SbarcoLabelRPT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SbarcoLabelRPT.designer.cs">
+      <DependentUpon>SbarcoLabelRPT.cs</DependentUpon>
+    </Compile>
     <Compile Include="RequestItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -752,11 +758,11 @@
     <Compile Include="Reports\PurchaseInvoiceRPT.Designer.cs">
       <DependentUpon>PurchaseInvoiceRPT.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\XtraReport1.cs">
+    <Compile Include="Reports\ZebraBarcodeLabelRPT.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\XtraReport1.designer.cs">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
+    <Compile Include="Reports\ZebraBarcodeLabelRPT.designer.cs">
+      <DependentUpon>ZebraBarcodeLabelRPT.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\StockReportOptions.cs">
       <SubType>Form</SubType>
@@ -834,6 +840,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SbarcoLabelRPT.resx">
+      <DependentUpon>SbarcoLabelRPT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RequestItem.resx">
       <DependentUpon>RequestItem.cs</DependentUpon>
@@ -997,8 +1006,8 @@
     <EmbeddedResource Include="Reports\PurchaseInvoiceRPT.resx">
       <DependentUpon>PurchaseInvoiceRPT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\XtraReport1.resx">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\ZebraBarcodeLabelRPT.resx">
+      <DependentUpon>ZebraBarcodeLabelRPT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\StockReportOptions.resx">
       <DependentUpon>StockReportOptions.cs</DependentUpon>

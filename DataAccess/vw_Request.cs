@@ -25,5 +25,7 @@ namespace DataAccess
         public string BranchName { get; set; }
         public string FullName { get; set; }
         public string UserName { get; set; }
+        public string CustomerMobileNo { get; set; }
+        public Nullable<bool> RequestByCustomer { get; set; }
     }
 }

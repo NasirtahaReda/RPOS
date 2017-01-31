@@ -177,6 +177,8 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.Company' does not have a primar
           <Property Name="RequestDate" Type="datetime" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerMobileNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="RequestByCustomer" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="SaleInvoice">
           <Key>
@@ -523,6 +525,8 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_Request' does not have a pri
           <Property Name="BranchName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="50" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerMobileNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="RequestByCustomer" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DB_98398_reda3.dbo.vw_Sale' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1320,7 +1324,9 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
     [vw_Request].[Name] AS [Name], 
     [vw_Request].[BranchName] AS [BranchName], 
     [vw_Request].[FullName] AS [FullName], 
-    [vw_Request].[UserName] AS [UserName]
+    [vw_Request].[UserName] AS [UserName], 
+    [vw_Request].[CustomerMobileNo] AS [CustomerMobileNo], 
+    [vw_Request].[RequestByCustomer] AS [RequestByCustomer]
     FROM [dbo].[vw_Request] AS [vw_Request]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_Sale" EntityType="Self.vw_Sale" store:Type="Views" store:Schema="dbo">
@@ -2938,6 +2944,8 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <NavigationProperty Name="Branch" Relationship="RedaV1Model.FK_Request_Branch" FromRole="Request" ToRole="Branch" />
           <NavigationProperty Name="Item" Relationship="RedaV1Model.FK_Request_Item" FromRole="Request" ToRole="Item" />
           <NavigationProperty Name="User" Relationship="RedaV1Model.FK_Request_User" FromRole="Request" ToRole="User" />
+          <Property Name="CustomerMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RequestByCustomer" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="vw_Request">
           <Key>
@@ -2962,6 +2970,8 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <Property Name="BranchName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RequestByCustomer" Type="Boolean" />
         </EntityType>
         <Association Name="FK_Request_Branch">
           <End Type="RedaV1Model.Branch" Role="Branch" Multiplicity="1" />
@@ -3621,6 +3631,8 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <EntitySetMapping Name="Requests">
             <EntityTypeMapping TypeName="RedaV1Model.Request">
               <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="RequestByCustomer" ColumnName="RequestByCustomer" />
+                <ScalarProperty Name="CustomerMobileNo" ColumnName="CustomerMobileNo" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
@@ -3634,6 +3646,8 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <EntitySetMapping Name="vw_Request">
             <EntityTypeMapping TypeName="RedaV1Model.vw_Request">
               <MappingFragment StoreEntitySet="vw_Request">
+                <ScalarProperty Name="RequestByCustomer" ColumnName="RequestByCustomer" />
+                <ScalarProperty Name="CustomerMobileNo" ColumnName="CustomerMobileNo" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="BranchName" ColumnName="BranchName" />

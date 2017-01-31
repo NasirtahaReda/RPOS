@@ -215,7 +215,7 @@ namespace WinForm
            DataAccess.ItemBarcode ibc = db.ItemBarcodes.Where(s => s.SystemBarcode == true && s.ItemID == item.ID).SingleOrDefault();
            string BarcodeText = ibc.BarcodeText;// item.BarcodeText;
 
-            XtraReport1 rpt = new XtraReport1(BarcodeText, item.Name, item.SalePrice.ToString());// detail.SalePrice.ToString());
+            ZebraBarcodeLabelRPT rpt = new ZebraBarcodeLabelRPT(BarcodeText, item.Name, item.SalePrice.ToString());// detail.SalePrice.ToString());
            // rpt.DataSource = list;
             ReportPrintTool tool = new ReportPrintTool(rpt);
             rpt.PrintingSystem.StartPrint += new DevExpress.XtraPrinting.PrintDocumentEventHandler(PrintingSystem_StartPrint);
@@ -236,7 +236,7 @@ namespace WinForm
             bool result = true;
            // var item = db.Items.Where(s => s.ID == detail.ItemID).SingleOrDefault();
 
-            XtraReport1 rpt = new XtraReport1(BarcodeText, Name, SalePrice.ToString());// detail.SalePrice.ToString());
+            ZebraBarcodeLabelRPT rpt = new ZebraBarcodeLabelRPT(BarcodeText, Name, SalePrice.ToString());// detail.SalePrice.ToString());
             // rpt.DataSource = list;
             ReportPrintTool tool = new ReportPrintTool(rpt);
             rpt.PrintingSystem.StartPrint += new DevExpress.XtraPrinting.PrintDocumentEventHandler(PrintingSystem_StartPrint);
