@@ -250,9 +250,18 @@ namespace WinForm
                 if (e.KeyCode == Keys.Enter)
                 {
                     db = new DataAccess.RedaV1Entities(ModuleClass.Connect());
-                    db.Items.Where(s => s.Name.Contains(query)).Load();
-                    var list = db.Items.Local.ToBindingList();
-                    bindingSource1.DataSource = list;
+                    if (!chHidden.Checked)
+                    {
+                        db.Items.Where(s => s.Name.Contains(query) && s.Hidden == false).Load();
+                        var list = db.Items.Local.ToBindingList();
+                        bindingSource1.DataSource = list;
+                    }
+                    else
+                    {
+                        db.Items.Where(s => s.Name.Contains(query)).Load();
+                        var list = db.Items.Local.ToBindingList();
+                        bindingSource1.DataSource = list;
+                    }
                 }
             }
             catch (Exception ex)
@@ -296,7 +305,7 @@ namespace WinForm
             {
                 if (e.Button.Kind == ButtonPredefines.Glyph)
                 {
-                   // if (MessageBox.Show("طباعة البار كود ؟", currentRow.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                    // if (MessageBox.Show("طباعة البار كود ؟", currentRow.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                     {
 
                         //Set buttons language Czech/English/German/Slovakian/Spanish (default English)
@@ -325,16 +334,27 @@ namespace WinForm
                     }
                 }
                 else
-                    if(e.Button.Kind == ButtonPredefines.Ellipsis)
+                    if (e.Button.Kind == ButtonPredefines.Ellipsis)
+                {
+                    DataAccess.Item currentRow = (DataAccess.Item)gridView1.GetFocusedRow();
+                    new ItemForm(currentRow).ShowDialog();
+                }
+                else
+                    if (e.Button.Kind == ButtonPredefines.Minus)
+                {
+                    DataAccess.Item currentRow = (DataAccess.Item)gridView1.GetFocusedRow();
+                    currentRow.Hidden = true;
+                    if (db.SaveChanges() > 0)
                     {
-                        DataAccess.Item currentRow = (DataAccess.Item)gridView1.GetFocusedRow();
-                        new ItemForm(currentRow).ShowDialog();
+
                     }
+                }
+
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
-                
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+
             }
         }
         private bool PrintDetails(DataAccess.PurchaseInvoiceDetail detail, Int16 noOfCopies)
@@ -396,8 +416,42 @@ namespace WinForm
                  ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
-     
 
-       
+        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if(e.Column == colHidden)
+            {
+                try
+                {
+                    var row = gridView1.GetRow(e.RowHandle);
+                    DataAccess.Item currentRow = (DataAccess.Item)row;
+                    currentRow.Hidden = false;
+                    if (db.SaveChanges() > 0)
+                    {
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                }
+
+            }
+        }
+
+        private void btnShowHidden_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                db = new DataAccess.RedaV1Entities(ModuleClass.Connect());
+                    db.Items.Where(s => s.Hidden == true).Load();
+                    var list = db.Items.Local.ToBindingList();
+                    bindingSource1.DataSource = list;
+            }
+            catch (Exception ex)
+            {
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+            }
+        }
     }
 }

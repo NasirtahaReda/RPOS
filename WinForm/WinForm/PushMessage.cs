@@ -128,19 +128,23 @@ namespace WinForm
             }
         }
 
-        public static bool SendShiftCloseMessage(String Message)
+        public static bool SendShiftCloseMessage(DataAccess.User insertedUser, String Message)
         {
             try
-            { 
-            bool result = true;
+            {
+                bool result = true;
 
-         
-            int codeId = (int)PushOverMessageType.ShiftClose;
-            var receivers = GetReceiver(codeId);
-            var title = GetTitle(codeId);
-            result = SendPushMessage(Message, receivers, title);
 
-            return result;
+                int codeId = (int)PushOverMessageType.ShiftClose;
+                var receivers = GetReceiver(codeId);
+
+                if (!receivers.Contains(insertedUser.PushoverID))
+                    receivers.Add(insertedUser.PushoverID);
+
+                var title = GetTitle(codeId);
+                result = SendPushMessage(Message, receivers, title);
+
+                return result;
             }
             catch (Exception ex)
             {

@@ -25,7 +25,7 @@ namespace WinForm
                 //Application.Run(new TestForm());
                 //Form frm = new Form();
                 //frm.WindowState = FormWindowState.Maximized;
-               // RequestItem uc = new RequestItem();
+                RequestItem uc = new RequestItem();
                 //WindowsApplication1.Form1 uc = new WindowsApplication1.Form1();
                 //frm.Controls.Add(uc);
                 //frm.Controls[0].Dock = DockStyle.Fill;

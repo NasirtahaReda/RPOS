@@ -116,6 +116,7 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.hideContainerRight = new DevExpress.XtraBars.Docking.AutoHideContainer();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.gridControlFastItems = new DevExpress.XtraGrid.GridControl();
@@ -131,6 +132,12 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEditAddTempItem = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.btnAddTempItem = new DevExpress.XtraEditors.SimpleButton();
+            this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.gridControlRequestItem = new DevExpress.XtraGrid.GridControl();
+            this.gridViewRequestItem = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.btnRequestItem = new DevExpress.XtraEditors.SimpleButton();
             this.vwInventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vwSaleReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -188,11 +195,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
+            this.hideContainerRight.SuspendLayout();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlFastItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewFastItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEditAddTempItem)).BeginInit();
+            this.dockPanel2.SuspendLayout();
+            this.dockPanel2_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlRequestItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewRequestItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwInventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwSaleReportBindingSource)).BeginInit();
@@ -207,7 +219,7 @@
             // 
             this.txtBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBar.Font = new System.Drawing.Font("Times New Roman", 20F);
-            this.txtBar.Location = new System.Drawing.Point(94, 14);
+            this.txtBar.Location = new System.Drawing.Point(136, 14);
             this.txtBar.Name = "txtBar";
             this.txtBar.Size = new System.Drawing.Size(294, 38);
             this.txtBar.TabIndex = 0;
@@ -224,7 +236,7 @@
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.EditValue = "";
-            this.txtSearch.Location = new System.Drawing.Point(94, 67);
+            this.txtSearch.Location = new System.Drawing.Point(136, 67);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 20F);
             this.txtSearch.Properties.Appearance.Options.UseFont = true;
@@ -255,7 +267,7 @@
             this.repositoryItemButtonEdit1,
             this.repositoryItemButtonEditAddQuantity,
             this.repositoryItemSpinEdit1});
-            this.gridControlInvoice.Size = new System.Drawing.Size(470, 488);
+            this.gridControlInvoice.Size = new System.Drawing.Size(417, 488);
             this.gridControlInvoice.TabIndex = 0;
             this.gridControlInvoice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewInvoice});
@@ -481,10 +493,10 @@
             this.groupControlBarcodeAndSearch.Controls.Add(this.flyoutPanel1);
             this.groupControlBarcodeAndSearch.Controls.Add(this.gridControlSearch);
             this.groupControlBarcodeAndSearch.Controls.Add(this.groupControl6);
-            this.groupControlBarcodeAndSearch.Location = new System.Drawing.Point(495, 91);
+            this.groupControlBarcodeAndSearch.Location = new System.Drawing.Point(442, 91);
             this.groupControlBarcodeAndSearch.Name = "groupControlBarcodeAndSearch";
             this.groupControlBarcodeAndSearch.ShowCaption = false;
-            this.groupControlBarcodeAndSearch.Size = new System.Drawing.Size(478, 582);
+            this.groupControlBarcodeAndSearch.Size = new System.Drawing.Size(520, 582);
             this.groupControlBarcodeAndSearch.TabIndex = 2;
             this.groupControlBarcodeAndSearch.Text = "groupControl2";
             // 
@@ -498,7 +510,7 @@
             this.groupControl2.Location = new System.Drawing.Point(2, 481);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.ShowCaption = false;
-            this.groupControl2.Size = new System.Drawing.Size(474, 99);
+            this.groupControl2.Size = new System.Drawing.Size(516, 99);
             this.groupControl2.TabIndex = 42;
             this.groupControl2.Text = "groupControl2";
             // 
@@ -513,7 +525,7 @@
             this.txtWhatsAppMessage.Properties.Appearance.Options.UseFont = true;
             this.txtWhatsAppMessage.Properties.Appearance.Options.UseForeColor = true;
             this.txtWhatsAppMessage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtWhatsAppMessage.Size = new System.Drawing.Size(430, 58);
+            this.txtWhatsAppMessage.Size = new System.Drawing.Size(472, 58);
             this.txtWhatsAppMessage.TabIndex = 40;
             this.txtWhatsAppMessage.Enter += new System.EventHandler(this.txtWhatsAppMessage_Enter);
             this.txtWhatsAppMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWhatsAppMessage_KeyDown);
@@ -526,7 +538,7 @@
             this.toggleSwitchSaleOrExpire.Name = "toggleSwitchSaleOrExpire";
             this.toggleSwitchSaleOrExpire.Properties.OffText = "تالف";
             this.toggleSwitchSaleOrExpire.Properties.OnText = "فاتورة بيع";
-            this.toggleSwitchSaleOrExpire.Size = new System.Drawing.Size(430, 24);
+            this.toggleSwitchSaleOrExpire.Size = new System.Drawing.Size(472, 24);
             this.toggleSwitchSaleOrExpire.TabIndex = 44;
             this.toggleSwitchSaleOrExpire.Toggled += new System.EventHandler(this.toggleSwitchSaleOrExpire_Toggled);
             // 
@@ -535,7 +547,7 @@
             this.previewPanel.Controls.Add(this.pictureBox3);
             this.previewPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.previewPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.previewPanel.Location = new System.Drawing.Point(432, 15);
+            this.previewPanel.Location = new System.Drawing.Point(474, 15);
             this.previewPanel.Name = "previewPanel";
             this.previewPanel.Size = new System.Drawing.Size(40, 82);
             this.previewPanel.TabIndex = 28;
@@ -623,7 +635,7 @@
             this.gridControlSearch.Name = "gridControlSearch";
             this.gridControlSearch.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEditSearch});
-            this.gridControlSearch.Size = new System.Drawing.Size(474, 469);
+            this.gridControlSearch.Size = new System.Drawing.Size(516, 469);
             this.gridControlSearch.TabIndex = 26;
             this.gridControlSearch.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewSearch});
@@ -769,22 +781,24 @@
             this.groupControl6.Location = new System.Drawing.Point(2, 2);
             this.groupControl6.Name = "groupControl6";
             this.groupControl6.ShowCaption = false;
-            this.groupControl6.Size = new System.Drawing.Size(474, 109);
+            this.groupControl6.Size = new System.Drawing.Size(516, 109);
             this.groupControl6.TabIndex = 27;
             this.groupControl6.Text = "groupControl6";
             // 
             // lblInventoryQuantity
             // 
+            this.lblInventoryQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblInventoryQuantity.AutoSize = true;
-            this.lblInventoryQuantity.Location = new System.Drawing.Point(5, 70);
+            this.lblInventoryQuantity.Location = new System.Drawing.Point(36, 79);
             this.lblInventoryQuantity.Name = "lblInventoryQuantity";
             this.lblInventoryQuantity.Size = new System.Drawing.Size(0, 13);
             this.lblInventoryQuantity.TabIndex = 31;
             // 
             // lblItemName
             // 
+            this.lblItemName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblItemName.AutoSize = true;
-            this.lblItemName.Location = new System.Drawing.Point(5, 30);
+            this.lblItemName.Location = new System.Drawing.Point(36, 30);
             this.lblItemName.Name = "lblItemName";
             this.lblItemName.Size = new System.Drawing.Size(0, 13);
             this.lblItemName.TabIndex = 30;
@@ -793,7 +807,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(394, 72);
+            this.pictureBox2.Location = new System.Drawing.Point(436, 72);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(66, 28);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -804,7 +818,7 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(394, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(436, 14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(66, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -829,7 +843,7 @@
             this.groupControlInvoice.Location = new System.Drawing.Point(12, 91);
             this.groupControlInvoice.Name = "groupControlInvoice";
             this.groupControlInvoice.ShowCaption = false;
-            this.groupControlInvoice.Size = new System.Drawing.Size(474, 582);
+            this.groupControlInvoice.Size = new System.Drawing.Size(421, 582);
             this.groupControlInvoice.TabIndex = 1;
             // 
             // groupBox1
@@ -848,7 +862,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Location = new System.Drawing.Point(2, 490);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(470, 90);
+            this.groupBox1.Size = new System.Drawing.Size(417, 90);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "0";
@@ -1022,7 +1036,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(48, 187, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(985, 685);
+            this.layoutControl1.Size = new System.Drawing.Size(974, 685);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -1034,7 +1048,7 @@
             this.groupControlMarquee.Name = "groupControlMarquee";
             this.groupControlMarquee.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupControlMarquee.ShowCaption = false;
-            this.groupControlMarquee.Size = new System.Drawing.Size(961, 75);
+            this.groupControlMarquee.Size = new System.Drawing.Size(950, 75);
             this.groupControlMarquee.TabIndex = 4;
             this.groupControlMarquee.Text = "groupControl1";
             // 
@@ -1065,16 +1079,16 @@
             this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(985, 685);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(974, 685);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.groupControlBarcodeAndSearch;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(483, 79);
+            this.layoutControlItem3.Location = new System.Drawing.Point(430, 79);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(482, 586);
+            this.layoutControlItem3.Size = new System.Drawing.Size(524, 586);
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
@@ -1085,7 +1099,7 @@
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 79);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(478, 586);
+            this.layoutControlItem1.Size = new System.Drawing.Size(425, 586);
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -1094,7 +1108,7 @@
             // 
             this.splitterItem1.AllowHotTrack = true;
             this.splitterItem1.CustomizationFormText = "splitterItem1";
-            this.splitterItem1.Location = new System.Drawing.Point(478, 79);
+            this.splitterItem1.Location = new System.Drawing.Point(425, 79);
             this.splitterItem1.Name = "splitterItem1";
             this.splitterItem1.Size = new System.Drawing.Size(5, 586);
             // 
@@ -1104,7 +1118,7 @@
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(5, 5);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(965, 79);
+            this.layoutControlItem2.Size = new System.Drawing.Size(954, 79);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -1115,10 +1129,12 @@
             // 
             // dockManager1
             // 
+            this.dockManager1.AutoHideContainers.AddRange(new DevExpress.XtraBars.Docking.AutoHideContainer[] {
+            this.hideContainerRight});
             this.dockManager1.DockingOptions.ShowCloseButton = false;
             this.dockManager1.Form = this;
             this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
-            this.dockPanel1});
+            this.dockPanel2});
             this.dockManager1.ToolTipController = this.toolTipController1;
             this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
@@ -1131,23 +1147,36 @@
             "DevExpress.XtraBars.Navigation.OfficeNavigationBar",
             "DevExpress.XtraBars.Navigation.TileNavPane"});
             // 
+            // hideContainerRight
+            // 
+            this.hideContainerRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.hideContainerRight.Controls.Add(this.dockPanel1);
+            this.hideContainerRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.hideContainerRight.Location = new System.Drawing.Point(1215, 0);
+            this.hideContainerRight.Name = "hideContainerRight";
+            this.hideContainerRight.Size = new System.Drawing.Size(19, 685);
+            // 
             // dockPanel1
             // 
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.dockPanel1.ID = new System.Guid("73b7b88d-b386-4ce9-a7ad-a9021aa7f7a5");
-            this.dockPanel1.Location = new System.Drawing.Point(985, 0);
+            this.dockPanel1.Location = new System.Drawing.Point(0, 0);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(249, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(249, 685);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(259, 200);
+            this.dockPanel1.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+            this.dockPanel1.SavedIndex = 0;
+            this.dockPanel1.Size = new System.Drawing.Size(259, 685);
             this.dockPanel1.Text = "الأصناف السريعة";
+            this.dockPanel1.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.gridControlFastItems);
+            this.dockPanel1_Container.Controls.Add(this.btnAddTempItem);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(241, 658);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(251, 658);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // gridControlFastItems
@@ -1163,7 +1192,7 @@
             this.gridControlFastItems.Name = "gridControlFastItems";
             this.gridControlFastItems.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEditAddTempItem});
-            this.gridControlFastItems.Size = new System.Drawing.Size(241, 658);
+            this.gridControlFastItems.Size = new System.Drawing.Size(251, 635);
             this.gridControlFastItems.TabIndex = 1;
             this.gridControlFastItems.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewFastItems});
@@ -1319,6 +1348,61 @@
             this.repositoryItemButtonEditAddTempItem.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEditAddTempItem.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEditAddTempItem_ButtonClick);
             // 
+            // btnAddTempItem
+            // 
+            this.btnAddTempItem.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnAddTempItem.Location = new System.Drawing.Point(0, 635);
+            this.btnAddTempItem.Name = "btnAddTempItem";
+            this.btnAddTempItem.Size = new System.Drawing.Size(251, 23);
+            this.btnAddTempItem.TabIndex = 45;
+            this.btnAddTempItem.Text = "+";
+            this.btnAddTempItem.Click += new System.EventHandler(this.btnAddTempItem_Click_1);
+            // 
+            // dockPanel2
+            // 
+            this.dockPanel2.Controls.Add(this.dockPanel2_Container);
+            this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+            this.dockPanel2.ID = new System.Guid("1d5f527a-c385-426c-ab02-a58830442aa3");
+            this.dockPanel2.Location = new System.Drawing.Point(974, 0);
+            this.dockPanel2.Name = "dockPanel2";
+            this.dockPanel2.OriginalSize = new System.Drawing.Size(241, 200);
+            this.dockPanel2.Size = new System.Drawing.Size(241, 685);
+            this.dockPanel2.Text = "طلب الأصناف";
+            // 
+            // dockPanel2_Container
+            // 
+            this.dockPanel2_Container.Controls.Add(this.gridControlRequestItem);
+            this.dockPanel2_Container.Controls.Add(this.btnRequestItem);
+            this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel2_Container.Name = "dockPanel2_Container";
+            this.dockPanel2_Container.Size = new System.Drawing.Size(233, 658);
+            this.dockPanel2_Container.TabIndex = 0;
+            // 
+            // gridControlRequestItem
+            // 
+            this.gridControlRequestItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlRequestItem.Location = new System.Drawing.Point(0, 0);
+            this.gridControlRequestItem.MainView = this.gridViewRequestItem;
+            this.gridControlRequestItem.Name = "gridControlRequestItem";
+            this.gridControlRequestItem.Size = new System.Drawing.Size(233, 635);
+            this.gridControlRequestItem.TabIndex = 1;
+            this.gridControlRequestItem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewRequestItem});
+            // 
+            // gridViewRequestItem
+            // 
+            this.gridViewRequestItem.GridControl = this.gridControlRequestItem;
+            this.gridViewRequestItem.Name = "gridViewRequestItem";
+            // 
+            // btnRequestItem
+            // 
+            this.btnRequestItem.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnRequestItem.Location = new System.Drawing.Point(0, 635);
+            this.btnRequestItem.Name = "btnRequestItem";
+            this.btnRequestItem.Size = new System.Drawing.Size(233, 23);
+            this.btnRequestItem.TabIndex = 0;
+            this.btnRequestItem.Text = "طلب صنف غير متوفر ";
+            // 
             // userBindingSource
             // 
             this.userBindingSource.DataSource = typeof(DataAccess.User);
@@ -1332,7 +1416,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
-            this.Controls.Add(this.dockPanel1);
+            this.Controls.Add(this.dockPanel2);
+            this.Controls.Add(this.hideContainerRight);
             this.Name = "SaleInvoiceForm_Tab";
             this.Size = new System.Drawing.Size(1234, 685);
             this.Load += new System.EventHandler(this.SaleInvoiceForm_Load);
@@ -1394,11 +1479,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
+            this.hideContainerRight.ResumeLayout(false);
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlFastItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewFastItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEditAddTempItem)).EndInit();
+            this.dockPanel2.ResumeLayout(false);
+            this.dockPanel2_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlRequestItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewRequestItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwInventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwSaleReportBindingSource)).EndInit();
@@ -1511,5 +1601,12 @@
         private MarqueeLabel lblMarqueeText;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.ToggleSwitch toggleSwitchSaleOrExpire;
+        private DevExpress.XtraEditors.SimpleButton btnAddTempItem;
+        private DevExpress.XtraBars.Docking.DockPanel dockPanel2;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
+        private DevExpress.XtraGrid.GridControl gridControlRequestItem;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewRequestItem;
+        private DevExpress.XtraEditors.SimpleButton btnRequestItem;
+        private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerRight;
     }
 }

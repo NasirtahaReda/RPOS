@@ -376,7 +376,7 @@ namespace WinForm
 #if DEBUG
 
                 txtUserName.EditValue = 1;
-                txtPassword.EditValue = "a";
+                txtPassword.EditValue = "N@m";
                 chLogAsAdmin.Checked = true;
 #endif
                 txtPassword.Focus();

@@ -26,6 +26,7 @@ namespace DataAccess
         public string FullName { get; set; }
         public string UserName { get; set; }
         public string CustomerMobileNo { get; set; }
-        public Nullable<bool> RequestByCustomer { get; set; }
+        public bool RequestByCustomer { get; set; }
+        public int Status { get; set; }
     }
 }

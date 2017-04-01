@@ -12,21 +12,10 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Request
+    public partial class vw_SaleInvoiceDetails
     {
+        public int SaleInvoiceID { get; set; }
         public int ID { get; set; }
         public int ItemID { get; set; }
-        public int UserID { get; set; }
-        public int BranchID { get; set; }
-        public System.DateTime RequestDate { get; set; }
-        public int Quantity { get; set; }
-        public string Description { get; set; }
-        public string CustomerMobileNo { get; set; }
-        public bool RequestByCustomer { get; set; }
-        public int Status { get; set; }
-    
-        public virtual Branch Branch { get; set; }
-        public virtual Item Item { get; set; }
-        public virtual User User { get; set; }
     }
 }

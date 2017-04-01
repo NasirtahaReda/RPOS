@@ -19,7 +19,7 @@ namespace WinForm
 {
 
 
-    public partial class RequestItem : DevExpress.XtraEditors.XtraForm
+    public partial class RequestItem : DevExpress.XtraEditors.XtraUserControl
     {
         int itemID = 0;
         int branchID = 0;
@@ -39,7 +39,6 @@ namespace WinForm
                 //string connString = ModuleClass.Connect();
                 //DataAccess.RedaV1Entities db = ModuleClass.GetConnection();//= new DataAccess.RedaV1Entities(ModuleClass.Connect());
                 db = ModuleClass.GetConnection();
-                DevExpress.UserSkins.BonusSkins.Register();
 
                 Assembly executingAssembly = Assembly.GetExecutingAssembly();
                 AssemblyTitleAttribute assembly = executingAssembly.GetCustomAttribute<AssemblyTitleAttribute>();
@@ -88,7 +87,7 @@ namespace WinForm
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
         }
 
         private void DoLogin()
@@ -201,15 +200,20 @@ namespace WinForm
                         request.RequestDate = DateTime.Now;
                         request.Quantity = quantity;
                         request.Description = desciption;
+                        var itemObj = (ItemObject)listBoxControl1.SelectedItem;
+                        request.ItemID = Convert.ToInt32(itemObj.Data);
                         db.Requests.Add(request);
 
                         if (db.SaveChanges() > 0)
                         {
+#if !DEBUG
                             var message = "" + UserData.Default.BranchName + " فرع " + UserName + " من المستخدم   " + lblItem.Text + " تمت طلب الصنف ";
                             PushMessage.SendDirectMessage(message);
+
+#endif
                             MessageBox.Show("تم حفظ الطلب و إرساله للإدارة", "شكرا لاهتمامك");
-                            Thread.Sleep(1500);
-                            this.Close();
+                          //  Thread.Sleep(1500);
+                           // this.Close();
                         }
                     }
                     else
@@ -473,10 +477,17 @@ namespace WinForm
         }
         void AddToListbox(IEnumerable<DataAccess.Item> list)
         {
-            list = list.ToList();
-            foreach (var item in list)
+            try
             {
-                listBoxControl1.Items.Add(item.Name);
+                list = list.ToList();
+                foreach (var item in list)
+                {
+                    listBoxControl1.Items.Add( new ItemObject(item.Name, item.ID));
+                }
+            }
+            catch (Exception ex)
+            {
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
         private void listBoxControl1_TextChanged(object sender, EventArgs e)
@@ -484,19 +495,42 @@ namespace WinForm
         }
         private void listBoxControl1_SelectedValueChanged(object sender, EventArgs e)
         {
-            
-            if (popupContainerEdit1.IsPopupOpen && listBoxControl1.SelectedItem != null)
+
+            try
             {
-                Console.WriteLine("SelectedValueChanged: " + listBoxControl1.SelectedItem.ToString());
-                lblItem.Text = listBoxControl1.SelectedItem.ToString();
-                 popupContainerEdit1.ClosePopup();
-                itemID = Convert.ToInt32(listBoxControl1.SelectedValue);
-                //popupContainerControl1.Hide();
+                if (popupContainerEdit1.IsPopupOpen && listBoxControl1.SelectedItem != null)
+                {
+                    Console.WriteLine("SelectedValueChanged: " + listBoxControl1.SelectedItem.ToString());
+                   
+                    popupContainerEdit1.ClosePopup();
+                    if (listBoxControl1.SelectedValue is ItemObject)
+                    {
+                        var itemObj = (ItemObject)listBoxControl1.SelectedItem;
+                        lblItem.Text = itemObj.Name.ToString();
+                        var val = itemObj.Data;
+                        itemID = Convert.ToInt32(val);
+                        popupContainerEdit1.Text = itemObj.Name.ToString();
+                    }
+                    //popupContainerControl1.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                
             }
         }
         private void listBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                
+            }
         }
         private void listBoxControl1_DoubleClick(object sender, EventArgs e)
         {
@@ -507,6 +541,33 @@ namespace WinForm
             
         }
     }
+    public class ItemObject
+    {
 
-    
+        public string Name;
+
+        public object Data;
+
+
+
+        public ItemObject() : this("", null) { }
+
+        public ItemObject(string name, object data)
+        {
+
+            Name = name;
+
+            Data = data;
+
+        }
+
+        public override string ToString()
+        {
+
+            return Name;
+
+        }
+
+    }
+
 } 

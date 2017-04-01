@@ -615,7 +615,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(63, 8);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(154, 13);
+            this.label8.Size = new System.Drawing.Size(180, 13);
             this.label8.TabIndex = 43;
             this.label8.Text = "رسائل رسائل الموبايل التي تم ارسالها";
             // 
@@ -1638,7 +1638,7 @@
             this.dockPanelHotItems.Controls.Add(this.controlContainer1);
             this.dockPanelHotItems.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.dockPanelHotItems.ID = new System.Guid("8753ce48-df04-4b19-8e1c-eea56dd824ca");
-            this.dockPanelHotItems.Location = new System.Drawing.Point(0, 0);
+            this.dockPanelHotItems.Location = new System.Drawing.Point(553, 0);
             this.dockPanelHotItems.Name = "dockPanelHotItems";
             this.dockPanelHotItems.OriginalSize = new System.Drawing.Size(662, 200);
             this.dockPanelHotItems.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;

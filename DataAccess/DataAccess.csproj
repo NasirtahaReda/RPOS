@@ -188,6 +188,9 @@
     <Compile Include="vw_Sale2.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="vw_SaleInvoiceDetails.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="vw_SaleInvoiceSummary.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

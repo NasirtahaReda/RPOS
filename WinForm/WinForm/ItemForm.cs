@@ -202,7 +202,7 @@ namespace WinForm
             }
             catch(System.Data.Entity.Infrastructure.DbUpdateException ex)
             {
-                MessageBox.Show(ex.Message,"رقم الباركود قد يكون تم إدخاله لصنف آخر");
+                ModuleClass.ShowExceptionMessage(this,ex, "رقم الباركود قد يكون تم إدخاله لصنف آخر", null);
                 bindingSourceItemBarcode.DataSource = /*this.item.ItemBarcodes;*/ db.ItemBarcodes.Where(s => s.ItemID == item.ID).ToList();
             }
             catch( Exception ex)

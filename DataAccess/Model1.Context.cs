@@ -70,6 +70,7 @@ namespace DataAccess
         public virtual DbSet<vw_ShiftUser> vw_ShiftUser { get; set; }
         public virtual DbSet<Request> Requests { get; set; }
         public virtual DbSet<vw_Request> vw_Request { get; set; }
+        public virtual DbSet<vw_SaleInvoiceDetails> vw_SaleInvoiceDetails { get; set; }
     
         [DbFunction("RedaV1Entities", "ItemMovement")]
         public virtual IQueryable<ItemMovement_Result> ItemMovement(Nullable<int> itemID)

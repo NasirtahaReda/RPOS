@@ -97,6 +97,7 @@ namespace WinForm
                 int branchId = Convert.ToInt32(UserData.Default.BranchID);
                 //this.Text = "فاتورة بيع - :" + db.Branches.Where(s => s.ID == branchId).Select(s => s.BranchName).SingleOrDefault() + " - " + title;
                 items = db.Items.ToList();
+                bindingSourceItem.DataSource = items.ToList();
                 count = 60;
                 SaleInvoiceForm_Tab saleTab = new SaleInvoiceForm_Tab(db, items, new DataAccess.SaleInvoice(), true, SaleInvoiceType.Sale);
                 xtraTabPage1.Controls.Add(saleTab);
@@ -690,11 +691,6 @@ namespace WinForm
 
      
 
-        private void txtSearch_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void gridViewSearch_DoubleClick(object sender, EventArgs e)
         {
             GridView view = (GridView)sender;
@@ -795,14 +791,7 @@ namespace WinForm
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-               
-            }
-            catch (Exception ex)
-            {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
-            }
+
         }
 
         private void gridView1_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
@@ -1522,8 +1511,16 @@ namespace WinForm
             {
                 int ID = Convert.ToInt32(txtSaleInvoiceID.EditValue);
                 var list = from s in db.vw_SaleReport where s.ID == ID && s.BranchID == branchID select s;
-                vwSaleReportBindingSource.DataSource = list.ToList();
-                gridViewSaleInvoice.ExpandAllGroups();
+                if (list.Any())
+                {
+                    vwSaleReportBindingSource.DataSource = list.ToList();
+                    gridViewSaleInvoice.ExpandAllGroups();
+                }
+                else
+                {
+                    MessageBox.Show("لا توجد فاتورة بالرقم المدخل");
+                }
+                
             }
             catch (Exception ex)
             {
@@ -1534,7 +1531,7 @@ namespace WinForm
         {
             try
             {
-               
+                errorProvider1.Clear();
                 int userID = Convert.ToInt32(cmbUsers.GetColumnValue("ID"));
 
                 DateTime date = cmbSaleInvoiceDateFrom.DateTime;
@@ -1542,7 +1539,31 @@ namespace WinForm
                 DateTime end = new DateTime(date.Year, date.Month, date.Day, 23, 59, 59);
                 int branchID = Convert.ToInt32(cmbBranches.EditValue);
                 // var list = from s in db.vw_SaleReport where s.Date > start && s.Date < end && s.Flag != 0 select s;
-                var list = from s in db.vw_SaleReport where s.Flag != 0 && s.UserID == userID && s.Date > start && s.Date < end && s.BranchID == branchID select s;
+                IEnumerable<vw_SaleReport> list =null;
+                if (cbEnableItem.Checked)
+                {
+                    if(cmbItem.EditValue == null)
+                    {
+                        errorProvider1.SetError(cmbItem, "الرجاء اختيار صنف للبحث عنه ضمن فواتير البيع");
+                        return;
+                    }
+                    else
+                    {
+                        int itemId = (int) cmbItem.EditValue;
+                         list = from s in db.vw_SaleReport
+                                   join d in db.vw_SaleInvoiceDetails
+                                   on s.ID equals d.SaleInvoiceID
+                                   where d.ItemID == itemId && s.Flag != 0 && s.UserID == userID && s.Date > start && s.Date < end && s.BranchID == branchID
+                                   select s;
+
+                    }
+                }
+                else
+                {
+                    list = from s in db.vw_SaleReport
+                           where s.Flag != 0 && s.UserID == userID && s.Date > start && s.Date < end && s.BranchID == branchID
+                           select s;
+                }
                 if (list.Any())
                 {
                     vwSaleReportBindingSource.DataSource = list.ToList();
@@ -1670,6 +1691,28 @@ namespace WinForm
 
         private void btnShowSaleInvoice_Click_1(object sender, EventArgs e)
         {
+            bool isVaild = true;
+            errorProvider1.Clear();
+            if(cmbBranches.EditValue == null)
+            {
+                errorProvider1.SetError(cmbBranches, "الرجاء اختيار الفرع");
+                isVaild = false;
+            }
+            if (cmbSaleInvoiceDateFrom.EditValue == null)
+            {
+                errorProvider1.SetError(cmbSaleInvoiceDateFrom, "الرجاء اختيار التاريخ");
+                isVaild = false;
+            }
+            if (cmbUsers.EditValue == null)
+            {
+                errorProvider1.SetError(cmbUsers, "الرجاء اختيار المستخدم");
+                isVaild = false;
+            }
+            if (!isVaild)
+            {
+                return;
+            }
+
             FillSaleInvoiceGrid();
         }
 
@@ -2064,6 +2107,11 @@ namespace WinForm
             {
                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
+        }
+
+        private void cbEnableItem_CheckStateChanged(object sender, EventArgs e)
+        {
+            cmbItem.Enabled = cbEnableItem.Checked;
         }
     }
 }

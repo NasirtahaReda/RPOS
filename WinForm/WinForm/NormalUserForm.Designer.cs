@@ -38,6 +38,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NormalUserForm));
             this.bindingSourceSaleInvoice = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceItem = new System.Windows.Forms.BindingSource(this.components);
@@ -73,14 +74,21 @@
             this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanelReturn = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.cmbBranches = new DevExpress.XtraEditors.LookUpEdit();
-            this.branchBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnShowSaleInvoice = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.cbEnableItem = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmbUsers = new DevExpress.XtraEditors.LookUpEdit();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnSaleInvoiceSearch = new DevExpress.XtraEditors.SimpleButton();
             this.cmbSaleInvoiceDateFrom = new DevExpress.XtraEditors.DateEdit();
+            this.btnShowSaleInvoice = new DevExpress.XtraEditors.SimpleButton();
+            this.cmbItem = new DevExpress.XtraEditors.LookUpEdit();
+            this.cmbBranches = new DevExpress.XtraEditors.LookUpEdit();
+            this.branchBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtSaleInvoiceID = new DevExpress.XtraEditors.TextEdit();
+            this.btnSaleInvoiceSearch = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.vwSaleReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewSaleInvoice = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -167,12 +175,18 @@
             this.panelContainer1.SuspendLayout();
             this.dockPanelReturn.SuspendLayout();
             this.dockPanel4_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbBranches.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbEnableItem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbUsers.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSaleInvoiceDateFrom.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSaleInvoiceDateFrom.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbItem.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBranches.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSaleInvoiceID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwSaleReportBindingSource)).BeginInit();
@@ -497,24 +511,169 @@
             // 
             // dockPanel4_Container
             // 
-            this.dockPanel4_Container.Controls.Add(this.cmbBranches);
-            this.dockPanel4_Container.Controls.Add(this.btnShowSaleInvoice);
-            this.dockPanel4_Container.Controls.Add(this.cmbUsers);
-            this.dockPanel4_Container.Controls.Add(this.btnSaleInvoiceSearch);
-            this.dockPanel4_Container.Controls.Add(this.cmbSaleInvoiceDateFrom);
-            this.dockPanel4_Container.Controls.Add(this.txtSaleInvoiceID);
+            this.dockPanel4_Container.Controls.Add(this.groupControl2);
+            this.dockPanel4_Container.Controls.Add(this.groupControl1);
             this.dockPanel4_Container.Controls.Add(this.gridControl1);
             this.dockPanel4_Container.Location = new System.Drawing.Point(0, 0);
             this.dockPanel4_Container.Name = "dockPanel4_Container";
             this.dockPanel4_Container.Size = new System.Drawing.Size(552, 658);
             this.dockPanel4_Container.TabIndex = 0;
             // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.cbEnableItem);
+            this.groupControl2.Controls.Add(this.labelControl3);
+            this.groupControl2.Controls.Add(this.labelControl2);
+            this.groupControl2.Controls.Add(this.labelControl1);
+            this.groupControl2.Controls.Add(this.cmbUsers);
+            this.groupControl2.Controls.Add(this.cmbSaleInvoiceDateFrom);
+            this.groupControl2.Controls.Add(this.btnShowSaleInvoice);
+            this.groupControl2.Controls.Add(this.cmbItem);
+            this.groupControl2.Controls.Add(this.cmbBranches);
+            this.groupControl2.Location = new System.Drawing.Point(154, 9);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupControl2.Size = new System.Drawing.Size(381, 138);
+            this.groupControl2.TabIndex = 29;
+            this.groupControl2.Text = "البحث عن طريق الفرع و التاريخ والموظف ";
+            // 
+            // cbEnableItem
+            // 
+            this.cbEnableItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbEnableItem.Location = new System.Drawing.Point(320, 74);
+            this.cbEnableItem.Name = "cbEnableItem";
+            this.cbEnableItem.Properties.Caption = "الصنف";
+            this.cbEnableItem.Size = new System.Drawing.Size(51, 19);
+            this.cbEnableItem.TabIndex = 32;
+            this.cbEnableItem.CheckStateChanged += new System.EventHandler(this.cbEnableItem_CheckStateChanged);
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl3.Location = new System.Drawing.Point(84, 21);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(28, 13);
+            this.labelControl3.TabIndex = 30;
+            this.labelControl3.Text = "التاريخ";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl2.Location = new System.Drawing.Point(196, 24);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(49, 13);
+            this.labelControl2.TabIndex = 29;
+            this.labelControl2.Text = "المستخدم";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl1.Location = new System.Drawing.Point(346, 24);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(24, 13);
+            this.labelControl1.TabIndex = 28;
+            this.labelControl1.Text = "الفرع";
+            // 
+            // cmbUsers
+            // 
+            this.cmbUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbUsers.Location = new System.Drawing.Point(148, 40);
+            this.cmbUsers.Name = "cmbUsers";
+            this.cmbUsers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.cmbUsers.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("UserName", "User Name", 62, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Password", "Password", 56, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PurchaseInvoices", "Purchase Invoices", 97, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SaleInvoices", "Sale Invoices", 73, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("FullName", "Name30")});
+            this.cmbUsers.Properties.DataSource = this.userBindingSource;
+            this.cmbUsers.Properties.DisplayMember = "FullName";
+            this.cmbUsers.Properties.NullText = "";
+            this.cmbUsers.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            this.cmbUsers.Properties.ValueMember = "ID";
+            this.cmbUsers.Size = new System.Drawing.Size(98, 20);
+            this.cmbUsers.TabIndex = 15;
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(DataAccess.User);
+            // 
+            // cmbSaleInvoiceDateFrom
+            // 
+            this.cmbSaleInvoiceDateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbSaleInvoiceDateFrom.EditValue = null;
+            this.cmbSaleInvoiceDateFrom.Location = new System.Drawing.Point(20, 40);
+            this.cmbSaleInvoiceDateFrom.Name = "cmbSaleInvoiceDateFrom";
+            this.cmbSaleInvoiceDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            this.cmbSaleInvoiceDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSaleInvoiceDateFrom.Properties.Mask.EditMask = "";
+            this.cmbSaleInvoiceDateFrom.Size = new System.Drawing.Size(98, 20);
+            this.cmbSaleInvoiceDateFrom.TabIndex = 14;
+            // 
+            // btnShowSaleInvoice
+            // 
+            this.btnShowSaleInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowSaleInvoice.Image = global::RedaPOS.Properties.Resources.search_icon32;
+            this.btnShowSaleInvoice.Location = new System.Drawing.Point(5, 93);
+            this.btnShowSaleInvoice.Name = "btnShowSaleInvoice";
+            this.btnShowSaleInvoice.Size = new System.Drawing.Size(40, 40);
+            this.btnShowSaleInvoice.TabIndex = 25;
+            this.btnShowSaleInvoice.ToolTip = "عرض فواتير البيع";
+            this.btnShowSaleInvoice.Click += new System.EventHandler(this.btnShowSaleInvoice_Click_1);
+            // 
+            // cmbItem
+            // 
+            this.cmbItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbItem.Enabled = false;
+            this.cmbItem.Location = new System.Drawing.Point(51, 99);
+            this.cmbItem.Name = "cmbItem";
+            this.cmbItem.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 18F);
+            this.cmbItem.Properties.Appearance.Options.UseFont = true;
+            this.cmbItem.Properties.Appearance.Options.UseTextOptions = true;
+            this.cmbItem.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.cmbItem.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 16F);
+            this.cmbItem.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cmbItem.Properties.AppearanceDropDownHeader.Font = new System.Drawing.Font("Times New Roman", 16F);
+            this.cmbItem.Properties.AppearanceDropDownHeader.Options.UseFont = true;
+            this.cmbItem.Properties.AppearanceFocused.Font = new System.Drawing.Font("Times New Roman", 16F);
+            this.cmbItem.Properties.AppearanceFocused.Options.UseFont = true;
+            serializableAppearanceObject3.Font = new System.Drawing.Font("Times New Roman", 16F);
+            serializableAppearanceObject3.Options.UseFont = true;
+            this.cmbItem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "Test", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            this.cmbItem.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.cmbItem.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name", 37, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CategoryID", "Category ID", 69, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BarcodeText", "Barcode Text", 74, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Symbology", "Symbology", 62, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Model", "Model", 38, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MadeInCountry", "Made In Country", 91, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ItemCategory", "Item Category", 80, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PurchaseInvoiceDetails", "Purchase Invoice Details", 127, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SalePrice", "سعر البيع")});
+            this.cmbItem.Properties.DataSource = this.bindingSourceItem;
+            this.cmbItem.Properties.DisplayMember = "Name";
+            this.cmbItem.Properties.DropDownRows = 13;
+            this.cmbItem.Properties.NullText = "";
+            this.cmbItem.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.cmbItem.Properties.ValueMember = "ID";
+            this.cmbItem.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmbItem_Properties_ButtonClick);
+            this.cmbItem.Size = new System.Drawing.Size(325, 34);
+            this.cmbItem.TabIndex = 27;
+            // 
             // cmbBranches
             // 
-            this.cmbBranches.Location = new System.Drawing.Point(451, 26);
+            this.cmbBranches.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbBranches.Location = new System.Drawing.Point(272, 40);
             this.cmbBranches.Name = "cmbBranches";
             this.cmbBranches.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.cmbBranches.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Address", "Address", 49, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -538,84 +697,50 @@
             // 
             this.branchBindingSource.DataSource = typeof(DataAccess.Branch);
             // 
-            // btnShowSaleInvoice
+            // groupControl1
             // 
-            this.btnShowSaleInvoice.Location = new System.Drawing.Point(99, 10);
-            this.btnShowSaleInvoice.Name = "btnShowSaleInvoice";
-            this.btnShowSaleInvoice.Size = new System.Drawing.Size(99, 36);
-            this.btnShowSaleInvoice.TabIndex = 25;
-            this.btnShowSaleInvoice.Text = "عرض فواتير البيع";
-            this.btnShowSaleInvoice.Click += new System.EventHandler(this.btnShowSaleInvoice_Click_1);
+            this.groupControl1.Controls.Add(this.txtSaleInvoiceID);
+            this.groupControl1.Controls.Add(this.btnSaleInvoiceSearch);
+            this.groupControl1.Location = new System.Drawing.Point(3, 3);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupControl1.Size = new System.Drawing.Size(145, 101);
+            this.groupControl1.TabIndex = 28;
+            this.groupControl1.Text = "البحث عن طريق رقم الفاتورة";
             // 
-            // cmbUsers
+            // txtSaleInvoiceID
             // 
-            this.cmbUsers.Location = new System.Drawing.Point(340, 26);
-            this.cmbUsers.Name = "cmbUsers";
-            this.cmbUsers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
-            this.cmbUsers.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("UserName", "User Name", 62, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Password", "Password", 56, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PurchaseInvoices", "Purchase Invoices", 97, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SaleInvoices", "Sale Invoices", 73, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("FullName", "Name30")});
-            this.cmbUsers.Properties.DataSource = this.userBindingSource;
-            this.cmbUsers.Properties.DisplayMember = "FullName";
-            this.cmbUsers.Properties.NullText = "";
-            this.cmbUsers.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            this.cmbUsers.Properties.ValueMember = "ID";
-            this.cmbUsers.Size = new System.Drawing.Size(98, 20);
-            this.cmbUsers.TabIndex = 15;
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(DataAccess.User);
+            this.txtSaleInvoiceID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSaleInvoiceID.Location = new System.Drawing.Point(16, 27);
+            this.txtSaleInvoiceID.Name = "txtSaleInvoiceID";
+            this.txtSaleInvoiceID.Size = new System.Drawing.Size(111, 20);
+            this.txtSaleInvoiceID.TabIndex = 10;
             // 
             // btnSaleInvoiceSearch
             // 
+            this.btnSaleInvoiceSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaleInvoiceSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSaleInvoiceSearch.Image")));
             this.btnSaleInvoiceSearch.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnSaleInvoiceSearch.Location = new System.Drawing.Point(8, 55);
+            this.btnSaleInvoiceSearch.Location = new System.Drawing.Point(45, 56);
             this.btnSaleInvoiceSearch.Name = "btnSaleInvoiceSearch";
-            this.btnSaleInvoiceSearch.Size = new System.Drawing.Size(67, 36);
+            this.btnSaleInvoiceSearch.Size = new System.Drawing.Size(40, 40);
             this.btnSaleInvoiceSearch.TabIndex = 9;
             this.btnSaleInvoiceSearch.ToolTip = "بحث عن طريق رقم الفاتوره";
             this.btnSaleInvoiceSearch.ToolTipController = this.toolTipController1;
             this.btnSaleInvoiceSearch.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.btnSaleInvoiceSearch.Click += new System.EventHandler(this.btnSaleInvoiceSearch_Click);
             // 
-            // cmbSaleInvoiceDateFrom
-            // 
-            this.cmbSaleInvoiceDateFrom.EditValue = null;
-            this.cmbSaleInvoiceDateFrom.Location = new System.Drawing.Point(229, 26);
-            this.cmbSaleInvoiceDateFrom.Name = "cmbSaleInvoiceDateFrom";
-            this.cmbSaleInvoiceDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
-            this.cmbSaleInvoiceDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbSaleInvoiceDateFrom.Properties.Mask.EditMask = "";
-            this.cmbSaleInvoiceDateFrom.Size = new System.Drawing.Size(98, 20);
-            this.cmbSaleInvoiceDateFrom.TabIndex = 14;
-            // 
-            // txtSaleInvoiceID
-            // 
-            this.txtSaleInvoiceID.Location = new System.Drawing.Point(8, 17);
-            this.txtSaleInvoiceID.Name = "txtSaleInvoiceID";
-            this.txtSaleInvoiceID.Size = new System.Drawing.Size(75, 20);
-            this.txtSaleInvoiceID.TabIndex = 10;
-            // 
             // gridControl1
             // 
             this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl1.DataSource = this.vwSaleReportBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(2, 113);
+            this.gridControl1.Location = new System.Drawing.Point(2, 202);
             this.gridControl1.MainView = this.gridViewSaleInvoice;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEditSaleInvoice});
             this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gridControl1.Size = new System.Drawing.Size(547, 366);
+            this.gridControl1.Size = new System.Drawing.Size(547, 277);
             this.gridControl1.TabIndex = 9;
             this.gridControl1.ToolTipController = this.toolTipController1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -698,10 +823,10 @@
             // 
             this.repositoryItemButtonEditSaleInvoice.AutoHeight = false;
             this.repositoryItemButtonEditSaleInvoice.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "عرض الفاتورة", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "عرض الفاتورة", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Right, "فاتورة A4", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Undo, "ارجاع الفاتورة", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "ارجاع الفاتورة", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down, "طباعه", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "طباعه", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "عرض الفاتورة", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "عرض الفاتورة", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Right, "فاتورة A4", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Undo, "ارجاع الفاتورة", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "ارجاع الفاتورة", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down, "طباعه", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "طباعه", null, null, true)});
             this.repositoryItemButtonEditSaleInvoice.Name = "repositoryItemButtonEditSaleInvoice";
             this.repositoryItemButtonEditSaleInvoice.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEditSaleInvoice.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEditSaleInvoice_ButtonClick);
@@ -1024,7 +1149,7 @@
             this.repositoryItemButtonEditRemoveUserFromShift.AutoHeight = false;
             this.repositoryItemButtonEditRemoveUserFromShift.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Redo, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Redo, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
             this.repositoryItemButtonEditRemoveUserFromShift.Name = "repositoryItemButtonEditRemoveUserFromShift";
             this.repositoryItemButtonEditRemoveUserFromShift.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEditRemoveUserFromShift.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEditRemoveLogedUser_ButtonClick);
@@ -1349,12 +1474,19 @@
             this.panelContainer1.ResumeLayout(false);
             this.dockPanelReturn.ResumeLayout(false);
             this.dockPanel4_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbBranches.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbEnableItem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbUsers.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSaleInvoiceDateFrom.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSaleInvoiceDateFrom.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbItem.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBranches.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSaleInvoiceID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwSaleReportBindingSource)).EndInit();
@@ -1498,5 +1630,12 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEditRemoveUserFromShift;
         private DevExpress.XtraEditors.SimpleButton btnAddUserToShift;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnAmount;
+        private DevExpress.XtraEditors.LookUpEdit cmbItem;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.CheckEdit cbEnableItem;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
     }
 }

@@ -36,8 +36,8 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 //In this version i added the store as a branche to transfer any item to other stores - 05-Ougust-2015
-[assembly: AssemblyVersion("10.5")]
-[assembly: AssemblyFileVersion("10.5")]
+[assembly: AssemblyVersion("10.6")]
+[assembly: AssemblyFileVersion("10.6")]
 
 
 

@@ -29,8 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemUC));
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -57,15 +65,16 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEditPrintBarcode = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.colNoOfCopies = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colActive = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colReorderPoint = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHidden = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnGetAll = new DevExpress.XtraEditors.SimpleButton();
             this.groupControlSearch = new DevExpress.XtraEditors.GroupControl();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new DevExpress.XtraEditors.ButtonEdit();
+            this.chHidden = new DevExpress.XtraEditors.CheckEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.lblMessage = new DevExpress.XtraBars.BarStaticItem();
@@ -73,9 +82,12 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSearch = new DevExpress.XtraEditors.ButtonEdit();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.colActive = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colReorderPoint = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnShowHidden = new DevExpress.XtraEditors.SimpleButton();
+            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).BeginInit();
             this.groupControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -93,8 +105,9 @@
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlSearch)).BeginInit();
             this.groupControlSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chHidden.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControlMain
@@ -103,10 +116,10 @@
             this.groupControlMain.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.groupControlMain.Controls.Add(this.gridControl1);
             this.groupControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControlMain.Location = new System.Drawing.Point(0, 60);
+            this.groupControlMain.Location = new System.Drawing.Point(0, 69);
             this.groupControlMain.Name = "groupControlMain";
             this.groupControlMain.ShowCaption = false;
-            this.groupControlMain.Size = new System.Drawing.Size(1013, 260);
+            this.groupControlMain.Size = new System.Drawing.Size(1013, 251);
             this.groupControlMain.TabIndex = 3;
             this.groupControlMain.Text = "groupControl1";
             // 
@@ -130,8 +143,9 @@
             this.repositoryItemSpinEdit1,
             this.repositoryItemCheckEdit1,
             this.repositoryItemCheckEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(1009, 256);
+            this.gridControl1.Size = new System.Drawing.Size(1009, 247);
             this.gridControl1.TabIndex = 0;
+            this.gridControl1.ToolTipController = this.toolTipController1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -165,7 +179,8 @@
             this.gridColumn2,
             this.colNoOfCopies,
             this.colActive,
-            this.colReorderPoint});
+            this.colReorderPoint,
+            this.colHidden});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
@@ -178,6 +193,7 @@
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView1.EditFormPrepared += new DevExpress.XtraGrid.Views.Grid.EditFormPreparedEventHandler(this.gridView1_EditFormPrepared);
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
+            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             this.gridView1.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView1_InvalidRowException);
             this.gridView1.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
             this.gridView1.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gridView1_RowUpdated);
@@ -192,8 +208,8 @@
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
             this.colName.Visible = true;
-            this.colName.VisibleIndex = 6;
-            this.colName.Width = 141;
+            this.colName.VisibleIndex = 0;
+            this.colName.Width = 219;
             // 
             // colHasExpireDate
             // 
@@ -215,8 +231,8 @@
             this.colIsHotItem.FieldName = "IsHotItem";
             this.colIsHotItem.Name = "colIsHotItem";
             this.colIsHotItem.Visible = true;
-            this.colIsHotItem.VisibleIndex = 3;
-            this.colIsHotItem.Width = 99;
+            this.colIsHotItem.VisibleIndex = 6;
+            this.colIsHotItem.Width = 69;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -231,7 +247,7 @@
             this.colCategoryID.Name = "colCategoryID";
             this.colCategoryID.Visible = true;
             this.colCategoryID.VisibleIndex = 5;
-            this.colCategoryID.Width = 141;
+            this.colCategoryID.Width = 92;
             // 
             // repositoryItemLookUpEdit1
             // 
@@ -297,7 +313,7 @@
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
@@ -324,22 +340,29 @@
             this.colSalePrice.Name = "colSalePrice";
             this.colSalePrice.Visible = true;
             this.colSalePrice.VisibleIndex = 4;
-            this.colSalePrice.Width = 58;
+            this.colSalePrice.Width = 108;
             // 
             // gridColumn2
             // 
             this.gridColumn2.ColumnEdit = this.repositoryItemButtonEditPrintBarcode;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 0;
-            this.gridColumn2.Width = 76;
+            this.gridColumn2.VisibleIndex = 8;
+            this.gridColumn2.Width = 108;
             // 
             // repositoryItemButtonEditPrintBarcode
             // 
             this.repositoryItemButtonEditPrintBarcode.AutoHeight = false;
+            toolTipItem4.Text = "طباعة بار كود للصنف";
+            superToolTip4.Items.Add(toolTipItem4);
+            toolTipItem5.Text = "عرض بيانات الصنف للتعديل (السعر ، الأسم ) أو إخفاء الصنف";
+            superToolTip5.Items.Add(toolTipItem5);
+            toolTipItem6.Text = "يمكن إخفاء أو إظهار الصنف";
+            superToolTip6.Items.Add(toolTipItem6);
             this.repositoryItemButtonEditPrintBarcode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::RedaPOS.Properties.Resources.barcode_icon, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton()});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::RedaPOS.Properties.Resources.barcode_icon, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, superToolTip4, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, superToolTip5, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Minus, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, superToolTip6, true)});
             this.repositoryItemButtonEditPrintBarcode.Name = "repositoryItemButtonEditPrintBarcode";
             this.repositoryItemButtonEditPrintBarcode.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEditPrintBarcode.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEditPrintBarcode_ButtonClick);
@@ -350,8 +373,36 @@
             this.colNoOfCopies.FieldName = "gridColumn3";
             this.colNoOfCopies.Name = "colNoOfCopies";
             this.colNoOfCopies.Visible = true;
-            this.colNoOfCopies.VisibleIndex = 7;
-            this.colNoOfCopies.Width = 37;
+            this.colNoOfCopies.VisibleIndex = 1;
+            this.colNoOfCopies.Width = 80;
+            // 
+            // colActive
+            // 
+            this.colActive.Caption = "الصنف متوقف";
+            this.colActive.FieldName = "Active";
+            this.colActive.Name = "colActive";
+            this.colActive.Visible = true;
+            this.colActive.VisibleIndex = 3;
+            this.colActive.Width = 124;
+            // 
+            // colReorderPoint
+            // 
+            this.colReorderPoint.Caption = "حد الطلب";
+            this.colReorderPoint.FieldName = "ReorderPoint";
+            this.colReorderPoint.Name = "colReorderPoint";
+            this.colReorderPoint.Visible = true;
+            this.colReorderPoint.VisibleIndex = 2;
+            this.colReorderPoint.Width = 113;
+            // 
+            // colHidden
+            // 
+            this.colHidden.Caption = "إخفاء الصنف";
+            this.colHidden.FieldName = "Hidden";
+            this.colHidden.Name = "colHidden";
+            this.colHidden.ToolTip = "إخفاء أو إظهار الصنف";
+            this.colHidden.Visible = true;
+            this.colHidden.VisibleIndex = 7;
+            this.colHidden.Width = 80;
             // 
             // repositoryItemComboBox1
             // 
@@ -388,6 +439,7 @@
             this.groupControl2.Size = new System.Drawing.Size(1013, 80);
             this.groupControl2.TabIndex = 4;
             this.groupControl2.Text = "groupControl2";
+            this.groupControl2.Visible = false;
             // 
             // btnSave
             // 
@@ -417,6 +469,8 @@
             // 
             // groupControlSearch
             // 
+            this.groupControlSearch.Controls.Add(this.btnShowHidden);
+            this.groupControlSearch.Controls.Add(this.chHidden);
             this.groupControlSearch.Controls.Add(this.btnAdd);
             this.groupControlSearch.Controls.Add(this.label1);
             this.groupControlSearch.Controls.Add(this.txtSearch);
@@ -424,44 +478,22 @@
             this.groupControlSearch.Location = new System.Drawing.Point(0, 0);
             this.groupControlSearch.Name = "groupControlSearch";
             this.groupControlSearch.ShowCaption = false;
-            this.groupControlSearch.Size = new System.Drawing.Size(1013, 60);
+            this.groupControlSearch.Size = new System.Drawing.Size(1013, 69);
             this.groupControlSearch.TabIndex = 5;
             this.groupControlSearch.Text = "groupControl1";
             // 
-            // btnAdd
+            // chHidden
             // 
-            this.btnAdd.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.btnAdd.Image = global::RedaPOS.Properties.Resources.Add64;
-            this.btnAdd.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAdd.Location = new System.Drawing.Point(5, 7);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(59, 53);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "Save";
-            this.btnAdd.ToolTip = "Save";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(716, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Search";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(772, 17);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Clear)});
-            this.txtSearch.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtSearch_Properties_ButtonClick);
-            this.txtSearch.Size = new System.Drawing.Size(226, 20);
-            this.txtSearch.TabIndex = 0;
-            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
+            this.chHidden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chHidden.Location = new System.Drawing.Point(816, 11);
+            this.chHidden.MenuManager = this.barManager1;
+            this.chHidden.Name = "chHidden";
+            this.chHidden.Properties.Caption = "الأصناف المخفية";
+            this.chHidden.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.chHidden.Size = new System.Drawing.Size(135, 19);
+            this.chHidden.TabIndex = 2;
+            this.chHidden.ToolTip = "إضافة الأصناف المخفية للبحث";
+            this.chHidden.ToolTipController = this.toolTipController1;
             // 
             // barManager1
             // 
@@ -526,26 +558,59 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1013, 0);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 400);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.btnAdd.Image = global::RedaPOS.Properties.Resources.Add64;
+            this.btnAdd.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAdd.Location = new System.Drawing.Point(5, 7);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(64, 64);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "Save";
+            this.btnAdd.ToolTip = "هذا الخيار يمكنك من إضافة صنف جديد ";
+            this.btnAdd.ToolTipController = this.toolTipController1;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(959, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "بحث";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearch.Location = new System.Drawing.Point(727, 36);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Clear)});
+            this.txtSearch.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtSearch_Properties_ButtonClick);
+            this.txtSearch.Size = new System.Drawing.Size(226, 20);
+            this.txtSearch.TabIndex = 0;
+            this.txtSearch.ToolTip = "يمكن البحث عن طريقة كتابة اسم الصنف ثم الضغط علي مفتاح الإدخال";
+            this.txtSearch.ToolTipController = this.toolTipController1;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
+            // 
             // timer1
             // 
             this.timer1.Interval = 1350;
             // 
-            // colActive
+            // btnShowHidden
             // 
-            this.colActive.Caption = "الصنف متوقف";
-            this.colActive.FieldName = "Active";
-            this.colActive.Name = "colActive";
-            this.colActive.Visible = true;
-            this.colActive.VisibleIndex = 2;
-            this.colActive.Width = 92;
-            // 
-            // colReorderPoint
-            // 
-            this.colReorderPoint.Caption = "حد الطلب";
-            this.colReorderPoint.FieldName = "ReorderPoint";
-            this.colReorderPoint.Name = "colReorderPoint";
-            this.colReorderPoint.Visible = true;
-            this.colReorderPoint.VisibleIndex = 1;
+            this.btnShowHidden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowHidden.Location = new System.Drawing.Point(536, 14);
+            this.btnShowHidden.Name = "btnShowHidden";
+            this.btnShowHidden.Size = new System.Drawing.Size(151, 42);
+            this.btnShowHidden.TabIndex = 3;
+            this.btnShowHidden.Text = "عرض الأصناف المخفية فقط";
+            this.btnShowHidden.ToolTip = "هذا الخيار يمكنك من عرض الأصناف المخفية فقط";
+            this.btnShowHidden.ToolTipController = this.toolTipController1;
+            this.btnShowHidden.Click += new System.EventHandler(this.btnShowHidden_Click);
             // 
             // ItemUC
             // 
@@ -559,6 +624,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "ItemUC";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Size = new System.Drawing.Size(1013, 425);
             this.Load += new System.EventHandler(this.ItemUC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).EndInit();
@@ -579,8 +645,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlSearch)).EndInit();
             this.groupControlSearch.ResumeLayout(false);
             this.groupControlSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chHidden.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -631,5 +698,9 @@
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraGrid.Columns.GridColumn colActive;
         private DevExpress.XtraGrid.Columns.GridColumn colReorderPoint;
+        private DevExpress.XtraEditors.CheckEdit chHidden;
+        private DevExpress.XtraGrid.Columns.GridColumn colHidden;
+        private DevExpress.XtraEditors.SimpleButton btnShowHidden;
+        private DevExpress.Utils.ToolTipController toolTipController1;
     }
 }

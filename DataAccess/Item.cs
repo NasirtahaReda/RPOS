@@ -37,6 +37,7 @@ namespace DataAccess
         public string OriginalBarcodeText { get; set; }
         public Nullable<bool> OutOfMarket { get; set; }
         public Nullable<int> QuickCode { get; set; }
+        public bool Hidden { get; set; }
     
         public virtual ItemCategory ItemCategory { get; set; }
         public virtual ICollection<ItemBarcode> ItemBarcodes { get; set; }

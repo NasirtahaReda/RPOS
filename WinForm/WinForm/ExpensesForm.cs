@@ -130,7 +130,7 @@ namespace WinForm
                         }
                         //
                         MessageBox.Show("تم الحفظ");
-
+                        this.Close();
                         _expense = db.Expenses.Create();
                         _expense.Date = DateTime.Now;
                         _expense.InsertedUserId = Convert.ToInt32(UserData.Default.UserID);

@@ -65,6 +65,7 @@
             this.colItem = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.cbActive = new DevExpress.XtraEditors.CheckEdit();
+            this.cbHidden = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCategory.Properties)).BeginInit();
@@ -83,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbActive.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbHidden.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -398,11 +400,21 @@
             this.cbActive.TabIndex = 1;
             this.cbActive.CheckedChanged += new System.EventHandler(this.cbHasExpireDate_CheckedChanged);
             // 
+            // cbHidden
+            // 
+            this.cbHidden.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bindingSourceItem, "Hidden", true));
+            this.cbHidden.Location = new System.Drawing.Point(63, 237);
+            this.cbHidden.Name = "cbHidden";
+            this.cbHidden.Properties.Caption = "إخفاء";
+            this.cbHidden.Size = new System.Drawing.Size(75, 19);
+            this.cbHidden.TabIndex = 14;
+            // 
             // ItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(756, 433);
+            this.Controls.Add(this.cbHidden);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.labelControl9);
@@ -452,6 +464,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbActive.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbHidden.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,5 +504,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colItem;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.CheckEdit cbActive;
+        private DevExpress.XtraEditors.CheckEdit cbHidden;
     }
 }

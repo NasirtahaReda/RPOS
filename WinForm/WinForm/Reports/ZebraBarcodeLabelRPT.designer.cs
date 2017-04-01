@@ -31,12 +31,12 @@
             DevExpress.XtraReports.UI.TopMarginBand TopMargin;
             DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator1 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.txtBarcode = new DevExpress.XtraReports.UI.XRBarCode();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.txtPrice = new DevExpress.XtraReports.UI.XRLabel();
-            this.txtBarcode = new DevExpress.XtraReports.UI.XRBarCode();
-            this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.txtName = new DevExpress.XtraReports.UI.XRLabel();
+            this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -59,6 +59,19 @@
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // txtBarcode
+            // 
+            this.txtBarcode.LocationFloat = new DevExpress.Utils.PointFloat(2.375031F, 22.20834F);
+            this.txtBarcode.Module = 1F;
+            this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
+            this.txtBarcode.ShowText = false;
+            this.txtBarcode.SizeF = new System.Drawing.SizeF(146.625F, 40F);
+            this.txtBarcode.StylePriority.UseTextAlignment = false;
+            this.txtBarcode.Symbology = code128Generator1;
+            this.txtBarcode.Text = "701-001";
+            this.txtBarcode.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel2
             // 
@@ -99,26 +112,6 @@
             this.txtPrice.Text = "123.59";
             this.txtPrice.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
-            // txtBarcode
-            // 
-            this.txtBarcode.LocationFloat = new DevExpress.Utils.PointFloat(10.50001F, 22.20834F);
-            this.txtBarcode.Module = 1F;
-            this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
-            this.txtBarcode.ShowText = false;
-            this.txtBarcode.SizeF = new System.Drawing.SizeF(133.5F, 40F);
-            this.txtBarcode.StylePriority.UseTextAlignment = false;
-            this.txtBarcode.Symbology = code128Generator1;
-            this.txtBarcode.Text = "701-001";
-            this.txtBarcode.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // BottomMargin
-            // 
-            this.BottomMargin.HeightF = 2F;
-            this.BottomMargin.Name = "BottomMargin";
-            this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
-            this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            // 
             // txtName
             // 
             this.txtName.CanGrow = false;
@@ -129,6 +122,13 @@
             this.txtName.StylePriority.UseTextAlignment = false;
             this.txtName.Text = "متوسط A5 دفتر";
             this.txtName.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // BottomMargin
+            // 
+            this.BottomMargin.HeightF = 2F;
+            this.BottomMargin.Name = "BottomMargin";
+            this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
+            this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // ZebraBarcodeLabelRPT
             // 

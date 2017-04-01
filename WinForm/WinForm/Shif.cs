@@ -283,6 +283,22 @@ namespace WinForm
                 if (isValid() && MessageBox.Show("هل أنت متأكد من صحة بيانات الوردية و حالة جميع الأجهزة؟", "الرجاء التأكد من البيانات قبل قفل الوردية", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
               
                 {
+                    var list2 = db.vw_ShiftUser.Where(s => s.ShiftID == _shift.ID && s.Flag == 0).ToList();
+                    string UserStatusMessage = "   الوضع المالي للموظفين بالوردية" + Environment.NewLine;
+                    List<string> userIDs = new List<string>();
+                    foreach (var su in list2)
+                    {
+                        userIDs.Add(su.PushoverID);
+                        var userPayment = db.UserPayments.Where(s => s.UserID == su.UserID).OrderByDescending(s => s.ID).Take(1).SingleOrDefault();
+                        var amount = userPayment.Amount;
+                        var balance = userPayment.Balance;
+
+                        UserStatusMessage += su.FullName + Environment.NewLine + " " + "  أجرة الوردية: " + amount + Environment.NewLine + " " + " المطالبة الحالية: " + balance + Environment.NewLine;
+                    }
+
+                    PushMessage.SendUserPaymentStatusMessage(UserStatusMessage, userIDs);
+                    Thread.Sleep(1500);
+
                     //Close shift for all users in shift
                     var shiftUsers = db.ShiftUsers.Where(s => s.ShiftID == _shift.ID);
                     foreach (DataAccess.ShiftUser shiftUser in shiftUsers)
@@ -347,23 +363,9 @@ namespace WinForm
 
 
 
-                            var list2 = db.vw_ShiftUser.Where(s => s.ShiftID == _shift.ID && s.Flag ==0).ToList();
-                            string UserStatusMessage = "   الوضع المالي للموظفين بالوردية" + Environment.NewLine;
-                            List<string> userIDs = new List<string>();
-                            foreach (var su in list2)
-                            {
-                                userIDs.Add(su.PushoverID);
-                                var userPayment = db.UserPayments.Where(s => s.UserID == su.UserID).OrderByDescending(s => s.ID).Take(1).SingleOrDefault();
-                                var amount = userPayment.Amount;
-                                var balance = userPayment.Balance;
 
-                                UserStatusMessage += su.FullName + Environment.NewLine + " " + "  أجرة الوردية: " + amount + Environment.NewLine + " " + " المطالبة الحالية: " + balance + Environment.NewLine;
-                            }
-
-                            PushMessage.SendUserPaymentStatusMessage(UserStatusMessage, userIDs);
-                            Thread.Sleep(1500);
-
-                            PushMessage.SendShiftCloseMessage(message);
+                            var insertedUser = db.Users.Where(s => s.ID == userId).SingleOrDefault();
+                            PushMessage.SendShiftCloseMessage(insertedUser, message);
                             Thread.Sleep(1500);
 
                             Thread.Sleep(1500);
@@ -472,16 +474,16 @@ namespace WinForm
             {
                 int userId = Convert.ToInt32(UserData.Default.UserID);
                 UserPaymentRPT rpt = new UserPaymentRPT();
+                //var _shift = db.Shifts.Where(s=> s.ID == _shift.ID)
 
-
-                DateTime from = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
-                DateTime to = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
+                DateTime from = new DateTime(_shift.LoginTime.Year, _shift.LoginTime.Month, _shift.LoginTime.Day, _shift.LoginTime.Hour, _shift.LoginTime.Minute, _shift.LoginTime.Second);
+                DateTime to = new DateTime(_shift.LogoutTime.Year, _shift.LogoutTime.Month, _shift.LogoutTime.Day, _shift.LogoutTime.Hour, _shift.LogoutTime.Minute, _shift.LogoutTime.Second);
 
                 //int userId = Convert.ToInt32(userID);
                 var list = db.UserPayments.Where(s => s.Date >= from && s.Date <= to && s.UserID == userID);
                 //s => s.Date.Year >= from.Year && s.Date.Month >= from.Month && s.Date.Day >= from.Day && s.Date.Year <= to.Year && s.Date.Month <= to.Month && s.Date.Day <= to.Day);
-                Decimal amountHour = list.Where(s => s.Amount > 0).Select(s => s.Amount).Sum();
-                Decimal expence = list.Where(s => s.Amount < 0).Select(s => s.Amount).Sum();
+                Decimal amountHour = list.Where(s => s.Amount > 0).Select(s => (Decimal?)s.Amount).Sum() ?? 0;
+                Decimal expence = list.Where(s => s.Amount < 0).Select(s => (Decimal?)s.Amount).Sum() ??0;
 
                 if (list.Any())
                 {

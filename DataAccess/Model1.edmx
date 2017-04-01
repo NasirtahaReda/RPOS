@@ -80,6 +80,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.Company' does not have a primar
           <Property Name="OriginalBarcodeText" Type="varchar" MaxLength="50" />
           <Property Name="OutOfMarket" Type="bit" />
           <Property Name="QuickCode" Type="int" />
+          <Property Name="Hidden" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ItemBarcode">
           <Key>
@@ -179,6 +180,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.Company' does not have a primar
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="CustomerMobileNo" Type="nvarchar" MaxLength="50" />
           <Property Name="RequestByCustomer" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="SaleInvoice">
           <Key>
@@ -513,6 +515,8 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_Request' does not have a pri
             <PropertyRef Name="Name" />
             <PropertyRef Name="BranchName" />
             <PropertyRef Name="UserName" />
+            
+            <PropertyRef Name="Status" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="ItemID" Type="int" Nullable="false" />
@@ -526,7 +530,8 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_Request' does not have a pri
           <Property Name="FullName" Type="nvarchar" MaxLength="50" />
           <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CustomerMobileNo" Type="nvarchar" MaxLength="50" />
-          <Property Name="RequestByCustomer" Type="bit" />
+          <Property Name="RequestByCustomer" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DB_98398_reda3.dbo.vw_Sale' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -578,6 +583,18 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_Sale2' does not have a prima
           <Property Name="InventoryID" Type="int" Nullable="false" />
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_98398_reda3.dbo.vw_SaleInvoiceDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_SaleInvoiceDetails">
+          <Key>
+            <PropertyRef Name="SaleInvoiceID" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="SaleInvoiceID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DB_98398_reda3.dbo.vw_SaleInvoiceSummary' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1326,7 +1343,8 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
     [vw_Request].[FullName] AS [FullName], 
     [vw_Request].[UserName] AS [UserName], 
     [vw_Request].[CustomerMobileNo] AS [CustomerMobileNo], 
-    [vw_Request].[RequestByCustomer] AS [RequestByCustomer]
+    [vw_Request].[RequestByCustomer] AS [RequestByCustomer], 
+    [vw_Request].[Status] AS [Status]
     FROM [dbo].[vw_Request] AS [vw_Request]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_Sale" EntityType="Self.vw_Sale" store:Type="Views" store:Schema="dbo">
@@ -1356,6 +1374,13 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
     [vw_Sale2].[ID] AS [ID], 
     [vw_Sale2].[Remarks] AS [Remarks]
     FROM [dbo].[vw_Sale2] AS [vw_Sale2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_SaleInvoiceDetails" EntityType="Self.vw_SaleInvoiceDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_SaleInvoiceDetails].[SaleInvoiceID] AS [SaleInvoiceID], 
+    [vw_SaleInvoiceDetails].[ID] AS [ID], 
+    [vw_SaleInvoiceDetails].[ItemID] AS [ItemID]
+    FROM [dbo].[vw_SaleInvoiceDetails] AS [vw_SaleInvoiceDetails]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_SaleInvoiceSummary" EntityType="Self.vw_SaleInvoiceSummary" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1793,6 +1818,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             <End Role="User" EntitySet="Users" />
             <End Role="Request" EntitySet="Requests" />
           </AssociationSet>
+          <EntitySet Name="vw_SaleInvoiceDetails" EntityType="RedaV1Model.vw_SaleInvoiceDetails" />
           </EntityContainer>
         <EntityType Name="ItemCategory">
           <Key>
@@ -2489,6 +2515,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <NavigationProperty Name="TempItems" Relationship="RedaV1Model.FK_TempItem_Item" FromRole="Item" ToRole="TempItem" />
           <Property Name="QuickCode" Type="Int32" />
           <NavigationProperty Name="Requests" Relationship="RedaV1Model.FK_Request_Item" FromRole="Item" ToRole="Request" />
+          <Property Name="Hidden" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_Item_ItemCategory">
           <End Type="RedaV1Model.ItemCategory" Role="ItemCategory" Multiplicity="1" />
@@ -2946,6 +2973,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <NavigationProperty Name="User" Relationship="RedaV1Model.FK_Request_User" FromRole="Request" ToRole="User" />
           <Property Name="CustomerMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RequestByCustomer" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="vw_Request">
           <Key>
@@ -2958,6 +2986,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             <PropertyRef Name="Name" />
             <PropertyRef Name="BranchName" />
             <PropertyRef Name="UserName" />
+            <PropertyRef Name="Status" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="ItemID" Type="Int32" Nullable="false" />
@@ -2971,7 +3000,8 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CustomerMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RequestByCustomer" Type="Boolean" />
+          <Property Name="RequestByCustomer" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_Request_Branch">
           <End Type="RedaV1Model.Branch" Role="Branch" Multiplicity="1" />
@@ -3009,6 +3039,16 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vw_SaleInvoiceDetails">
+          <Key>
+            <PropertyRef Name="SaleInvoiceID" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="SaleInvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3433,6 +3473,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <EntitySetMapping Name="Items">
             <EntityTypeMapping TypeName="RedaV1Model.Item">
               <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="Hidden" ColumnName="Hidden" />
                 <ScalarProperty Name="QuickCode" ColumnName="QuickCode" />
                 <ScalarProperty Name="OutOfMarket" ColumnName="OutOfMarket" />
                 <ScalarProperty Name="OriginalBarcodeText" ColumnName="OriginalBarcodeText" />
@@ -3631,6 +3672,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <EntitySetMapping Name="Requests">
             <EntityTypeMapping TypeName="RedaV1Model.Request">
               <MappingFragment StoreEntitySet="Request">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="RequestByCustomer" ColumnName="RequestByCustomer" />
                 <ScalarProperty Name="CustomerMobileNo" ColumnName="CustomerMobileNo" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -3646,6 +3688,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <EntitySetMapping Name="vw_Request">
             <EntityTypeMapping TypeName="RedaV1Model.vw_Request">
               <MappingFragment StoreEntitySet="vw_Request">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="RequestByCustomer" ColumnName="RequestByCustomer" />
                 <ScalarProperty Name="CustomerMobileNo" ColumnName="CustomerMobileNo" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -3659,6 +3702,15 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ItemID" ColumnName="ItemID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_SaleInvoiceDetails">
+            <EntityTypeMapping TypeName="RedaV1Model.vw_SaleInvoiceDetails">
+              <MappingFragment StoreEntitySet="vw_SaleInvoiceDetails">
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SaleInvoiceID" ColumnName="SaleInvoiceID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
