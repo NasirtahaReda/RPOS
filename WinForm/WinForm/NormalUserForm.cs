@@ -2113,5 +2113,19 @@ namespace WinForm
         {
             cmbItem.Enabled = cbEnableItem.Checked;
         }
+
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new RequestItem().ShowDialog();
+
+                //FillSaleInvoiceGrid();
+            }
+            catch (Exception ex)
+            {
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+            }
+        }
     }
 }

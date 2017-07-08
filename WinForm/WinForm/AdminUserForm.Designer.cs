@@ -130,7 +130,7 @@
             this.btnItemCategory2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnNewItem = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnViewTransferInvoices = new DevExpress.XtraBars.BarButtonItem();
             this.btnExpenses2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnNewExpense = new DevExpress.XtraBars.BarButtonItem();
             this.btnPassword = new DevExpress.XtraBars.BarButtonItem();
@@ -1020,7 +1020,7 @@
             this.btnItemCategory2,
             this.btnNewItem,
             this.barButtonItem12,
-            this.barButtonItem13,
+            this.btnViewTransferInvoices,
             this.btnExpenses2,
             this.btnNewExpense,
             this.btnPassword,
@@ -1128,12 +1128,13 @@
             this.barButtonItem12.LargeGlyph = global::RedaPOS.Properties.Resources.add_icon;
             this.barButtonItem12.Name = "barButtonItem12";
             // 
-            // barButtonItem13
+            // btnViewTransferInvoices
             // 
-            this.barButtonItem13.Caption = "عرض فواتير التحويل";
-            this.barButtonItem13.Id = 13;
-            this.barButtonItem13.LargeGlyph = global::RedaPOS.Properties.Resources.Transfer;
-            this.barButtonItem13.Name = "barButtonItem13";
+            this.btnViewTransferInvoices.Caption = "عرض فواتير التحويل";
+            this.btnViewTransferInvoices.Id = 13;
+            this.btnViewTransferInvoices.LargeGlyph = global::RedaPOS.Properties.Resources.Transfer;
+            this.btnViewTransferInvoices.Name = "btnViewTransferInvoices";
+            this.btnViewTransferInvoices.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnViewTransferInvoices_ItemClick);
             // 
             // btnExpenses2
             // 
@@ -1323,7 +1324,7 @@
             // 
             // ribbonPageGroup6
             // 
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem13);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnViewTransferInvoices);
             this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem12);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "التحويل";
@@ -1488,7 +1489,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem btnNewItem;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem13;
+        private DevExpress.XtraBars.BarButtonItem btnViewTransferInvoices;
         private DevExpress.XtraBars.BarButtonItem btnExpenses2;
         private DevExpress.XtraBars.BarButtonItem btnNewExpense;
         private DevExpress.XtraBars.BarButtonItem btnPassword;

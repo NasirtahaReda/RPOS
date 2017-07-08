@@ -2225,5 +2225,10 @@ namespace WinForm
         {
             new AddExtraHourToEmployee().ShowDialog();
         }
+
+        private void btnViewTransferInvoices_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            AddControl(new TransferedInvoiceUC(), "فواتير التحويل");
+        }
     }
 }

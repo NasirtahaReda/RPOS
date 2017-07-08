@@ -283,21 +283,7 @@ namespace WinForm
                 if (isValid() && MessageBox.Show("هل أنت متأكد من صحة بيانات الوردية و حالة جميع الأجهزة؟", "الرجاء التأكد من البيانات قبل قفل الوردية", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
               
                 {
-                    var list2 = db.vw_ShiftUser.Where(s => s.ShiftID == _shift.ID && s.Flag == 0).ToList();
-                    string UserStatusMessage = "   الوضع المالي للموظفين بالوردية" + Environment.NewLine;
-                    List<string> userIDs = new List<string>();
-                    foreach (var su in list2)
-                    {
-                        userIDs.Add(su.PushoverID);
-                        var userPayment = db.UserPayments.Where(s => s.UserID == su.UserID).OrderByDescending(s => s.ID).Take(1).SingleOrDefault();
-                        var amount = userPayment.Amount;
-                        var balance = userPayment.Balance;
-
-                        UserStatusMessage += su.FullName + Environment.NewLine + " " + "  أجرة الوردية: " + amount + Environment.NewLine + " " + " المطالبة الحالية: " + balance + Environment.NewLine;
-                    }
-
-                    PushMessage.SendUserPaymentStatusMessage(UserStatusMessage, userIDs);
-                    Thread.Sleep(1500);
+                    
 
                     //Close shift for all users in shift
                     var shiftUsers = db.ShiftUsers.Where(s => s.ShiftID == _shift.ID);
@@ -334,6 +320,12 @@ namespace WinForm
                             message += " زمن الدخول " + _shift.LoginTime + Environment.NewLine;
                             message += "  زمن الخروج " + _shift.LogoutTime + Environment.NewLine;
 
+                            message += "   الفكة بداية الوردية" + txtCoinsAmountStart.EditValue + Environment.NewLine;
+                            message += " الفكة نهاية الوردية" + txtCoinsAmountClose.EditValue + Environment.NewLine;
+
+                            message += "  الكاش بداية الوردية" + txtCashAmountStart.EditValue + Environment.NewLine;
+                            message += " الكاش نهاية الوردية " + txtCashAmountClose.EditValue + Environment.NewLine;
+
                             message += "  رصيد الكهرباء الأولي " + _shift.ElectricityAmountStart + Environment.NewLine;
                             message += "  رصيد الكهرباء المتبقي " + _shift.ElectricityAmountClose + Environment.NewLine;
                             message += "  عدد فواتير الكهرباء " + txtNoOfElectricityInvoice.EditValue + Environment.NewLine;
@@ -343,14 +335,9 @@ namespace WinForm
                             message += " مجموع  التخفيض " + txtDiscountTotal.EditValue + Environment.NewLine;
                             message += " مجموع المنصرفات " + txtExpensesTotal.EditValue + Environment.NewLine;
 
-                            message += "   الفكة الأولية" + txtCoinsAmountClose.EditValue + Environment.NewLine;
-                            message += " الكاش الأولي" + txtCashAmountClose.EditValue + Environment.NewLine;
-
-                            message += "  الفكة" + txtCoinsAmountClose.EditValue + Environment.NewLine;
-                            message += " الكاش " + txtCashAmountClose.EditValue + Environment.NewLine;
-
-                            message += " صافي المبلغ " + txtSystemCash.EditValue + Environment.NewLine;
-                            message += " المبلغ المتوفر " + txtUserCash.EditValue + Environment.NewLine;
+                            
+                            message += "  صافي المبلغ - النظام " + txtSystemCash.EditValue + Environment.NewLine;
+                            message += " المبلغ المتوفر - الموظف " + txtUserCash.EditValue + Environment.NewLine;
                             message += " الفرق " + txtDifrrent.EditValue + Environment.NewLine;
                             message += "-----المنصرفات-----  " + Environment.NewLine;
                             var shift_Expendses = db.vw_Expense.Where(s => s.InsertedUserId == userId && s.Date.Year == currentDate.Year && s.Date.Month == currentDate.Month && s.Date.Day == currentDate.Day);
@@ -368,6 +355,20 @@ namespace WinForm
                             PushMessage.SendShiftCloseMessage(insertedUser, message);
                             Thread.Sleep(1500);
 
+                            var list2 = db.vw_ShiftUser.Where(s => s.ShiftID == _shift.ID && s.Flag == 0).ToList();
+                            string UserStatusMessage = "   الوضع المالي للموظفين بالوردية" + Environment.NewLine;
+                            List<string> userIDs = new List<string>();
+                            foreach (var su in list2)
+                            {
+                                userIDs.Add(su.PushoverID);
+                                var userPayment = db.UserPayments.Where(s => s.UserID == su.UserID).OrderByDescending(s => s.ID).Take(1).SingleOrDefault();
+                                var amount = userPayment.Amount;
+                                var balance = userPayment.Balance;
+
+                                UserStatusMessage += su.FullName + Environment.NewLine + " " + "  أجرة الوردية: " + amount + Environment.NewLine + " " + " المطالبة الحالية: " + balance + Environment.NewLine;
+                            }
+
+                            PushMessage.SendUserPaymentStatusMessage(UserStatusMessage, userIDs);
                             Thread.Sleep(1500);
                             PushMessage.SendDailyInventoryStatus(branchID, _shift.LoginTime, _shift.LogoutTime);
                             Thread.Sleep(1500);

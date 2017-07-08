@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RequestItem));
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.lblItem = new System.Windows.Forms.Label();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
             this.popupContainerControl1 = new DevExpress.XtraEditors.PopupContainerControl();
             this.listBoxControl1 = new DevExpress.XtraEditors.ListBoxControl();
             this.popupContainerEdit1 = new DevExpress.XtraEditors.PopupContainerEdit();
-            this.lblItem = new System.Windows.Forms.Label();
             this.lblInventoryQuantity = new System.Windows.Forms.Label();
             this.lblItemName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -55,6 +55,7 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
@@ -85,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).BeginInit();
@@ -94,6 +96,7 @@
             // 
             // dataLayoutControl1
             // 
+            this.dataLayoutControl1.Controls.Add(this.lblItem);
             this.dataLayoutControl1.Controls.Add(this.groupControl6);
             this.dataLayoutControl1.Controls.Add(this.txtDescription);
             this.dataLayoutControl1.Controls.Add(this.btnRequest);
@@ -102,17 +105,26 @@
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
-            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(784, 151, 250, 350);
+            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(891, 158, 250, 350);
             this.dataLayoutControl1.Root = this.layoutControlGroup1;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(394, 452);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(389, 456);
             this.dataLayoutControl1.TabIndex = 2;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
+            // 
+            // lblItem
+            // 
+            this.lblItem.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.lblItem.Location = new System.Drawing.Point(12, 326);
+            this.lblItem.Name = "lblItem";
+            this.lblItem.Size = new System.Drawing.Size(291, 26);
+            this.lblItem.TabIndex = 32;
+            this.lblItem.Text = "الصنف";
+            this.lblItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupControl6
             // 
             this.groupControl6.Controls.Add(this.popupContainerControl1);
             this.groupControl6.Controls.Add(this.popupContainerEdit1);
-            this.groupControl6.Controls.Add(this.lblItem);
             this.groupControl6.Controls.Add(this.lblInventoryQuantity);
             this.groupControl6.Controls.Add(this.lblItemName);
             this.groupControl6.Controls.Add(this.pictureBox2);
@@ -121,7 +133,7 @@
             this.groupControl6.Location = new System.Drawing.Point(12, 14);
             this.groupControl6.Name = "groupControl6";
             this.groupControl6.ShowCaption = false;
-            this.groupControl6.Size = new System.Drawing.Size(370, 175);
+            this.groupControl6.Size = new System.Drawing.Size(365, 175);
             this.groupControl6.TabIndex = 28;
             this.groupControl6.Text = "groupControl6";
             // 
@@ -129,7 +141,7 @@
             // 
             this.popupContainerControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.popupContainerControl1.Controls.Add(this.listBoxControl1);
-            this.popupContainerControl1.Location = new System.Drawing.Point(13, 90);
+            this.popupContainerControl1.Location = new System.Drawing.Point(8, 90);
             this.popupContainerControl1.Name = "popupContainerControl1";
             this.popupContainerControl1.Size = new System.Drawing.Size(312, 241);
             this.popupContainerControl1.TabIndex = 35;
@@ -140,7 +152,7 @@
             this.listBoxControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
             this.listBoxControl1.Appearance.Options.UseFont = true;
             this.listBoxControl1.HorizontalScrollbar = true;
-            this.listBoxControl1.Location = new System.Drawing.Point(0, 0);
+            this.listBoxControl1.Location = new System.Drawing.Point(0, -17);
             this.listBoxControl1.Name = "listBoxControl1";
             this.listBoxControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.listBoxControl1.Size = new System.Drawing.Size(312, 241);
@@ -154,7 +166,7 @@
             // popupContainerEdit1
             // 
             this.popupContainerEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.popupContainerEdit1.Location = new System.Drawing.Point(13, 58);
+            this.popupContainerEdit1.Location = new System.Drawing.Point(8, 27);
             this.popupContainerEdit1.Name = "popupContainerEdit1";
             this.popupContainerEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
             this.popupContainerEdit1.Properties.Appearance.Options.UseFont = true;
@@ -168,16 +180,6 @@
             this.popupContainerEdit1.Size = new System.Drawing.Size(283, 30);
             this.popupContainerEdit1.TabIndex = 34;
             this.popupContainerEdit1.TextChanged += new System.EventHandler(this.popupContainerEdit1_TextChanged);
-            // 
-            // lblItem
-            // 
-            this.lblItem.AutoSize = true;
-            this.lblItem.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.lblItem.Location = new System.Drawing.Point(243, 124);
-            this.lblItem.Name = "lblItem";
-            this.lblItem.Size = new System.Drawing.Size(61, 24);
-            this.lblItem.TabIndex = 32;
-            this.lblItem.Text = "الصنف";
             // 
             // lblInventoryQuantity
             // 
@@ -199,7 +201,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(315, 61);
+            this.pictureBox2.Location = new System.Drawing.Point(310, 30);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(37, 27);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -210,38 +212,41 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(303, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(298, 14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(49, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 28;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // txtBar
             // 
             this.txtBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBar.Font = new System.Drawing.Font("Times New Roman", 20F);
-            this.txtBar.Location = new System.Drawing.Point(13, 14);
+            this.txtBar.Location = new System.Drawing.Point(8, 14);
             this.txtBar.Name = "txtBar";
             this.txtBar.Size = new System.Drawing.Size(283, 38);
             this.txtBar.TabIndex = 0;
             this.txtBar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBar.Visible = false;
+            this.txtBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBar_KeyDown_1);
             // 
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(12, 239);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtDescription.Size = new System.Drawing.Size(296, 40);
+            this.txtDescription.Size = new System.Drawing.Size(291, 83);
             this.txtDescription.StyleController = this.dataLayoutControl1;
             this.txtDescription.TabIndex = 7;
             // 
             // btnRequest
             // 
-            this.btnRequest.Image = ((System.Drawing.Image)(resources.GetObject("btnRequest.Image")));
-            this.btnRequest.Location = new System.Drawing.Point(12, 368);
+            this.btnRequest.Image = global::RedaPOS.Properties.Resources.Add64;
+            this.btnRequest.Location = new System.Drawing.Point(12, 382);
             this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(370, 72);
+            this.btnRequest.Size = new System.Drawing.Size(365, 62);
             this.btnRequest.StyleController = this.dataLayoutControl1;
             this.btnRequest.TabIndex = 5;
             this.btnRequest.Text = "إضافة صنف";
@@ -263,7 +268,7 @@
             this.txtQuantity.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.txtQuantity.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.txtQuantity.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtQuantity.Size = new System.Drawing.Size(296, 30);
+            this.txtQuantity.Size = new System.Drawing.Size(291, 30);
             this.txtQuantity.StyleController = this.dataLayoutControl1;
             this.txtQuantity.TabIndex = 29;
             // 
@@ -280,7 +285,7 @@
             this.layoutControlGroup2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(394, 452);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(389, 456);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlGroup2
@@ -296,10 +301,11 @@
             this.layoutControlItem3,
             this.layoutControlItem4,
             this.layoutControlItem2,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.layoutControlItem5});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(374, 432);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(369, 436);
             // 
             // simpleSeparator1
             // 
@@ -307,16 +313,16 @@
             this.simpleSeparator1.CustomizationFormText = "simpleSeparator1";
             this.simpleSeparator1.Location = new System.Drawing.Point(0, 0);
             this.simpleSeparator1.Name = "simpleSeparator1";
-            this.simpleSeparator1.Size = new System.Drawing.Size(374, 2);
+            this.simpleSeparator1.Size = new System.Drawing.Size(369, 2);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 271);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 344);
             this.emptySpaceItem3.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(374, 83);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(369, 24);
             this.emptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -324,17 +330,17 @@
             // 
             this.simpleSeparator2.AllowHotTrack = false;
             this.simpleSeparator2.CustomizationFormText = "simpleSeparator2";
-            this.simpleSeparator2.Location = new System.Drawing.Point(0, 354);
+            this.simpleSeparator2.Location = new System.Drawing.Point(0, 368);
             this.simpleSeparator2.Name = "simpleSeparator2";
-            this.simpleSeparator2.Size = new System.Drawing.Size(374, 2);
+            this.simpleSeparator2.Size = new System.Drawing.Size(369, 2);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnRequest;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 356);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 370);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(82, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(374, 76);
+            this.layoutControlItem1.Size = new System.Drawing.Size(369, 66);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -344,7 +350,7 @@
             this.layoutControlItem3.Control = this.txtDescription;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 227);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(374, 44);
+            this.layoutControlItem3.Size = new System.Drawing.Size(369, 87);
             this.layoutControlItem3.Text = "ملاحظات";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Right;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(71, 13);
@@ -354,7 +360,7 @@
             this.layoutControlItem4.Control = this.groupControl6;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 2);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(374, 179);
+            this.layoutControlItem4.Size = new System.Drawing.Size(369, 179);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -363,7 +369,7 @@
             this.layoutControlItem2.Control = this.txtQuantity;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 181);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(374, 34);
+            this.layoutControlItem2.Size = new System.Drawing.Size(369, 34);
             this.layoutControlItem2.Text = "الكمية المطلوبة";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Right;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(71, 13);
@@ -373,8 +379,20 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 215);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(374, 12);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(369, 12);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.lblItem;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 314);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(24, 24);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(369, 30);
+            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem5.Text = "الصنف المطلوب";
+            this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Right;
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(71, 13);
             // 
             // dxErrorProvider1
             // 
@@ -401,10 +419,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(389, 456);
             this.Controls.Add(this.dataLayoutControl1);
             this.LookAndFeel.SkinName = "Office 2010 Blue";
             this.Name = "RequestItem";
-            this.Size = new System.Drawing.Size(394, 452);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.AddUserToShift_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
@@ -430,6 +449,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).EndInit();
@@ -472,5 +492,6 @@
         private DevExpress.XtraEditors.PopupContainerControl popupContainerControl1;
         private DevExpress.XtraEditors.PopupContainerEdit popupContainerEdit1;
         private DevExpress.XtraEditors.ListBoxControl listBoxControl1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace WinForm
 {
-    partial class PurchaseInvoiceUC
+    partial class TransferedInvoiceUC
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseInvoiceUC));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransferedInvoiceUC));
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -53,11 +52,11 @@
             this.colFlag = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnGetAll = new DevExpress.XtraEditors.SimpleButton();
             this.groupControlSearch = new DevExpress.XtraEditors.GroupControl();
-            this.rbSearchByDate = new System.Windows.Forms.RadioButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.rbReda2 = new System.Windows.Forms.RadioButton();
+            this.rbReda1 = new System.Windows.Forms.RadioButton();
             this.cmbTo = new DevExpress.XtraEditors.DateEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar3 = new DevExpress.XtraBars.Bar();
@@ -69,9 +68,6 @@
             this.cmbFrom = new DevExpress.XtraEditors.DateEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.rbSearchByInvoiceNumber = new System.Windows.Forms.RadioButton();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.txtSearch = new DevExpress.XtraEditors.ButtonEdit();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).BeginInit();
             this.groupControlMain.SuspendLayout();
@@ -92,7 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFrom.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFrom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControlMain
@@ -138,7 +133,7 @@
             this.transferToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(173, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(173, 92);
             this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
             // 
             // invoiceDetailsToolStripMenuItem
@@ -298,7 +293,7 @@
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
@@ -310,26 +305,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             // 
-            // btnSave
-            // 
-            this.btnSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnSave.Location = new System.Drawing.Point(15, 7);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(64, 64);
-            this.btnSave.TabIndex = 0;
-            this.btnSave.Text = "Save";
-            this.btnSave.ToolTip = "Save";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // btnGetAll
             // 
             this.btnGetAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGetAll.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
             this.btnGetAll.Image = ((System.Drawing.Image)(resources.GetObject("btnGetAll.Image")));
             this.btnGetAll.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnGetAll.Location = new System.Drawing.Point(225, 8);
+            this.btnGetAll.Location = new System.Drawing.Point(267, 15);
             this.btnGetAll.Name = "btnGetAll";
             this.btnGetAll.Size = new System.Drawing.Size(64, 64);
             this.btnGetAll.TabIndex = 0;
@@ -339,13 +321,8 @@
             // 
             // groupControlSearch
             // 
-            this.groupControlSearch.Controls.Add(this.rbSearchByDate);
             this.groupControlSearch.Controls.Add(this.groupControl1);
-            this.groupControlSearch.Controls.Add(this.rbSearchByInvoiceNumber);
             this.groupControlSearch.Controls.Add(this.btnGetAll);
-            this.groupControlSearch.Controls.Add(this.btnSave);
-            this.groupControlSearch.Controls.Add(this.btnAdd);
-            this.groupControlSearch.Controls.Add(this.txtSearch);
             this.groupControlSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControlSearch.Location = new System.Drawing.Point(0, 0);
             this.groupControlSearch.Name = "groupControlSearch";
@@ -354,38 +331,51 @@
             this.groupControlSearch.TabIndex = 5;
             this.groupControlSearch.Text = "groupControl1";
             // 
-            // rbSearchByDate
-            // 
-            this.rbSearchByDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbSearchByDate.AutoSize = true;
-            this.rbSearchByDate.Checked = true;
-            this.rbSearchByDate.Location = new System.Drawing.Point(627, 8);
-            this.rbSearchByDate.Name = "rbSearchByDate";
-            this.rbSearchByDate.Size = new System.Drawing.Size(108, 17);
-            this.rbSearchByDate.TabIndex = 8;
-            this.rbSearchByDate.TabStop = true;
-            this.rbSearchByDate.Text = "بحث بتاريخ الفاتورة";
-            this.rbSearchByDate.UseVisualStyleBackColor = true;
-            // 
             // groupControl1
             // 
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.rbReda2);
+            this.groupControl1.Controls.Add(this.rbReda1);
             this.groupControl1.Controls.Add(this.cmbTo);
             this.groupControl1.Controls.Add(this.cmbFrom);
             this.groupControl1.Controls.Add(this.label3);
             this.groupControl1.Controls.Add(this.label2);
-            this.groupControl1.Location = new System.Drawing.Point(341, 21);
+            this.groupControl1.Location = new System.Drawing.Point(359, 24);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.ShowCaption = false;
-            this.groupControl1.Size = new System.Drawing.Size(406, 48);
+            this.groupControl1.Size = new System.Drawing.Size(680, 48);
             this.groupControl1.TabIndex = 7;
             this.groupControl1.Text = "groupControl1";
+            // 
+            // rbReda2
+            // 
+            this.rbReda2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbReda2.AutoSize = true;
+            this.rbReda2.Location = new System.Drawing.Point(147, 17);
+            this.rbReda2.Name = "rbReda2";
+            this.rbReda2.Size = new System.Drawing.Size(50, 17);
+            this.rbReda2.TabIndex = 9;
+            this.rbReda2.Text = "رضا 2";
+            this.rbReda2.UseVisualStyleBackColor = true;
+            // 
+            // rbReda1
+            // 
+            this.rbReda1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbReda1.AutoSize = true;
+            this.rbReda1.Checked = true;
+            this.rbReda1.Location = new System.Drawing.Point(222, 17);
+            this.rbReda1.Name = "rbReda1";
+            this.rbReda1.Size = new System.Drawing.Size(50, 17);
+            this.rbReda1.TabIndex = 8;
+            this.rbReda1.TabStop = true;
+            this.rbReda1.Text = "رضا 1";
+            this.rbReda1.UseVisualStyleBackColor = true;
             // 
             // cmbTo
             // 
             this.cmbTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTo.EditValue = null;
-            this.cmbTo.Location = new System.Drawing.Point(22, 16);
+            this.cmbTo.Location = new System.Drawing.Point(296, 16);
             this.cmbTo.MenuManager = this.barManager1;
             this.cmbTo.Name = "cmbTo";
             this.cmbTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -462,7 +452,7 @@
             // 
             this.cmbFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbFrom.EditValue = null;
-            this.cmbFrom.Location = new System.Drawing.Point(223, 16);
+            this.cmbFrom.Location = new System.Drawing.Point(497, 16);
             this.cmbFrom.MenuManager = this.barManager1;
             this.cmbFrom.Name = "cmbFrom";
             this.cmbFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -476,7 +466,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(128, 23);
+            this.label3.Location = new System.Drawing.Point(402, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 5;
@@ -486,54 +476,17 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(340, 23);
+            this.label2.Location = new System.Drawing.Point(614, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "من تاريخ";
             // 
-            // rbSearchByInvoiceNumber
-            // 
-            this.rbSearchByInvoiceNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbSearchByInvoiceNumber.AutoSize = true;
-            this.rbSearchByInvoiceNumber.Location = new System.Drawing.Point(932, 7);
-            this.rbSearchByInvoiceNumber.Name = "rbSearchByInvoiceNumber";
-            this.rbSearchByInvoiceNumber.Size = new System.Drawing.Size(104, 17);
-            this.rbSearchByInvoiceNumber.TabIndex = 6;
-            this.rbSearchByInvoiceNumber.Text = "بحث برقم الفاتورة";
-            this.rbSearchByInvoiceNumber.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.btnAdd.Image = global::RedaPOS.Properties.Resources.Add64;
-            this.btnAdd.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAdd.Location = new System.Drawing.Point(85, 7);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(64, 64);
-            this.btnAdd.TabIndex = 2;
-            this.btnAdd.Text = "Save";
-            this.btnAdd.ToolTip = "Save";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.Location = new System.Drawing.Point(876, 37);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Clear, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
-            this.txtSearch.Properties.NullText = "ادخل رقم";
-            this.txtSearch.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtSearch_Properties_ButtonClick);
-            this.txtSearch.Size = new System.Drawing.Size(160, 20);
-            this.txtSearch.TabIndex = 0;
-            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
-            // 
             // timer1
             // 
             this.timer1.Interval = 1350;
             // 
-            // PurchaseInvoiceUC
+            // TransferedInvoiceUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -543,7 +496,7 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "PurchaseInvoiceUC";
+            this.Name = "TransferedInvoiceUC";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Size = new System.Drawing.Size(1063, 427);
             this.Load += new System.EventHandler(this.PurchaseInvoiceUC_Load);
@@ -559,7 +512,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlSearch)).EndInit();
             this.groupControlSearch.ResumeLayout(false);
-            this.groupControlSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -568,7 +520,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFrom.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFrom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -578,7 +529,6 @@
         private DevExpress.XtraEditors.GroupControl groupControlMain;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnGetAll;
         private System.Windows.Forms.BindingSource bindingSource1;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
@@ -586,7 +536,6 @@
         private System.Windows.Forms.BindingSource bindingSourceUsers;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
         private DevExpress.XtraEditors.GroupControl groupControlSearch;
-        private DevExpress.XtraEditors.ButtonEdit txtSearch;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
         private DevExpress.XtraGrid.Columns.GridColumn colNumber;
         private DevExpress.XtraGrid.Columns.GridColumn colDate;
@@ -607,14 +556,13 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarStaticItem lblMessage;
         private System.Windows.Forms.Timer timer1;
-        private DevExpress.XtraEditors.SimpleButton btnAdd;
         private System.Windows.Forms.ToolStripMenuItem transferToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.DateEdit cmbTo;
         private DevExpress.XtraEditors.DateEdit cmbFrom;
-        private System.Windows.Forms.RadioButton rbSearchByDate;
+        private System.Windows.Forms.RadioButton rbReda1;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private System.Windows.Forms.RadioButton rbSearchByInvoiceNumber;
+        private System.Windows.Forms.RadioButton rbReda2;
     }
 }

@@ -226,23 +226,26 @@ namespace WinForm
                     */
                     if (db.SaveChanges() > 0)
                     {
-                                                
-                        string pushid = cmbUserName.GetColumnValue("PushoverID").ToString();
-                        List<string> userIDs = new List<string>();
-                        userIDs.Add(pushid);
 
-                        var userPayment = db.UserPayments.Where(s => s.UserID == userId).OrderByDescending(s => s.ID).Take(1).SingleOrDefault();
-                        var amount = userPayment.Amount;
-                        balance = userPayment.Balance;
+                        if (cmbUserName.GetColumnValue("PushoverID") != null)
+                        {
+                            string pushid = cmbUserName.GetColumnValue("PushoverID").ToString();
+                            List<string> userIDs = new List<string>();
+                            userIDs.Add(pushid);
 
-                        message+= Environment.NewLine + " " + "القيمة  " + amount + Environment.NewLine + " " + " المطالبة الحالية: " + balance + Environment.NewLine;
+                            var userPayment = db.UserPayments.Where(s => s.UserID == userId).OrderByDescending(s => s.ID).Take(1).SingleOrDefault();
+                            var amount = userPayment.Amount;
+                            balance = userPayment.Balance;
+
+                            message += Environment.NewLine + " " + "القيمة  " + amount + Environment.NewLine + " " + " المطالبة الحالية: " + balance + Environment.NewLine;
 
 
-                        PushMessage.SendUserPaymentStatusMessage(message, userIDs);
+                            PushMessage.SendUserPaymentStatusMessage(message, userIDs);
 
-                        MessageBox.Show(message);
+                            MessageBox.Show(message);
 
-                        Thread.Sleep(1500);
+                            Thread.Sleep(1500);
+                        }
                         this.Close();
                     }
 

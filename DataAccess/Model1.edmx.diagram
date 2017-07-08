@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="aec95257fe0840d8964eaa255076743c" Name="Diagram1" ZoomLevel="113">
+      <Diagram DiagramId="aec95257fe0840d8964eaa255076743c" Name="Diagram1" ZoomLevel="88">
         <EntityTypeShape EntityType="RedaV1Model.ItemCategory" Width="1.5" PointX="0.5" PointY="3.125" />
         <EntityTypeShape EntityType="RedaV1Model.PurchaseInvoice" Width="1.5" PointX="7.25" PointY="3" />
         <EntityTypeShape EntityType="RedaV1Model.PurchaseInvoiceDetail" Width="1.5" PointX="4.75" PointY="3" />
@@ -28,7 +28,7 @@
         <EntityTypeShape EntityType="RedaV1Model.Expense" Width="1.5" PointX="14.25" PointY="7.75" />
         <AssociationConnector Association="RedaV1Model.FK_Expense_Branch" />
         <EntityTypeShape EntityType="RedaV1Model.vw_Expense" Width="1.5" PointX="14.375" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="RedaV1Model.Stocking" Width="1.5" PointX="7.625" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="RedaV1Model.Stocking" Width="1.5" PointX="7.625" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RedaV1Model.StockingDetail" Width="1.5" PointX="17.5" PointY="6.25" />
         <EntityTypeShape EntityType="RedaV1Model.vw_Stocking" Width="1.5" PointX="0.75" PointY="17.625" />
         <AssociationConnector Association="RedaV1Model.FK_Stocking_Branch" />

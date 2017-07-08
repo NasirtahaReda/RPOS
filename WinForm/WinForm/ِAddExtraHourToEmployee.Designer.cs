@@ -32,11 +32,10 @@
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::RedaPOS.SplashScreen1), true, true);
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
+            this.txtDescription = new DevExpress.XtraEditors.MemoEdit();
             this.btnAddUser = new DevExpress.XtraEditors.SimpleButton();
             this.txtHourNumbers = new DevExpress.XtraEditors.TextEdit();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbUserName = new DevExpress.XtraEditors.LookUpEdit();
-            this.userBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForUserName = new DevExpress.XtraLayout.LayoutControlItem();
@@ -46,18 +45,18 @@
             this.simpleSeparator2 = new DevExpress.XtraLayout.SimpleSeparator();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.branchBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtDescription = new DevExpress.XtraEditors.MemoEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHourNumbers.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbUserName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForUserName)).BeginInit();
@@ -67,10 +66,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splashScreenManager1
@@ -92,6 +92,15 @@
             this.dataLayoutControl1.Size = new System.Drawing.Size(422, 380);
             this.dataLayoutControl1.TabIndex = 2;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.EditValue = "";
+            this.txtDescription.Location = new System.Drawing.Point(12, 60);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(318, 80);
+            this.txtDescription.StyleController = this.dataLayoutControl1;
+            this.txtDescription.TabIndex = 6;
             // 
             // btnAddUser
             // 
@@ -116,10 +125,6 @@
             this.txtHourNumbers.TabIndex = 0;
             this.txtHourNumbers.ToolTipTitle = "كلمة المرور";
             this.txtHourNumbers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(DataAccess.User);
             // 
             // cmbUserName
             // 
@@ -148,10 +153,6 @@
             this.cmbUserName.TabIndex = 4;
             this.cmbUserName.TabStop = false;
             this.cmbUserName.ToolTipTitle = "اسم المستخدم";
-            // 
-            // userBindingSource1
-            // 
-            this.userBindingSource1.DataSource = typeof(DataAccess.User);
             // 
             // layoutControlGroup1
             // 
@@ -256,24 +257,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // dxErrorProvider1
-            // 
-            this.dxErrorProvider1.ContainerControl = this.dataLayoutControl1;
-            this.dxErrorProvider1.DataSource = this.userBindingSource;
-            // 
-            // branchBindingSource
-            // 
-            this.branchBindingSource.DataSource = typeof(DataAccess.Branch);
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.EditValue = "";
-            this.txtDescription.Location = new System.Drawing.Point(12, 60);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(318, 80);
-            this.txtDescription.StyleController = this.dataLayoutControl1;
-            this.txtDescription.TabIndex = 6;
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.AppearanceItemCaption.Options.UseTextOptions = true;
@@ -288,6 +271,23 @@
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Right;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(77, 13);
             // 
+            // dxErrorProvider1
+            // 
+            this.dxErrorProvider1.ContainerControl = this.dataLayoutControl1;
+            this.dxErrorProvider1.DataSource = this.userBindingSource;
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(DataAccess.User);
+            // 
+            // userBindingSource1
+            // 
+            this.userBindingSource1.DataSource = typeof(DataAccess.User);
+            // 
+            // branchBindingSource
+            // 
+            this.branchBindingSource.DataSource = typeof(DataAccess.Branch);
+            // 
             // AddExtraHourToEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,10 +301,9 @@
             this.Load += new System.EventHandler(this.AddUserToShift_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHourNumbers.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbUserName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForUserName)).EndInit();
@@ -314,10 +313,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.simpleSeparator2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

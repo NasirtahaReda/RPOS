@@ -133,6 +133,7 @@
             this.btnAddUserToShift = new DevExpress.XtraEditors.SimpleButton();
             this.dockPanelOperations = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.btnRequest = new DevExpress.XtraEditors.SimpleButton();
             this.btnExpenses = new DevExpress.XtraEditors.SimpleButton();
             this.btnTransfer = new DevExpress.XtraEditors.SimpleButton();
             this.btnChangePassword = new DevExpress.XtraEditors.SimpleButton();
@@ -292,7 +293,7 @@
             this.dockPanelHoulSearch.Controls.Add(this.dockPanel3_Container);
             this.dockPanelHoulSearch.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanelHoulSearch.ID = new System.Guid("35223e2d-3e70-4718-b33b-2f7a7f4a3a79");
-            this.dockPanelHoulSearch.Location = new System.Drawing.Point(0, 0);
+            this.dockPanelHoulSearch.Location = new System.Drawing.Point(19, 0);
             this.dockPanelHoulSearch.Name = "dockPanelHoulSearch";
             this.dockPanelHoulSearch.OriginalSize = new System.Drawing.Size(837, 200);
             this.dockPanelHoulSearch.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
@@ -487,7 +488,7 @@
             this.panelContainer1.Controls.Add(this.dockPanelReport);
             this.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.panelContainer1.ID = new System.Guid("d76377ad-8b4c-4174-85de-6b0715eb122b");
-            this.panelContainer1.Location = new System.Drawing.Point(0, 0);
+            this.panelContainer1.Location = new System.Drawing.Point(19, 0);
             this.panelContainer1.Name = "panelContainer1";
             this.panelContainer1.OriginalSize = new System.Drawing.Size(560, 200);
             this.panelContainer1.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
@@ -1009,7 +1010,7 @@
             this.dockPanelUsersInShift.Controls.Add(this.controlContainer2);
             this.dockPanelUsersInShift.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanelUsersInShift.ID = new System.Guid("7c4e836e-670d-4263-93f5-47b3c91dca84");
-            this.dockPanelUsersInShift.Location = new System.Drawing.Point(0, 0);
+            this.dockPanelUsersInShift.Location = new System.Drawing.Point(19, 0);
             this.dockPanelUsersInShift.Name = "dockPanelUsersInShift";
             this.dockPanelUsersInShift.OriginalSize = new System.Drawing.Size(563, 200);
             this.dockPanelUsersInShift.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
@@ -1195,6 +1196,7 @@
             // 
             // dockPanel2_Container
             // 
+            this.dockPanel2_Container.Controls.Add(this.btnRequest);
             this.dockPanel2_Container.Controls.Add(this.btnExpenses);
             this.dockPanel2_Container.Controls.Add(this.btnTransfer);
             this.dockPanel2_Container.Controls.Add(this.btnChangePassword);
@@ -1205,9 +1207,22 @@
             this.dockPanel2_Container.Size = new System.Drawing.Size(1207, 118);
             this.dockPanel2_Container.TabIndex = 0;
             // 
+            // btnRequest
+            // 
+            this.btnRequest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRequest.Image = global::RedaPOS.Properties.Resources.request1;
+            this.btnRequest.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnRequest.Location = new System.Drawing.Point(281, 16);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(127, 94);
+            this.btnRequest.TabIndex = 47;
+            this.btnRequest.Text = "طلب صنف";
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
+            // 
             // btnExpenses
             // 
             this.btnExpenses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExpenses.Image = global::RedaPOS.Properties.Resources.Add_Money;
             this.btnExpenses.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnExpenses.Location = new System.Drawing.Point(612, 16);
             this.btnExpenses.Name = "btnExpenses";
@@ -1219,6 +1234,7 @@
             // btnTransfer
             // 
             this.btnTransfer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTransfer.Image = global::RedaPOS.Properties.Resources.Transfer;
             this.btnTransfer.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnTransfer.Location = new System.Drawing.Point(461, 16);
             this.btnTransfer.Name = "btnTransfer";
@@ -1637,5 +1653,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.CheckEdit cbEnableItem;
         private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.SimpleButton btnRequest;
     }
 }

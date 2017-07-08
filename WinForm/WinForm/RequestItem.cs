@@ -19,7 +19,7 @@ namespace WinForm
 {
 
 
-    public partial class RequestItem : DevExpress.XtraEditors.XtraUserControl
+    public partial class RequestItem : DevExpress.XtraEditors.XtraForm
     {
         int itemID = 0;
         int branchID = 0;
@@ -54,7 +54,7 @@ namespace WinForm
                                 */
 
                 //cmbSearch.Properties.ValueMember = "ID";
-               // cmbSearch.Properties.DisplayMember = "Value";
+                // cmbSearch.Properties.DisplayMember = "Value";
 
                 //cmbSearch.Properties.PopupFilterMode = PopupFilterMode.Contains
                 //  myLookUpEdit1.Properties.PopulateColumns();
@@ -72,14 +72,14 @@ namespace WinForm
         }
         private void AddUserToShift_Load(object sender, EventArgs e)
         {
-            
+
         }
         void popupContainerEdit1Properties_EditValueChanged(object sender, EventArgs e)
         {
             PopupContainerEdit popupContainerEdit = sender as PopupContainerEdit;
             lblItem.Text = popupContainerEdit.EditValue.ToString();
         }
-        
+
         private void labelControl2_Click(object sender, EventArgs e)
         {
 
@@ -193,32 +193,30 @@ namespace WinForm
                     quantity = Convert.ToInt32(txtQuantity.EditValue);
                     string desciption = txtDescription.Text;
 
-                    if (true)
-                    {
-                        request.UserID = userID;
-                        request.BranchID = branchID;
-                        request.RequestDate = DateTime.Now;
-                        request.Quantity = quantity;
-                        request.Description = desciption;
-                        var itemObj = (ItemObject)listBoxControl1.SelectedItem;
-                        request.ItemID = Convert.ToInt32(itemObj.Data);
-                        db.Requests.Add(request);
 
-                        if (db.SaveChanges() > 0)
-                        {
+                    request.UserID = userID;
+                    request.BranchID = branchID;
+                    request.RequestDate = DateTime.Now;
+                    request.Quantity = quantity;
+                    request.Description = desciption;
+                    var itemObj = (ItemObject)listBoxControl1.SelectedItem;
+                    request.ItemID = Convert.ToInt32(itemObj.Data);
+                    db.Requests.Add(request);
+
+                    if (db.SaveChanges() > 0)
+                    {
 #if !DEBUG
                             var message = "" + UserData.Default.BranchName + " فرع " + UserName + " من المستخدم   " + lblItem.Text + " تمت طلب الصنف ";
                             PushMessage.SendDirectMessage(message);
 
 #endif
-                            MessageBox.Show("تم حفظ الطلب و إرساله للإدارة", "شكرا لاهتمامك");
-                          //  Thread.Sleep(1500);
-                           // this.Close();
-                        }
+                        MessageBox.Show("تم حفظ الطلب و إرساله للإدارة", "شكرا لاهتمامك");
+                        //  Thread.Sleep(1500);
+                        // this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("الرجاء التأكد من اسم المستخدم وكلمة المرور");
+                        MessageBox.Show("توجد مشكلة في حفظ البيانات، الرجاء المحاولة مرة أخري");
                     }
                 }
             }
@@ -283,7 +281,7 @@ namespace WinForm
 
                     var list = (from s in db.Items.Local where s.Name.Contains(query) select s).ToList();
 
-                    
+
                     foreach (var item in list)
                     {
                         dt.Rows.Add(new object[] { item.ID, item.Name });
@@ -309,8 +307,8 @@ namespace WinForm
         {
             try
             {
-             ///  // var val = cmbSearch.EditValue.ToString();
-             //   lblItem.Text = cmbSearch.Text;
+                ///  // var val = cmbSearch.EditValue.ToString();
+                //   lblItem.Text = cmbSearch.Text;
             }
             catch (Exception ex)
             {
@@ -359,7 +357,7 @@ namespace WinForm
             try
             {
                 bool result = false;
-                 listBoxControl1.Items.Clear();
+                listBoxControl1.Items.Clear();
                 string query = popupContainerEdit1.Text;
                 if (query.Count() > 2)
                 {
@@ -376,8 +374,8 @@ namespace WinForm
                     {
                         query = query.Replace('ه', 'ة');
                         list = from s in db.Items.Local
-                                   where s.Name.Contains(query)
-                                   select s;
+                               where s.Name.Contains(query)
+                               select s;
                         if (list.Any())
                         {
                             AddToListbox(list);
@@ -391,7 +389,7 @@ namespace WinForm
                         list = from s in db.Items.Local
                                where s.Name.Contains(query)
                                select s;
-                      
+
                         if (list.Any())
                         {
                             AddToListbox(list);
@@ -417,7 +415,7 @@ namespace WinForm
                     if (query.EndsWith("ى"))
                     {
                         query = query.Replace('ى', 'ي');
-                       list = from s in db.Items.Local
+                        list = from s in db.Items.Local
                                where s.Name.Contains(query)
                                select s;
                         if (list.Any())
@@ -456,7 +454,7 @@ namespace WinForm
                     }
 
 
-                 
+
                     if (result)
                     {
                         //AddToListbox(list);
@@ -473,7 +471,7 @@ namespace WinForm
             {
                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
-            
+
         }
         void AddToListbox(IEnumerable<DataAccess.Item> list)
         {
@@ -482,7 +480,7 @@ namespace WinForm
                 list = list.ToList();
                 foreach (var item in list)
                 {
-                    listBoxControl1.Items.Add( new ItemObject(item.Name, item.ID));
+                    listBoxControl1.Items.Add(new ItemObject(item.Name, item.ID));
                 }
             }
             catch (Exception ex)
@@ -501,7 +499,7 @@ namespace WinForm
                 if (popupContainerEdit1.IsPopupOpen && listBoxControl1.SelectedItem != null)
                 {
                     Console.WriteLine("SelectedValueChanged: " + listBoxControl1.SelectedItem.ToString());
-                   
+
                     popupContainerEdit1.ClosePopup();
                     if (listBoxControl1.SelectedValue is ItemObject)
                     {
@@ -517,7 +515,7 @@ namespace WinForm
             catch (Exception ex)
             {
                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
-                
+
             }
         }
         private void listBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -529,18 +527,50 @@ namespace WinForm
             catch (Exception ex)
             {
                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
-                
+
             }
         }
         private void listBoxControl1_DoubleClick(object sender, EventArgs e)
         {
-            
+
         }
         private void listBoxControl1_ValueMemberChanged(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void txtBar_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    string barcodeText = txtBar.Text;
+                    if (txtBar.Text != "")
+                    {
+
+                        if (txtBar.Text.Length >= 6)
+                        {
+                            var ItemsFound = db.ItemBarcodes.Local.Where(s => s.BarcodeText == barcodeText);
+                            var ItemIDs = ItemsFound.Select(s => s.ItemID).First();
+                            var item = db.Items.Local.Where(s => s.ID == ItemIDs).First();
+                            if (ItemIDs != null)
+                            {
+                                //  lblItem.Text = itemObj.Name.ToString();
+                                popupContainerEdit1.Text = item.Name.ToString();
+                                lblItem.Text = item.Name.ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+            }
         }
     }
+
     public class ItemObject
     {
 

@@ -1161,7 +1161,7 @@
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.dockPanel1.ID = new System.Guid("73b7b88d-b386-4ce9-a7ad-a9021aa7f7a5");
-            this.dockPanel1.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel1.Location = new System.Drawing.Point(956, 0);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.OriginalSize = new System.Drawing.Size(259, 200);
             this.dockPanel1.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Right;

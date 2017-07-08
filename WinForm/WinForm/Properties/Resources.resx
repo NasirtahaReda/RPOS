@@ -175,6 +175,9 @@
   <data name="Splashscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Splashscreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="request" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\64\request.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Ok-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\64\Ok-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -322,6 +325,9 @@
   <data name="dashboard-alt-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\64\dashboard-alt-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="money_bag_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\64\money_bag_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="print-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\16\print-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -346,7 +352,7 @@
   <data name="Items" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\64\Items.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="money_bag_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\64\money_bag_add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="request1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\64\request.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

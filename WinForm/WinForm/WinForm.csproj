@@ -257,6 +257,13 @@
     <Compile Include="Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModuleClass.cs" />
+    <Compile Include="TransferedInvoiceUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TransferedInvoiceUC.Designer.cs">
+      <DependentUpon>TransferedInvoiceUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SbarcoLabelRPT.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -647,7 +654,6 @@
     <Compile Include="ItemForm.Designer.cs">
       <DependentUpon>ItemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModuleClass.cs" />
     <Compile Include="Reports\ExpenseRPT.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -840,6 +846,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransferedInvoiceUC.resx">
+      <DependentUpon>TransferedInvoiceUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\SbarcoLabelRPT.resx">
       <DependentUpon>SbarcoLabelRPT.cs</DependentUpon>
@@ -1284,6 +1293,8 @@
     <None Include="Images\64\add_user.png" />
     <None Include="Images\64\Add_Money.png" />
     <None Include="Images\64\money_bag_add.png" />
+    <None Include="Images\64\request.jpg" />
+    <None Include="Images\64\request.png" />
     <Content Include="localDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

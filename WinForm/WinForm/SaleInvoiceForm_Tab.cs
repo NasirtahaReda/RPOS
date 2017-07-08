@@ -313,6 +313,7 @@ namespace WinForm
                     string Remarks = gridViewInvoice.GetRowCellDisplayText(rowHandle, colRemarks);
                     obj = new DataAccess.vw_Sale2();
                     obj.Name = ItemName;
+                    obj.Date = DateTime.Now;
                     obj.UnitPrice = Convert.ToDecimal(UnitPrice);
                     obj.Quanitity = Convert.ToInt32(Quanitity);
                     obj.Remarks = Remarks;

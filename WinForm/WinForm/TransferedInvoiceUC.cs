@@ -19,12 +19,12 @@ using RedaPOS;
 
 namespace WinForm
 {
-    public partial class PurchaseInvoiceUC : DevExpress.XtraEditors.XtraUserControl
+    public partial class TransferedInvoiceUC : DevExpress.XtraEditors.XtraUserControl
     {
         string ErrorMessage = "";
         int branchID = 0;
         DataAccess.RedaV1Entities db = new DataAccess.RedaV1Entities(ModuleClass.Connect());
-        public PurchaseInvoiceUC()
+        public TransferedInvoiceUC()
         {
             InitializeComponent();
             branchID = Convert.ToInt32(UserData.Default.BranchID);
@@ -49,24 +49,19 @@ namespace WinForm
         {
             try
             {
-                if (rbSearchByDate.Checked)
-                {
-                    DateTime from = new DateTime(cmbFrom.DateTime.Year, cmbFrom.DateTime.Month, cmbFrom.DateTime.Day, 0, 0, 0);
-                    DateTime to = new DateTime(cmbTo.DateTime.Year, cmbTo.DateTime.Month, cmbTo.DateTime.Day, 23, 59, 59);
-                    db = new DataAccess.RedaV1Entities(ModuleClass.Connect());
-                    var list = db.PurchaseInvoices.Where(s => s.BranchID == branchID && s.Date >= from && s.Date <= to).ToList();
-                    bindingSource1.DataSource = list;
-                }
+                int bId = 0;
+                if (rbReda1.Checked)
+                    bId = 1;
                 else
-                {
-                    string query = txtSearch.Text;
+                    bId = 2;
 
-                    db = new DataAccess.RedaV1Entities(ModuleClass.Connect());
-                    db.PurchaseInvoices.Where(s => s.Number.Contains(query)).Load();
-                    var list = db.PurchaseInvoices.Local.ToBindingList();
-                    bindingSource1.DataSource = list;
+                DateTime from = new DateTime(cmbFrom.DateTime.Year, cmbFrom.DateTime.Month, cmbFrom.DateTime.Day, 0, 0, 0);
+                DateTime to = new DateTime(cmbTo.DateTime.Year, cmbTo.DateTime.Month, cmbTo.DateTime.Day, 23, 59, 59);
+                db = new DataAccess.RedaV1Entities(ModuleClass.Connect());
 
-                }
+                var list = db.PurchaseInvoices.Where(s => s.BranchID == bId && s.Date >= from && s.Date <= to).ToList();
+                bindingSource1.DataSource = list;
+                
             }
             catch (Exception ex)
             {
@@ -265,14 +260,7 @@ namespace WinForm
         {
             try
             {
-                string query = txtSearch.Text;
-                if (e.KeyCode == Keys.Enter)
-                {
-                    db = new DataAccess.RedaV1Entities(ModuleClass.Connect());
-                    db.PurchaseInvoices.Where(s => s.Number.Contains(query)).Load();
-                    var list = db.PurchaseInvoices.Local.ToBindingList();
-                    bindingSource1.DataSource = list;
-                }
+                
             }
             catch (Exception ex)
             {
@@ -309,10 +297,7 @@ namespace WinForm
         {
             if (e.Button.Kind == ButtonPredefines.Clear)
             {
-                txtSearch.Text = string.Empty;
-                gridView1.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
-                db.PurchaseInvoices.Local.Clear();
-                bindingSource1.DataSource = db.PurchaseInvoices.Local.ToBindingList();
+
             }
         }
 
