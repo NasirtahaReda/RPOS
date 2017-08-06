@@ -1100,6 +1100,7 @@
     <None Include="Properties\DataSources\DataAccess.vw_NetSummary.datasource" />
     <None Include="Properties\DataSources\DataAccess.vw_Payment.datasource" />
     <None Include="Properties\DataSources\DataAccess.vw_PurchaseDetails.datasource" />
+    <None Include="Properties\DataSources\DataAccess.vw_Request.datasource" />
     <None Include="Properties\DataSources\DataAccess.vw_Sale.datasource" />
     <None Include="Properties\DataSources\DataAccess.vw_Sale2.datasource" />
     <None Include="Properties\DataSources\DataAccess.vw_SaleInvoiceSummary.datasource" />

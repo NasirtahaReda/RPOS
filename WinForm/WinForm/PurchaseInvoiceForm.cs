@@ -423,6 +423,8 @@ namespace WinForm
                         if (MessageBox.Show("تأكيد مسح الصنف من الفاتورة", "مسح الفاتورة", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                         {
                             DataAccess.PurchaseInvoiceDetail currentRow = (DataAccess.PurchaseInvoiceDetail)gridView1.GetFocusedRow();
+                    gridView1.DeleteRow(gridView1.FocusedRowHandle);
+
                             db.PurchaseInvoiceDetails.Remove(currentRow);
 
                             if (db.SaveChanges() > 0)

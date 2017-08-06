@@ -1098,66 +1098,21 @@ namespace WinForm
             {
                 if (MessageBox.Show("خروج من النظام؟", "نظام رضا بوكشوب", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
-
-                    ////DataAccess.UserLogin login = db.UserLogins.Create();
-                    ////login.Date = DateTime.Now;
-                    ////login.UserID = Convert.ToInt32(UserData.Default.UserID);
-                    ////login.Type = true;//Login Out
-                    ////login.BranchID = branchID;
-                    ////db.UserLogins.Add(login);
-
-                    ////if (db.SaveChanges() > 0)
-                    ////{
-
-                    ////}
-                    ////normalLogout = true;
-                    ////try
-                    ////{
-                    ////    ////Thread thread = new Thread(() => SendEmail(login, db.Users.Where(s => s.ID == login.UserID).SingleOrDefault()));
-                        
-                    ////    ////thread.Start();
-
-
-
-                    ////    string message = "";
-                    ////    var ValidUser = db.Users.Where(s => s.ID == login.UserID).SingleOrDefault();
-                    ////    if (login.Type)//Login Out
-                    ////    {
-                    ////        message = login.Date.Day.ToString("00") + "/" + login.Date.Month.ToString("00") + "-" + login.Date.Hour.ToString("00") + ":" + login.Date.Minute.ToString("00") + " :" + ValidUser.UserName + " :خروج" + "- " + UserData.Default.BranchName + "-" + "  " + System.Environment.MachineName;
-                    ////    }
-                    ////    else//Login In
-                    ////    {
-                    ////        message = login.Date.Day.ToString("00") + "/" + login.Date.Month.ToString("00") + "-" + login.Date.Hour.ToString("00") + ":" + login.Date.Minute.ToString("00") + " :" + ValidUser.UserName + "   : دخول" + " " + UserData.Default.BranchName + " from pc:  " + System.Environment.MachineName;
-                    ////    }
-                    ////   // string EmailReceivers = UserData.Default.EmailReceivers;
-                    ////    //Thread emailThread = new Thread(() => ModuleClass.SendEmail("", "خروج", message));
-                    ////    //emailThread.Start();
-                    ////}
-                    ////catch (Exception ex)
-                    ////{
-                    ////    //Do nothing 
-                    ////}
-                    ////if (login.User.IsAdmin)
-                    ////{
-                    ////    this.Hide();
-                    ////    new Login().ShowDialog();
-                    ////}
-                    ////else
-                    ////{
-
+                    if (xtraTabControl1.TabPages.Count > 1)
+                    {
+                        MessageBox.Show("توجد فواتير لم يتم إغلاقها", "لا يمكن قفل النظام");
+                        return;
+                    }
                     if (new Shif(false).ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
                         this.Close();
                     }
-                    ////}
                 }
             }
             catch (Exception ex)
             {
                  ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
-
             }
-
         }
 //        public void SendEmail(DataAccess.UserLogin login, DataAccess.User ValidUser)
 //        {
@@ -1509,8 +1464,9 @@ namespace WinForm
         {
             try
             {
+                int bId = Convert.ToInt32(cmbBranches.EditValue);
                 int ID = Convert.ToInt32(txtSaleInvoiceID.EditValue);
-                var list = from s in db.vw_SaleReport where s.ID == ID && s.BranchID == branchID select s;
+                var list = from s in db.vw_SaleReport where s.ID == ID && s.BranchID == bId select s;
                 if (list.Any())
                 {
                     vwSaleReportBindingSource.DataSource = list.ToList();
@@ -2121,6 +2077,22 @@ namespace WinForm
                 new RequestItem().ShowDialog();
 
                 //FillSaleInvoiceGrid();
+            }
+            catch (Exception ex)
+            {
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+            }
+        }
+
+        private void NormalUserForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if(xtraTabControl1.TabPages.Count > 2)
+                {
+                    MessageBox.Show("توجد فواتير لم يتم إغلاقها", "لا يمكن قفل النظام");
+                    e.Cancel = true;
+                }
             }
             catch (Exception ex)
             {

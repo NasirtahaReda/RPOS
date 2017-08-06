@@ -162,7 +162,7 @@ namespace WinForm
                 //NoOfElectricityInvoice
                 int NoOfElectricityInvoice = Convert.ToInt32(txtNoOfElectricityInvoice.EditValue);
                 /// decimal ElectricityAmountClose = Convert.ToDecimal(txtElectricityAmountClose.EditValue);
-                int NoOfElectricityInvoicetNet = NoOfElectricityInvoice * 2;
+                int NoOfElectricityInvoicetNet = NoOfElectricityInvoice * 3;
                 txtNoOfElectricityInvoiceNet.EditValue = NoOfElectricityInvoicetNet.ToString("0.00");
 
                 decimal UserCash = Convert.ToDecimal(txtUserCash.EditValue);

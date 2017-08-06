@@ -152,7 +152,7 @@
             this.listBoxControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
             this.listBoxControl1.Appearance.Options.UseFont = true;
             this.listBoxControl1.HorizontalScrollbar = true;
-            this.listBoxControl1.Location = new System.Drawing.Point(0, -17);
+            this.listBoxControl1.Location = new System.Drawing.Point(0, -1);
             this.listBoxControl1.Name = "listBoxControl1";
             this.listBoxControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.listBoxControl1.Size = new System.Drawing.Size(312, 241);

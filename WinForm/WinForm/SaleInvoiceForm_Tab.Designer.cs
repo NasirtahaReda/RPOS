@@ -62,6 +62,7 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.txtWhatsAppMessage = new DevExpress.XtraEditors.MemoEdit();
             this.toggleSwitchSaleOrExpire = new DevExpress.XtraEditors.ToggleSwitch();
+            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.previewPanel = new DevExpress.XtraEditors.PanelControl();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -105,7 +106,6 @@
             this.btnNoVisible = new DevExpress.XtraEditors.SimpleButton();
             this.lblMessage = new DevExpress.XtraEditors.LabelControl();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
-            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControlMarquee = new DevExpress.XtraEditors.GroupControl();
             this.lblMarqueeText = new WinForm.MarqueeLabel();
@@ -136,7 +136,22 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.gridControlRequestItem = new DevExpress.XtraGrid.GridControl();
+            this.vwRequestBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewRequestItem = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colBranchName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colName2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUserName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRequestDate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colQuantity1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRequestByCustomer = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colCustomerMobileNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colStatus = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFullName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colID2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colItemID3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBranchID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUserID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnRequestItem = new DevExpress.XtraEditors.SimpleButton();
             this.vwInventoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -204,6 +219,7 @@
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlRequestItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwRequestBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewRequestItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwInventoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
@@ -219,10 +235,13 @@
             // 
             this.txtBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBar.Font = new System.Drawing.Font("Times New Roman", 20F);
-            this.txtBar.Location = new System.Drawing.Point(136, 14);
+            this.txtBar.Location = new System.Drawing.Point(34, 14);
             this.txtBar.Name = "txtBar";
             this.txtBar.Size = new System.Drawing.Size(294, 38);
             this.txtBar.TabIndex = 0;
+            this.toolTipController1.SetToolTip(this.txtBar, "قم بقراء الباركود الخاص بالصنف أو ادخل ارقام الأصناف السريعة من 1 الي 99 لتسهيل ع" +
+        "ملية اللإدخال");
+            this.toolTipController1.SetToolTipIconType(this.txtBar, DevExpress.Utils.ToolTipIconType.Information);
             this.txtBar.TextChanged += new System.EventHandler(this.txtBar_TextChanged);
             this.txtBar.Enter += new System.EventHandler(this.txtBar_Enter);
             this.txtBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBar_KeyDown);
@@ -236,7 +255,7 @@
             // 
             this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearch.EditValue = "";
-            this.txtSearch.Location = new System.Drawing.Point(136, 67);
+            this.txtSearch.Location = new System.Drawing.Point(34, 67);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 20F);
             this.txtSearch.Properties.Appearance.Options.UseFont = true;
@@ -267,7 +286,7 @@
             this.repositoryItemButtonEdit1,
             this.repositoryItemButtonEditAddQuantity,
             this.repositoryItemSpinEdit1});
-            this.gridControlInvoice.Size = new System.Drawing.Size(417, 488);
+            this.gridControlInvoice.Size = new System.Drawing.Size(334, 488);
             this.gridControlInvoice.TabIndex = 0;
             this.gridControlInvoice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewInvoice});
@@ -493,10 +512,10 @@
             this.groupControlBarcodeAndSearch.Controls.Add(this.flyoutPanel1);
             this.groupControlBarcodeAndSearch.Controls.Add(this.gridControlSearch);
             this.groupControlBarcodeAndSearch.Controls.Add(this.groupControl6);
-            this.groupControlBarcodeAndSearch.Location = new System.Drawing.Point(442, 91);
+            this.groupControlBarcodeAndSearch.Location = new System.Drawing.Point(359, 91);
             this.groupControlBarcodeAndSearch.Name = "groupControlBarcodeAndSearch";
             this.groupControlBarcodeAndSearch.ShowCaption = false;
-            this.groupControlBarcodeAndSearch.Size = new System.Drawing.Size(520, 582);
+            this.groupControlBarcodeAndSearch.Size = new System.Drawing.Size(418, 582);
             this.groupControlBarcodeAndSearch.TabIndex = 2;
             this.groupControlBarcodeAndSearch.Text = "groupControl2";
             // 
@@ -510,7 +529,7 @@
             this.groupControl2.Location = new System.Drawing.Point(2, 481);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.ShowCaption = false;
-            this.groupControl2.Size = new System.Drawing.Size(516, 99);
+            this.groupControl2.Size = new System.Drawing.Size(414, 99);
             this.groupControl2.TabIndex = 42;
             this.groupControl2.Text = "groupControl2";
             // 
@@ -525,7 +544,7 @@
             this.txtWhatsAppMessage.Properties.Appearance.Options.UseFont = true;
             this.txtWhatsAppMessage.Properties.Appearance.Options.UseForeColor = true;
             this.txtWhatsAppMessage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtWhatsAppMessage.Size = new System.Drawing.Size(472, 58);
+            this.txtWhatsAppMessage.Size = new System.Drawing.Size(370, 58);
             this.txtWhatsAppMessage.TabIndex = 40;
             this.txtWhatsAppMessage.Enter += new System.EventHandler(this.txtWhatsAppMessage_Enter);
             this.txtWhatsAppMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWhatsAppMessage_KeyDown);
@@ -538,8 +557,11 @@
             this.toggleSwitchSaleOrExpire.Name = "toggleSwitchSaleOrExpire";
             this.toggleSwitchSaleOrExpire.Properties.OffText = "تالف";
             this.toggleSwitchSaleOrExpire.Properties.OnText = "فاتورة بيع";
-            this.toggleSwitchSaleOrExpire.Size = new System.Drawing.Size(472, 24);
+            this.toggleSwitchSaleOrExpire.Size = new System.Drawing.Size(370, 24);
             this.toggleSwitchSaleOrExpire.TabIndex = 44;
+            this.toggleSwitchSaleOrExpire.ToolTip = "قم بتغيير من فاتورة بيع لفاتورة تالف لإدخال الأصناف التالفة أو المنتهية الصلاحية";
+            this.toggleSwitchSaleOrExpire.ToolTipController = this.toolTipController1;
+            this.toggleSwitchSaleOrExpire.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.toggleSwitchSaleOrExpire.Toggled += new System.EventHandler(this.toggleSwitchSaleOrExpire_Toggled);
             // 
             // previewPanel
@@ -547,7 +569,7 @@
             this.previewPanel.Controls.Add(this.pictureBox3);
             this.previewPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.previewPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.previewPanel.Location = new System.Drawing.Point(474, 15);
+            this.previewPanel.Location = new System.Drawing.Point(372, 15);
             this.previewPanel.Name = "previewPanel";
             this.previewPanel.Size = new System.Drawing.Size(40, 82);
             this.previewPanel.TabIndex = 28;
@@ -635,7 +657,7 @@
             this.gridControlSearch.Name = "gridControlSearch";
             this.gridControlSearch.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEditSearch});
-            this.gridControlSearch.Size = new System.Drawing.Size(516, 469);
+            this.gridControlSearch.Size = new System.Drawing.Size(414, 469);
             this.gridControlSearch.TabIndex = 26;
             this.gridControlSearch.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewSearch});
@@ -781,7 +803,7 @@
             this.groupControl6.Location = new System.Drawing.Point(2, 2);
             this.groupControl6.Name = "groupControl6";
             this.groupControl6.ShowCaption = false;
-            this.groupControl6.Size = new System.Drawing.Size(516, 109);
+            this.groupControl6.Size = new System.Drawing.Size(414, 109);
             this.groupControl6.TabIndex = 27;
             this.groupControl6.Text = "groupControl6";
             // 
@@ -789,7 +811,7 @@
             // 
             this.lblInventoryQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblInventoryQuantity.AutoSize = true;
-            this.lblInventoryQuantity.Location = new System.Drawing.Point(36, 79);
+            this.lblInventoryQuantity.Location = new System.Drawing.Point(-66, 79);
             this.lblInventoryQuantity.Name = "lblInventoryQuantity";
             this.lblInventoryQuantity.Size = new System.Drawing.Size(0, 13);
             this.lblInventoryQuantity.TabIndex = 31;
@@ -798,7 +820,7 @@
             // 
             this.lblItemName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblItemName.AutoSize = true;
-            this.lblItemName.Location = new System.Drawing.Point(36, 30);
+            this.lblItemName.Location = new System.Drawing.Point(-66, 30);
             this.lblItemName.Name = "lblItemName";
             this.lblItemName.Size = new System.Drawing.Size(0, 13);
             this.lblItemName.TabIndex = 30;
@@ -807,7 +829,7 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(436, 72);
+            this.pictureBox2.Location = new System.Drawing.Point(334, 72);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(66, 28);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -818,7 +840,7 @@
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(436, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(334, 14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(66, 32);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -843,7 +865,7 @@
             this.groupControlInvoice.Location = new System.Drawing.Point(12, 91);
             this.groupControlInvoice.Name = "groupControlInvoice";
             this.groupControlInvoice.ShowCaption = false;
-            this.groupControlInvoice.Size = new System.Drawing.Size(421, 582);
+            this.groupControlInvoice.Size = new System.Drawing.Size(338, 582);
             this.groupControlInvoice.TabIndex = 1;
             // 
             // groupBox1
@@ -862,7 +884,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Location = new System.Drawing.Point(2, 490);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(417, 90);
+            this.groupBox1.Size = new System.Drawing.Size(334, 90);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "0";
@@ -1036,7 +1058,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(48, 187, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(974, 685);
+            this.layoutControl1.Size = new System.Drawing.Size(789, 685);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -1048,7 +1070,7 @@
             this.groupControlMarquee.Name = "groupControlMarquee";
             this.groupControlMarquee.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupControlMarquee.ShowCaption = false;
-            this.groupControlMarquee.Size = new System.Drawing.Size(950, 75);
+            this.groupControlMarquee.Size = new System.Drawing.Size(765, 75);
             this.groupControlMarquee.TabIndex = 4;
             this.groupControlMarquee.Text = "groupControl1";
             // 
@@ -1079,16 +1101,16 @@
             this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(974, 685);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(789, 685);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.groupControlBarcodeAndSearch;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(430, 79);
+            this.layoutControlItem3.Location = new System.Drawing.Point(347, 79);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(524, 586);
+            this.layoutControlItem3.Size = new System.Drawing.Size(422, 586);
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
@@ -1099,7 +1121,7 @@
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 79);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(425, 586);
+            this.layoutControlItem1.Size = new System.Drawing.Size(342, 586);
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -1108,7 +1130,7 @@
             // 
             this.splitterItem1.AllowHotTrack = true;
             this.splitterItem1.CustomizationFormText = "splitterItem1";
-            this.splitterItem1.Location = new System.Drawing.Point(425, 79);
+            this.splitterItem1.Location = new System.Drawing.Point(342, 79);
             this.splitterItem1.Name = "splitterItem1";
             this.splitterItem1.Size = new System.Drawing.Size(5, 586);
             // 
@@ -1118,7 +1140,7 @@
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(5, 5);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(954, 79);
+            this.layoutControlItem2.Size = new System.Drawing.Size(769, 79);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -1363,10 +1385,10 @@
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.dockPanel2.ID = new System.Guid("1d5f527a-c385-426c-ab02-a58830442aa3");
-            this.dockPanel2.Location = new System.Drawing.Point(974, 0);
+            this.dockPanel2.Location = new System.Drawing.Point(789, 0);
             this.dockPanel2.Name = "dockPanel2";
-            this.dockPanel2.OriginalSize = new System.Drawing.Size(241, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(241, 685);
+            this.dockPanel2.OriginalSize = new System.Drawing.Size(426, 200);
+            this.dockPanel2.Size = new System.Drawing.Size(426, 685);
             this.dockPanel2.Text = "طلب الأصناف";
             // 
             // dockPanel2_Container
@@ -1375,31 +1397,139 @@
             this.dockPanel2_Container.Controls.Add(this.btnRequestItem);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(233, 658);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(418, 658);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // gridControlRequestItem
             // 
+            this.gridControlRequestItem.DataSource = this.vwRequestBindingSource;
             this.gridControlRequestItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlRequestItem.Location = new System.Drawing.Point(0, 0);
             this.gridControlRequestItem.MainView = this.gridViewRequestItem;
             this.gridControlRequestItem.Name = "gridControlRequestItem";
-            this.gridControlRequestItem.Size = new System.Drawing.Size(233, 635);
+            this.gridControlRequestItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.gridControlRequestItem.Size = new System.Drawing.Size(418, 635);
             this.gridControlRequestItem.TabIndex = 1;
             this.gridControlRequestItem.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewRequestItem});
             // 
+            // vwRequestBindingSource
+            // 
+            this.vwRequestBindingSource.DataSource = typeof(DataAccess.vw_Request);
+            // 
             // gridViewRequestItem
             // 
+            this.gridViewRequestItem.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colBranchName,
+            this.colName2,
+            this.colUserName,
+            this.colRequestDate,
+            this.colQuantity1,
+            this.colRequestByCustomer,
+            this.colDescription,
+            this.colCustomerMobileNo,
+            this.colStatus,
+            this.colFullName,
+            this.colID2,
+            this.colItemID3,
+            this.colBranchID,
+            this.colUserID});
             this.gridViewRequestItem.GridControl = this.gridControlRequestItem;
             this.gridViewRequestItem.Name = "gridViewRequestItem";
+            // 
+            // colBranchName
+            // 
+            this.colBranchName.Caption = "الفرع";
+            this.colBranchName.FieldName = "BranchName";
+            this.colBranchName.Name = "colBranchName";
+            // 
+            // colName2
+            // 
+            this.colName2.Caption = "الصنف";
+            this.colName2.FieldName = "Name";
+            this.colName2.Name = "colName2";
+            this.colName2.Visible = true;
+            this.colName2.VisibleIndex = 0;
+            this.colName2.Width = 179;
+            // 
+            // colUserName
+            // 
+            this.colUserName.Caption = "الموظف";
+            this.colUserName.FieldName = "UserName";
+            this.colUserName.Name = "colUserName";
+            this.colUserName.Visible = true;
+            this.colUserName.VisibleIndex = 3;
+            this.colUserName.Width = 66;
+            // 
+            // colRequestDate
+            // 
+            this.colRequestDate.Caption = "تاريخ الطلب";
+            this.colRequestDate.FieldName = "RequestDate";
+            this.colRequestDate.Name = "colRequestDate";
+            this.colRequestDate.Visible = true;
+            this.colRequestDate.VisibleIndex = 2;
+            this.colRequestDate.Width = 72;
+            // 
+            // colQuantity1
+            // 
+            this.colQuantity1.Caption = "الكمية المطلوبة";
+            this.colQuantity1.FieldName = "Quantity";
+            this.colQuantity1.Name = "colQuantity1";
+            this.colQuantity1.Visible = true;
+            this.colQuantity1.VisibleIndex = 1;
+            this.colQuantity1.Width = 83;
+            // 
+            // colRequestByCustomer
+            // 
+            this.colRequestByCustomer.FieldName = "RequestByCustomer";
+            this.colRequestByCustomer.Name = "colRequestByCustomer";
+            // 
+            // colDescription
+            // 
+            this.colDescription.FieldName = "Description";
+            this.colDescription.Name = "colDescription";
+            // 
+            // colCustomerMobileNo
+            // 
+            this.colCustomerMobileNo.FieldName = "CustomerMobileNo";
+            this.colCustomerMobileNo.Name = "colCustomerMobileNo";
+            // 
+            // colStatus
+            // 
+            this.colStatus.FieldName = "Status";
+            this.colStatus.Name = "colStatus";
+            // 
+            // colFullName
+            // 
+            this.colFullName.FieldName = "FullName";
+            this.colFullName.Name = "colFullName";
+            // 
+            // colID2
+            // 
+            this.colID2.FieldName = "ID";
+            this.colID2.Name = "colID2";
+            // 
+            // colItemID3
+            // 
+            this.colItemID3.FieldName = "ItemID";
+            this.colItemID3.Name = "colItemID3";
+            // 
+            // colBranchID
+            // 
+            this.colBranchID.FieldName = "BranchID";
+            this.colBranchID.Name = "colBranchID";
+            // 
+            // colUserID
+            // 
+            this.colUserID.FieldName = "UserID";
+            this.colUserID.Name = "colUserID";
             // 
             // btnRequestItem
             // 
             this.btnRequestItem.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnRequestItem.Location = new System.Drawing.Point(0, 635);
             this.btnRequestItem.Name = "btnRequestItem";
-            this.btnRequestItem.Size = new System.Drawing.Size(233, 23);
+            this.btnRequestItem.Size = new System.Drawing.Size(418, 23);
             this.btnRequestItem.TabIndex = 0;
             this.btnRequestItem.Text = "طلب صنف غير متوفر ";
             // 
@@ -1488,6 +1618,7 @@
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlRequestItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwRequestBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewRequestItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vwInventoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
@@ -1608,5 +1739,20 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewRequestItem;
         private DevExpress.XtraEditors.SimpleButton btnRequestItem;
         private DevExpress.XtraBars.Docking.AutoHideContainer hideContainerRight;
+        private System.Windows.Forms.BindingSource vwRequestBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colBranchName;
+        private DevExpress.XtraGrid.Columns.GridColumn colName2;
+        private DevExpress.XtraGrid.Columns.GridColumn colUserName;
+        private DevExpress.XtraGrid.Columns.GridColumn colRequestDate;
+        private DevExpress.XtraGrid.Columns.GridColumn colQuantity1;
+        private DevExpress.XtraGrid.Columns.GridColumn colRequestByCustomer;
+        private DevExpress.XtraGrid.Columns.GridColumn colDescription;
+        private DevExpress.XtraGrid.Columns.GridColumn colCustomerMobileNo;
+        private DevExpress.XtraGrid.Columns.GridColumn colStatus;
+        private DevExpress.XtraGrid.Columns.GridColumn colFullName;
+        private DevExpress.XtraGrid.Columns.GridColumn colID2;
+        private DevExpress.XtraGrid.Columns.GridColumn colItemID3;
+        private DevExpress.XtraGrid.Columns.GridColumn colBranchID;
+        private DevExpress.XtraGrid.Columns.GridColumn colUserID;
     }
 }

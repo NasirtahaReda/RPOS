@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::RedaPOS.SplashScreen2), true, true);
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NormalUserForm));
             this.bindingSourceSaleInvoice = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSourceItem = new System.Windows.Forms.BindingSource(this.components);
@@ -293,7 +293,7 @@
             this.dockPanelHoulSearch.Controls.Add(this.dockPanel3_Container);
             this.dockPanelHoulSearch.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanelHoulSearch.ID = new System.Guid("35223e2d-3e70-4718-b33b-2f7a7f4a3a79");
-            this.dockPanelHoulSearch.Location = new System.Drawing.Point(19, 0);
+            this.dockPanelHoulSearch.Location = new System.Drawing.Point(0, 0);
             this.dockPanelHoulSearch.Name = "dockPanelHoulSearch";
             this.dockPanelHoulSearch.OriginalSize = new System.Drawing.Size(837, 200);
             this.dockPanelHoulSearch.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
@@ -483,12 +483,12 @@
             // 
             // panelContainer1
             // 
-            this.panelContainer1.ActiveChild = this.dockPanelReturn;
+            this.panelContainer1.ActiveChild = this.dockPanelReport;
             this.panelContainer1.Controls.Add(this.dockPanelReturn);
             this.panelContainer1.Controls.Add(this.dockPanelReport);
             this.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.panelContainer1.ID = new System.Guid("d76377ad-8b4c-4174-85de-6b0715eb122b");
-            this.panelContainer1.Location = new System.Drawing.Point(19, 0);
+            this.panelContainer1.Location = new System.Drawing.Point(0, 0);
             this.panelContainer1.Name = "panelContainer1";
             this.panelContainer1.OriginalSize = new System.Drawing.Size(560, 200);
             this.panelContainer1.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
@@ -531,27 +531,29 @@
             this.groupControl2.Controls.Add(this.btnShowSaleInvoice);
             this.groupControl2.Controls.Add(this.cmbItem);
             this.groupControl2.Controls.Add(this.cmbBranches);
-            this.groupControl2.Location = new System.Drawing.Point(154, 9);
+            this.groupControl2.Location = new System.Drawing.Point(165, 9);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupControl2.Size = new System.Drawing.Size(381, 138);
+            this.groupControl2.Size = new System.Drawing.Size(370, 138);
             this.groupControl2.TabIndex = 29;
             this.groupControl2.Text = "البحث عن طريق الفرع و التاريخ والموظف ";
             // 
             // cbEnableItem
             // 
             this.cbEnableItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbEnableItem.Location = new System.Drawing.Point(320, 74);
+            this.cbEnableItem.Location = new System.Drawing.Point(309, 74);
             this.cbEnableItem.Name = "cbEnableItem";
             this.cbEnableItem.Properties.Caption = "الصنف";
             this.cbEnableItem.Size = new System.Drawing.Size(51, 19);
             this.cbEnableItem.TabIndex = 32;
+            this.cbEnableItem.ToolTip = "نشط هذا الخيار لتقوم بالبحث عن طريق اسم الصنف";
+            this.cbEnableItem.ToolTipController = this.toolTipController1;
             this.cbEnableItem.CheckStateChanged += new System.EventHandler(this.cbEnableItem_CheckStateChanged);
             // 
             // labelControl3
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl3.Location = new System.Drawing.Point(84, 21);
+            this.labelControl3.Location = new System.Drawing.Point(73, 24);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(28, 13);
             this.labelControl3.TabIndex = 30;
@@ -560,7 +562,7 @@
             // labelControl2
             // 
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl2.Location = new System.Drawing.Point(196, 24);
+            this.labelControl2.Location = new System.Drawing.Point(185, 24);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(49, 13);
             this.labelControl2.TabIndex = 29;
@@ -569,7 +571,7 @@
             // labelControl1
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl1.Location = new System.Drawing.Point(346, 24);
+            this.labelControl1.Location = new System.Drawing.Point(335, 24);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(24, 13);
             this.labelControl1.TabIndex = 28;
@@ -578,10 +580,10 @@
             // cmbUsers
             // 
             this.cmbUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbUsers.Location = new System.Drawing.Point(148, 40);
+            this.cmbUsers.Location = new System.Drawing.Point(137, 40);
             this.cmbUsers.Name = "cmbUsers";
             this.cmbUsers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
             this.cmbUsers.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("UserName", "User Name", 62, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
@@ -605,10 +607,10 @@
             // 
             this.cmbSaleInvoiceDateFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSaleInvoiceDateFrom.EditValue = null;
-            this.cmbSaleInvoiceDateFrom.Location = new System.Drawing.Point(20, 40);
+            this.cmbSaleInvoiceDateFrom.Location = new System.Drawing.Point(9, 40);
             this.cmbSaleInvoiceDateFrom.Name = "cmbSaleInvoiceDateFrom";
             this.cmbSaleInvoiceDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.cmbSaleInvoiceDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbSaleInvoiceDateFrom.Properties.Mask.EditMask = "";
@@ -619,18 +621,18 @@
             // 
             this.btnShowSaleInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShowSaleInvoice.Image = global::RedaPOS.Properties.Resources.search_icon32;
-            this.btnShowSaleInvoice.Location = new System.Drawing.Point(5, 93);
+            this.btnShowSaleInvoice.Location = new System.Drawing.Point(19, 98);
             this.btnShowSaleInvoice.Name = "btnShowSaleInvoice";
             this.btnShowSaleInvoice.Size = new System.Drawing.Size(40, 40);
             this.btnShowSaleInvoice.TabIndex = 25;
-            this.btnShowSaleInvoice.ToolTip = "عرض فواتير البيع";
+            this.btnShowSaleInvoice.ToolTip = "بحث فواتير البيع عن طريق الفرع، المستخدم، التاريخ و الصنف";
             this.btnShowSaleInvoice.Click += new System.EventHandler(this.btnShowSaleInvoice_Click_1);
             // 
             // cmbItem
             // 
             this.cmbItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbItem.Enabled = false;
-            this.cmbItem.Location = new System.Drawing.Point(51, 99);
+            this.cmbItem.Location = new System.Drawing.Point(65, 99);
             this.cmbItem.Name = "cmbItem";
             this.cmbItem.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 18F);
             this.cmbItem.Properties.Appearance.Options.UseFont = true;
@@ -642,10 +644,10 @@
             this.cmbItem.Properties.AppearanceDropDownHeader.Options.UseFont = true;
             this.cmbItem.Properties.AppearanceFocused.Font = new System.Drawing.Font("Times New Roman", 16F);
             this.cmbItem.Properties.AppearanceFocused.Options.UseFont = true;
-            serializableAppearanceObject3.Font = new System.Drawing.Font("Times New Roman", 16F);
-            serializableAppearanceObject3.Options.UseFont = true;
+            serializableAppearanceObject2.Font = new System.Drawing.Font("Times New Roman", 16F);
+            serializableAppearanceObject2.Options.UseFont = true;
             this.cmbItem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "Test", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "Test", 30, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.cmbItem.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.cmbItem.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
@@ -665,16 +667,16 @@
             this.cmbItem.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.cmbItem.Properties.ValueMember = "ID";
             this.cmbItem.Properties.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.cmbItem_Properties_ButtonClick);
-            this.cmbItem.Size = new System.Drawing.Size(325, 34);
+            this.cmbItem.Size = new System.Drawing.Size(300, 34);
             this.cmbItem.TabIndex = 27;
             // 
             // cmbBranches
             // 
             this.cmbBranches.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbBranches.Location = new System.Drawing.Point(272, 40);
+            this.cmbBranches.Location = new System.Drawing.Point(261, 40);
             this.cmbBranches.Name = "cmbBranches";
             this.cmbBranches.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.cmbBranches.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Address", "Address", 49, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -702,27 +704,30 @@
             // 
             this.groupControl1.Controls.Add(this.txtSaleInvoiceID);
             this.groupControl1.Controls.Add(this.btnSaleInvoiceSearch);
-            this.groupControl1.Location = new System.Drawing.Point(3, 3);
+            this.groupControl1.Location = new System.Drawing.Point(3, 9);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupControl1.Size = new System.Drawing.Size(145, 101);
+            this.groupControl1.Size = new System.Drawing.Size(156, 101);
             this.groupControl1.TabIndex = 28;
             this.groupControl1.Text = "البحث عن طريق رقم الفاتورة";
             // 
             // txtSaleInvoiceID
             // 
             this.txtSaleInvoiceID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSaleInvoiceID.Location = new System.Drawing.Point(16, 27);
+            this.txtSaleInvoiceID.Location = new System.Drawing.Point(5, 23);
             this.txtSaleInvoiceID.Name = "txtSaleInvoiceID";
-            this.txtSaleInvoiceID.Size = new System.Drawing.Size(111, 20);
+            this.txtSaleInvoiceID.Size = new System.Drawing.Size(146, 20);
             this.txtSaleInvoiceID.TabIndex = 10;
+            this.txtSaleInvoiceID.ToolTip = "ادخل رقم الفاتورة للبحث \r\nالرجاء ادخال الرقم بدون رقم الفرع والفاصلة\r\nإذا كان رقم" +
+    " الفاتورة (1-232323)\r\nادخل فقط 232323";
+            this.txtSaleInvoiceID.ToolTipController = this.toolTipController1;
             // 
             // btnSaleInvoiceSearch
             // 
             this.btnSaleInvoiceSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaleInvoiceSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSaleInvoiceSearch.Image")));
             this.btnSaleInvoiceSearch.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnSaleInvoiceSearch.Location = new System.Drawing.Point(45, 56);
+            this.btnSaleInvoiceSearch.Location = new System.Drawing.Point(56, 56);
             this.btnSaleInvoiceSearch.Name = "btnSaleInvoiceSearch";
             this.btnSaleInvoiceSearch.Size = new System.Drawing.Size(40, 40);
             this.btnSaleInvoiceSearch.TabIndex = 9;
@@ -805,6 +810,7 @@
             // 
             // colFlag
             // 
+            this.colFlag.Caption = "حالة الفاتورة";
             this.colFlag.FieldName = "Flag";
             this.colFlag.Name = "colFlag";
             this.colFlag.Visible = true;
@@ -824,10 +830,10 @@
             // 
             this.repositoryItemButtonEditSaleInvoice.AutoHeight = false;
             this.repositoryItemButtonEditSaleInvoice.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "عرض الفاتورة", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "عرض الفاتورة", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Right, "فاتورة A4", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Undo, "ارجاع الفاتورة", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "ارجاع الفاتورة", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down, "طباعه", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "طباعه", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "عرض الفاتورة", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "عرض الفاتورة", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Right, "فاتورة A4", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "فاتورة A4", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Undo, "ارجاع الفاتورة", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "ارجاع الفاتورة", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down, "طباعه", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "طباعه", null, null, true)});
             this.repositoryItemButtonEditSaleInvoice.Name = "repositoryItemButtonEditSaleInvoice";
             this.repositoryItemButtonEditSaleInvoice.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEditSaleInvoice.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEditSaleInvoice_ButtonClick);
@@ -1010,7 +1016,7 @@
             this.dockPanelUsersInShift.Controls.Add(this.controlContainer2);
             this.dockPanelUsersInShift.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanelUsersInShift.ID = new System.Guid("7c4e836e-670d-4263-93f5-47b3c91dca84");
-            this.dockPanelUsersInShift.Location = new System.Drawing.Point(19, 0);
+            this.dockPanelUsersInShift.Location = new System.Drawing.Point(0, 0);
             this.dockPanelUsersInShift.Name = "dockPanelUsersInShift";
             this.dockPanelUsersInShift.OriginalSize = new System.Drawing.Size(563, 200);
             this.dockPanelUsersInShift.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Left;
@@ -1150,7 +1156,7 @@
             this.repositoryItemButtonEditRemoveUserFromShift.AutoHeight = false;
             this.repositoryItemButtonEditRemoveUserFromShift.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Redo, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Redo, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
             this.repositoryItemButtonEditRemoveUserFromShift.Name = "repositoryItemButtonEditRemoveUserFromShift";
             this.repositoryItemButtonEditRemoveUserFromShift.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEditRemoveUserFromShift.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEditRemoveLogedUser_ButtonClick);
@@ -1448,7 +1454,7 @@
             this.xtraTabPage1.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
             this.xtraTabPage1.Size = new System.Drawing.Size(1209, 504);
             this.xtraTabPage1.Tag = "=";
-            this.xtraTabPage1.Text = "xtraTabPage1";
+            this.xtraTabPage1.Text = "فاتورة رقم 1";
             // 
             // xtraTabPage2
             // 
@@ -1470,6 +1476,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "فاتورة بيع";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NormalUserForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NormalUserForm_FormClosed);
             this.Load += new System.EventHandler(this.SaleInvoiceForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSaleInvoice)).EndInit();
