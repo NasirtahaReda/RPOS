@@ -60,7 +60,6 @@ namespace DataAccess
         public virtual DbSet<vw_NetSummary> vw_NetSummary { get; set; }
         public virtual DbSet<MessageType> MessageTypes { get; set; }
         public virtual DbSet<UserMessage> UserMessages { get; set; }
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<vw_PushoverMessage> vw_PushoverMessage { get; set; }
         public virtual DbSet<MarqueeMessage> MarqueeMessages { get; set; }
         public virtual DbSet<UserLogin> UserLogins { get; set; }
@@ -71,6 +70,7 @@ namespace DataAccess
         public virtual DbSet<Request> Requests { get; set; }
         public virtual DbSet<vw_Request> vw_Request { get; set; }
         public virtual DbSet<vw_SaleInvoiceDetails> vw_SaleInvoiceDetails { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     
         [DbFunction("RedaV1Entities", "ItemMovement")]
         public virtual IQueryable<ItemMovement_Result> ItemMovement(Nullable<int> itemID)

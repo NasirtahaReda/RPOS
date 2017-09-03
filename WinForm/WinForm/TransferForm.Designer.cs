@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.checkedListBoxControl1 = new DevExpress.XtraEditors.CheckedListBoxControl();
+            this.cbBranches = new System.Windows.Forms.CheckedListBox();
+            this.btnRefreshBranches = new DevExpress.XtraEditors.SimpleButton();
             this.btnLoadData = new DevExpress.XtraEditors.SimpleButton();
             this.btnTransfer = new DevExpress.XtraEditors.SimpleButton();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,8 +58,10 @@
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colReda1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colReda2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colReda3 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
@@ -70,6 +75,9 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.checkedListBoxControl1);
+            this.groupControl1.Controls.Add(this.cbBranches);
+            this.groupControl1.Controls.Add(this.btnRefreshBranches);
             this.groupControl1.Controls.Add(this.btnLoadData);
             this.groupControl1.Controls.Add(this.btnTransfer);
             this.groupControl1.Controls.Add(this.label3);
@@ -86,9 +94,45 @@
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "groupControl1";
             // 
+            // checkedListBoxControl1
+            // 
+            this.checkedListBoxControl1.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("1", "Reda1"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("2", "Reda2"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("3", "Reda3")});
+            this.checkedListBoxControl1.Location = new System.Drawing.Point(340, 8);
+            this.checkedListBoxControl1.Name = "checkedListBoxControl1";
+            this.checkedListBoxControl1.Size = new System.Drawing.Size(120, 86);
+            this.checkedListBoxControl1.TabIndex = 9;
+            this.checkedListBoxControl1.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxControl1_SelectedIndexChanged);
+            this.checkedListBoxControl1.SelectedValueChanged += new System.EventHandler(this.checkedListBoxControl1_SelectedValueChanged);
+            // 
+            // cbBranches
+            // 
+            this.cbBranches.FormattingEnabled = true;
+            this.cbBranches.Items.AddRange(new object[] {
+            "Reda1",
+            "Reda2",
+            "Reda3"});
+            this.cbBranches.Location = new System.Drawing.Point(123, 29);
+            this.cbBranches.Name = "cbBranches";
+            this.cbBranches.Size = new System.Drawing.Size(120, 52);
+            this.cbBranches.TabIndex = 8;
+            this.cbBranches.SelectedIndexChanged += new System.EventHandler(this.cbBranches_SelectedIndexChanged);
+            // 
+            // btnRefreshBranches
+            // 
+            this.btnRefreshBranches.Location = new System.Drawing.Point(249, 68);
+            this.btnRefreshBranches.Name = "btnRefreshBranches";
+            this.btnRefreshBranches.Size = new System.Drawing.Size(75, 23);
+            this.btnRefreshBranches.TabIndex = 7;
+            this.btnRefreshBranches.Text = "...";
+            this.btnRefreshBranches.ClientSizeChanged += new System.EventHandler(this.btnRefreshBranches_ClientSizeChanged);
+            this.btnRefreshBranches.Click += new System.EventHandler(this.btnRefreshBranches_Click);
+            // 
             // btnLoadData
             // 
-            this.btnLoadData.Location = new System.Drawing.Point(123, 68);
+            this.btnLoadData.Location = new System.Drawing.Point(123, 5);
             this.btnLoadData.Name = "btnLoadData";
             this.btnLoadData.Size = new System.Drawing.Size(75, 23);
             this.btnLoadData.TabIndex = 7;
@@ -206,7 +250,8 @@
             this.colID,
             this.colName,
             this.colReda1,
-            this.colReda2});
+            this.colReda2,
+            this.colReda3});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -302,6 +347,16 @@
             this.colReda2.VisibleIndex = 5;
             this.colReda2.Width = 67;
             // 
+            // colReda3
+            // 
+            this.colReda3.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.colReda3.AppearanceCell.Options.UseBackColor = true;
+            this.colReda3.Caption = "رضا3";
+            this.colReda3.FieldName = "Reda3";
+            this.colReda3.Name = "colReda3";
+            this.colReda3.Visible = true;
+            this.colReda3.VisibleIndex = 6;
+            // 
             // TransferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,6 +370,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
@@ -356,5 +412,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colReda1;
         private DevExpress.XtraGrid.Columns.GridColumn colReda2;
+        private DevExpress.XtraGrid.Columns.GridColumn colReda3;
+        private System.Windows.Forms.CheckedListBox cbBranches;
+        private DevExpress.XtraEditors.CheckedListBoxControl checkedListBoxControl1;
+        private DevExpress.XtraEditors.SimpleButton btnRefreshBranches;
     }
 }

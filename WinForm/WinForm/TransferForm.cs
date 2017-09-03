@@ -48,8 +48,11 @@ namespace RedaPOS
                 newRow.PurchasePrice = item.PurchasePrice.ToString();
                 newRow.Quantity = item.Quantity.ToString();
                 newRow.ReceiveQuantity = item.ReceiveQuantity.ToString();
-                newRow.Reda1 = (Math.Round(Convert.ToDecimal(item.Quantity)/2)).ToString();
-                newRow.Reda2 = (Convert.ToDecimal(item.Quantity) - Math.Round(Convert.ToDecimal(item.Quantity) / 2)).ToString();
+                newRow.Reda1 = (Math.Round(Convert.ToDecimal(item.Quantity)/3)).ToString();
+                newRow.Reda2 = (Math.Round(Convert.ToDecimal(item.Quantity) / 3)).ToString();
+                //newRow.Reda3 = (Convert.ToDecimal(item.Quantity) - Math.Round(Convert.ToDecimal(item.Quantity) / 3)).ToString();
+                newRow.Reda3 = Math.Floor(Convert.ToDecimal(item.Quantity) / 3).ToString();
+
 
                 DT.AddDamegeDTRow(newRow);
 
@@ -100,9 +103,10 @@ namespace RedaPOS
                 {
                     StringBuilder pushMSG1 = new StringBuilder();
                     StringBuilder pushMSG2 = new StringBuilder();
-                    SaleInvoice invoice1, invoice2;
+                    StringBuilder pushMSG3 = new StringBuilder();
+                    SaleInvoice invoice1, invoice2, invoice3;
                     invoice1 = new SaleInvoice();
-                    invoice1.BranchID = 3;
+                    invoice1.BranchID = 0;//المخزن
                     invoice1.Date = DateTime.Now;
                     invoice1.Discount = 0;
                     invoice1.Flag = 0;
@@ -112,7 +116,7 @@ namespace RedaPOS
                     db.SaleInvoices.Add(invoice1);
 
                     invoice2 = new SaleInvoice();
-                    invoice2.BranchID = 3;
+                    invoice2.BranchID = 0;//المخزن
                     invoice2.Date = DateTime.Now;
                     invoice2.Discount = 0;
                     invoice2.Flag = 0;
@@ -121,9 +125,20 @@ namespace RedaPOS
                     invoice2.UserID = Convert.ToInt32(UserData.Default.UserID);
                     db.SaleInvoices.Add(invoice2);
 
+                    invoice3 = new SaleInvoice();
+                    invoice3.BranchID = 0;//المخزن
+                    invoice3.Date = DateTime.Now;
+                    invoice3.Discount = 0;
+                    invoice3.Flag = 0;
+                    invoice3.Remarks = "Transfer";
+                    invoice3.Total = 0;
+                    invoice3.UserID = Convert.ToInt32(UserData.Default.UserID);
+                    db.SaleInvoices.Add(invoice3);
+
 
                     SaleInvoiceDetail detail1;
                     SaleInvoiceDetail detail2;
+                    SaleInvoiceDetail detail3;
                     //   PurchaseInvoice purchaseInvoice1 = new PurchaseInvoice();
                     DataAccess.PurchaseInvoice purchaseInvoice1 = db.PurchaseInvoices.Create();
                     purchaseInvoice1.BranchID = 1;
@@ -147,13 +162,25 @@ namespace RedaPOS
                     purchaseInvoice2.UserID = Convert.ToInt32(UserData.Default.UserID);
                     db.PurchaseInvoices.Add(purchaseInvoice2);
 
+                    DataAccess.PurchaseInvoice purchaseInvoice3 = db.PurchaseInvoices.Create();
+                    purchaseInvoice3.BranchID = 3;
+                    purchaseInvoice3.Date = DateTime.Now;
+                    purchaseInvoice3.Discount = 0;
+                    purchaseInvoice3.Flag = 0;
+                    purchaseInvoice3.Number = "Transfer Reda2" + purchaseInvoice.ID;
+                    purchaseInvoice3.Total = 0;
+                    purchaseInvoice3.UserID = Convert.ToInt32(UserData.Default.UserID);
+                    db.PurchaseInvoices.Add(purchaseInvoice3);
+
 
                     PurchaseInvoiceDetail purchaseInvoiceDetail1;
                     PurchaseInvoiceDetail purchaseInvoiceDetail2;
+                    PurchaseInvoiceDetail purchaseInvoiceDetail3;
                     foreach (var row in DT.Rows)
                     {
                         detail1 = new SaleInvoiceDetail();
                         detail2 = new SaleInvoiceDetail();
+                        detail3 = new SaleInvoiceDetail();
 
                         DataAccess.DamegeDS.DamegeDTRow currentRow = (DataAccess.DamegeDS.DamegeDTRow)row;
                         detail1.InventoryID = Convert.ToInt32(currentRow.ID);
@@ -175,10 +202,18 @@ namespace RedaPOS
                         detail2.Remarks = "Transfer from purchase invoice id: " + purchaseInvoice.ID;
                         detail2.SaleInvoiceID = invoice1.ID;
                         detail2.UnitPrice = Convert.ToDecimal(currentRow.PurchasePrice);
-
                         pushMSG2.Append(currentRow.Name + "  " + currentRow.Reda2).Append(Environment.NewLine);
-
                         invoice2.SaleInvoiceDetails.Add(detail2);
+
+                        detail3.InventoryID = Convert.ToInt32(currentRow.ID);
+                        detail3.ItemID = Convert.ToInt32(currentRow.ItemID);
+                        detail3.PurchaseQuantity = Convert.ToInt32(currentRow.Quantity);
+                        detail3.Quanitity = Convert.ToInt32(currentRow.Reda3);
+                        detail3.Remarks = "Transfer from purchase invoice id: " + purchaseInvoice.ID;
+                        detail3.SaleInvoiceID = invoice1.ID;
+                        detail3.UnitPrice = Convert.ToDecimal(currentRow.PurchasePrice);
+                        pushMSG3.Append(currentRow.Name + "  " + currentRow.Reda2).Append(Environment.NewLine);
+                        invoice3.SaleInvoiceDetails.Add(detail3);
 
                         //Purchase details 1
                         purchaseInvoiceDetail1 = db.PurchaseInvoiceDetails.Create(); //new PurchaseInvoiceDetail();
@@ -197,10 +232,21 @@ namespace RedaPOS
                         purchaseInvoiceDetail2.ItemID = Convert.ToInt32(currentRow.ItemID);
                         //purchaseInvoiceDetail2.PurchaseInvoiceID = purchaseInvoice1.ID;
                         purchaseInvoiceDetail2.PurchasePrice = Convert.ToDecimal(currentRow.PurchasePrice);
-                        purchaseInvoiceDetail2.Quantity = Convert.ToInt32(currentRow.Reda1);
+                        purchaseInvoiceDetail2.Quantity = Convert.ToInt32(currentRow.Reda2);
                         purchaseInvoiceDetail2.Remarks = "Transfer from purchase invoice id: " + purchaseInvoice.ID;
                         purchaseInvoiceDetail2.SalePrice = 0;
                         purchaseInvoice2.PurchaseInvoiceDetails.Add(purchaseInvoiceDetail2);
+
+                        //Purchase details 3
+                        purchaseInvoiceDetail3 = db.PurchaseInvoiceDetails.Create(); //new PurchaseInvoiceDetail();
+                        purchaseInvoiceDetail3.DiscountPrice = 0;
+                        purchaseInvoiceDetail3.ItemID = Convert.ToInt32(currentRow.ItemID);
+                        //purchaseInvoiceDetail2.PurchaseInvoiceID = purchaseInvoice1.ID;
+                        purchaseInvoiceDetail3.PurchasePrice = Convert.ToDecimal(currentRow.PurchasePrice);
+                        purchaseInvoiceDetail3.Quantity = Convert.ToInt32(currentRow.Reda3);
+                        purchaseInvoiceDetail3.Remarks = "Transfer from purchase invoice id: " + purchaseInvoice.ID;
+                        purchaseInvoiceDetail3.SalePrice = 0;
+                        purchaseInvoice3.PurchaseInvoiceDetails.Add(purchaseInvoiceDetail3);
 
                     }
 
@@ -208,13 +254,17 @@ namespace RedaPOS
                     {
                         invoice1.Flag = 1;
                         invoice2.Flag = 1;
+                        invoice3.Flag = 1;
                         purchaseInvoice1.Flag = 1;
                         purchaseInvoice2.Flag = 1;
+                        purchaseInvoice3.Flag = 1;
                         if (db.SaveChanges() > 0)
                         {
                             PushMessage.SendTransferItems("رضا1" + Environment.NewLine + pushMSG1.ToString());
                             Thread.Sleep(3000);
                             PushMessage.SendTransferItems("رضا2" + Environment.NewLine + pushMSG2.ToString());
+                            Thread.Sleep(3000);
+                            PushMessage.SendTransferItems("رضا3" + Environment.NewLine + pushMSG3.ToString());
                             MessageBox.Show("تم التحويل بنجاح");
                         }
                         this.Close();
@@ -275,8 +325,9 @@ namespace RedaPOS
             int  CurrentQuanity =Convert.ToInt32( gridView1.GetRowCellValue(rowHandle, "CurrentQuanity").ToString());
             int Reda1 =Convert.ToInt32( gridView1.GetRowCellValue(rowHandle, "Reda1").ToString());
             int Reda2 = Convert.ToInt32(gridView1.GetRowCellValue(rowHandle, "Reda2").ToString());
+            int Reda3 = Convert.ToInt32(gridView1.GetRowCellValue(rowHandle, "Reda3").ToString());
 
-            if ((Reda1 + Reda2) > CurrentQuanity)
+            if ((Reda1 + Reda2 + Reda3) > CurrentQuanity)
             {
                 hasError = true;
                 string errorMSG = " مجموع التحويل أكبر  من كمية المخزن" + CurrentQuanity;
@@ -307,6 +358,48 @@ namespace RedaPOS
                 string error = GetError(e.CellValue, e.RowHandle, e.Column);
                 SetError(info, error);
                 info.CalcViewInfo(e.Graphics);
+            }
+        }
+
+        private void cbBranches_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void checkedListBoxControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void checkedListBoxControl1_SelectedValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnRefreshBranches_ClientSizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRefreshBranches_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (DevExpress.XtraEditors.Controls.CheckedListBoxItem item in checkedListBoxControl1.CheckedItems)
+                {
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

@@ -575,6 +575,8 @@ namespace WinForm
         {
             try
             {
+                db = null;
+                db = new DataAccess.RedaV1Entities(ModuleClass.Connect());
                 decimal invoiceTotal = 0;
                 foreach (var item in details)
                 {

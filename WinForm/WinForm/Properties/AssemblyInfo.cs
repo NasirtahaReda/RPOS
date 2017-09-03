@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SciCom")]
 [assembly: AssemblyProduct("RedaPOS")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -36,8 +36,8 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 //In this version i added the store as a branche to transfer any item to other stores - 05-Ougust-2015
-[assembly: AssemblyVersion("10.7")]
-[assembly: AssemblyFileVersion("10.7")]
+[assembly: AssemblyVersion("11.1")]
+[assembly: AssemblyFileVersion("11.1")]
 
 
 

@@ -57,34 +57,34 @@
         <EntityTypeShape EntityType="RedaV1Model.MessageType" Width="1.5" PointX="18.375" PointY="23.125" />
         <EntityTypeShape EntityType="RedaV1Model.UserMessage" Width="1.5" PointX="20.625" PointY="19" />
         <AssociationConnector Association="RedaV1Model.FK_UserMessage_MessageType" />
-        <EntityTypeShape EntityType="RedaV1Model.User" Width="1.5" PointX="0.75" PointY="10" />
-        <AssociationConnector Association="RedaV1Model.FK_Expense_User" />
-        <AssociationConnector Association="RedaV1Model.FK_Expense_User1" />
-        <AssociationConnector Association="RedaV1Model.FK_PurchaseInvoice_User" />
-        <AssociationConnector Association="RedaV1Model.FK_SaleInvoice_User" />
-        <AssociationConnector Association="RedaV1Model.FK_UserMessage_User" />
         <EntityTypeShape EntityType="RedaV1Model.vw_PushoverMessage" Width="1.5" PointX="16.375" PointY="18.75" />
         <EntityTypeShape EntityType="RedaV1Model.MarqueeMessage" Width="1.5" PointX="4.75" PointY="8.5" />
         <AssociationConnector Association="RedaV1Model.FK_MarqueeMessage_Branch" />
-        <AssociationConnector Association="RedaV1Model.FK_MarqueeMessage_User" />
         <EntityTypeShape EntityType="RedaV1Model.UserLogin" Width="1.5" PointX="5.75" PointY="21.625" />
         <AssociationConnector Association="RedaV1Model.FK_UserLogin_Branch" />
-        <AssociationConnector Association="RedaV1Model.FK_UserLogin_UserLogin" />
         <EntityTypeShape EntityType="RedaV1Model.Shift" Width="1.5" PointX="8.75" PointY="21.625" />
         <AssociationConnector Association="RedaV1Model.FK_Shift_Branch" />
         <AssociationConnector Association="RedaV1Model.FK_Expense_Shift" />
-        <AssociationConnector Association="RedaV1Model.FK_Shift_User" />
         <EntityTypeShape EntityType="RedaV1Model.ShiftUser" Width="1.5" PointX="11" PointY="23.75" />
         <AssociationConnector Association="RedaV1Model.FK_ShiftUser_Shift" />
         <EntityTypeShape EntityType="RedaV1Model.UserPayment" Width="1.5" PointX="3" PointY="12.125" />
-        <AssociationConnector Association="RedaV1Model.FK_UserPayment_User" />
         <EntityTypeShape EntityType="RedaV1Model.vw_ShiftUser" Width="1.5" PointX="13.375" PointY="12.75" />
         <EntityTypeShape EntityType="RedaV1Model.Request" Width="1.5" PointX="14" PointY="23.625" />
         <EntityTypeShape EntityType="RedaV1Model.vw_Request" Width="1.5" PointX="20.375" PointY="0.75" />
         <AssociationConnector Association="RedaV1Model.FK_Request_Branch" />
         <AssociationConnector Association="RedaV1Model.FK_Request_Item" />
-        <AssociationConnector Association="RedaV1Model.FK_Request_User" />
         <EntityTypeShape EntityType="RedaV1Model.vw_SaleInvoiceDetails" Width="1.5" PointX="20.375" PointY="5.75" />
+        <EntityTypeShape EntityType="RedaV1Model.User" Width="1.5" PointX="0.75" PointY="13.125" />
+        <AssociationConnector Association="RedaV1Model.FK_Expense_User" />
+        <AssociationConnector Association="RedaV1Model.FK_Expense_User1" />
+        <AssociationConnector Association="RedaV1Model.FK_MarqueeMessage_User" />
+        <AssociationConnector Association="RedaV1Model.FK_PurchaseInvoice_User" />
+        <AssociationConnector Association="RedaV1Model.FK_Request_User" />
+        <AssociationConnector Association="RedaV1Model.FK_SaleInvoice_User" />
+        <AssociationConnector Association="RedaV1Model.FK_Shift_User" />
+        <AssociationConnector Association="RedaV1Model.FK_UserLogin_UserLogin" />
+        <AssociationConnector Association="RedaV1Model.FK_UserMessage_User" />
+        <AssociationConnector Association="RedaV1Model.FK_UserPayment_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

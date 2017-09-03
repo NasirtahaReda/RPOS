@@ -24,8 +24,8 @@ namespace DataAccess
         public int ShiftID { get; set; }
     
         public virtual Branch Branch { get; set; }
+        public virtual Shift Shift { get; set; }
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }
-        public virtual Shift Shift { get; set; }
     }
 }

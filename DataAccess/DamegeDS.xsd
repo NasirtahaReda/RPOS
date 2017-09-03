@@ -12,7 +12,7 @@
   <xs:element name="DamegeDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DamegeDS" msprop:Generator_UserDSName="DamegeDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DamegeDT" msprop:Generator_TableClassName="DamegeDTDataTable" msprop:Generator_TableVarName="tableDamegeDT" msprop:Generator_RowChangedName="DamegeDTRowChanged" msprop:Generator_TablePropName="DamegeDT" msprop:Generator_RowDeletingName="DamegeDTRowDeleting" msprop:Generator_RowChangingName="DamegeDTRowChanging" msprop:Generator_RowEvHandlerName="DamegeDTRowChangeEventHandler" msprop:Generator_RowDeletedName="DamegeDTRowDeleted" msprop:Generator_RowClassName="DamegeDTRow" msprop:Generator_UserTableName="DamegeDT" msprop:Generator_RowEvArgName="DamegeDTRowChangeEvent">
+        <xs:element name="DamegeDT" msprop:Generator_TableClassName="DamegeDTDataTable" msprop:Generator_TableVarName="tableDamegeDT" msprop:Generator_TablePropName="DamegeDT" msprop:Generator_RowDeletingName="DamegeDTRowDeleting" msprop:Generator_RowChangingName="DamegeDTRowChanging" msprop:Generator_RowEvHandlerName="DamegeDTRowChangeEventHandler" msprop:Generator_RowDeletedName="DamegeDTRowDeleted" msprop:Generator_UserTableName="DamegeDT" msprop:Generator_RowChangedName="DamegeDTRowChanged" msprop:Generator_RowEvArgName="DamegeDTRowChangeEvent" msprop:Generator_RowClassName="DamegeDTRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ReceiveQuantity" msprop:Generator_ColumnVarNameInTable="columnReceiveQuantity" msprop:Generator_ColumnPropNameInRow="ReceiveQuantity" msprop:Generator_ColumnPropNameInTable="ReceiveQuantityColumn" msprop:Generator_UserColumnName="ReceiveQuantity" type="xs:string" minOccurs="0" />
@@ -26,6 +26,7 @@
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" minOccurs="0" />
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
               <xs:element name="Reda1" msprop:Generator_ColumnVarNameInTable="columnReda1" msprop:Generator_ColumnPropNameInRow="Reda1" msprop:Generator_ColumnPropNameInTable="Reda1Column" msprop:Generator_UserColumnName="Reda1" type="xs:string" minOccurs="0" />
+              <xs:element name="Reda3" msprop:Generator_ColumnVarNameInTable="columnReda3" msprop:Generator_ColumnPropNameInRow="Reda3" msprop:Generator_ColumnPropNameInTable="Reda3Column" msprop:Generator_UserColumnName="Reda3" type="xs:string" minOccurs="0" />
               <xs:element name="Reda2" msprop:Generator_ColumnVarNameInTable="columnReda2" msprop:Generator_ColumnPropNameInRow="Reda2" msprop:Generator_ColumnPropNameInTable="Reda2Column" msprop:Generator_UserColumnName="Reda2" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>

@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="BranchName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" />
@@ -1735,44 +1735,15 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             <End Role="MessageType" EntitySet="MessageTypes" />
             <End Role="UserMessage" EntitySet="UserMessages" />
           </AssociationSet>
-          <EntitySet Name="Users" EntityType="RedaV1Model.User" />
-          <AssociationSet Name="FK_Expense_User" Association="RedaV1Model.FK_Expense_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Expense" EntitySet="Expenses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Expense_User1" Association="RedaV1Model.FK_Expense_User1">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Expense" EntitySet="Expenses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PurchaseInvoice_User" Association="RedaV1Model.FK_PurchaseInvoice_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="PurchaseInvoice" EntitySet="PurchaseInvoices" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SaleInvoice_User" Association="RedaV1Model.FK_SaleInvoice_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="SaleInvoice" EntitySet="SaleInvoices" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserMessage_User" Association="RedaV1Model.FK_UserMessage_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="UserMessage" EntitySet="UserMessages" />
-          </AssociationSet>
           <EntitySet Name="vw_PushoverMessage" EntityType="RedaV1Model.vw_PushoverMessage" />
           <EntitySet Name="MarqueeMessages" EntityType="RedaV1Model.MarqueeMessage" />
           <AssociationSet Name="FK_MarqueeMessage_Branch" Association="RedaV1Model.FK_MarqueeMessage_Branch">
             <End Role="Branch" EntitySet="Branches" />
             <End Role="MarqueeMessage" EntitySet="MarqueeMessages" />
           </AssociationSet>
-          <AssociationSet Name="FK_MarqueeMessage_User" Association="RedaV1Model.FK_MarqueeMessage_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="MarqueeMessage" EntitySet="MarqueeMessages" />
-          </AssociationSet>
           <EntitySet Name="UserLogins" EntityType="RedaV1Model.UserLogin" />
           <AssociationSet Name="FK_UserLogin_Branch" Association="RedaV1Model.FK_UserLogin_Branch">
             <End Role="Branch" EntitySet="Branches" />
-            <End Role="UserLogin" EntitySet="UserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserLogin_UserLogin" Association="RedaV1Model.FK_UserLogin_UserLogin">
-            <End Role="User" EntitySet="Users" />
             <End Role="UserLogin" EntitySet="UserLogins" />
           </AssociationSet>
           <EntitySet Name="Shifts" EntityType="RedaV1Model.Shift" />
@@ -1784,20 +1755,12 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             <End Role="Shift" EntitySet="Shifts" />
             <End Role="Expense" EntitySet="Expenses" />
           </AssociationSet>
-          <AssociationSet Name="FK_Shift_User" Association="RedaV1Model.FK_Shift_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Shift" EntitySet="Shifts" />
-          </AssociationSet>
           <EntitySet Name="ShiftUsers" EntityType="RedaV1Model.ShiftUser" />
           <AssociationSet Name="FK_ShiftUser_Shift" Association="RedaV1Model.FK_ShiftUser_Shift">
             <End Role="Shift" EntitySet="Shifts" />
             <End Role="ShiftUser" EntitySet="ShiftUsers" />
           </AssociationSet>
           <EntitySet Name="UserPayments" EntityType="RedaV1Model.UserPayment" />
-          <AssociationSet Name="FK_UserPayment_User" Association="RedaV1Model.FK_UserPayment_User">
-            <End Role="User" EntitySet="Users" />
-            <End Role="UserPayment" EntitySet="UserPayments" />
-          </AssociationSet>
           <EntitySet Name="vw_ShiftUser" EntityType="RedaV1Model.vw_ShiftUser" />
           <FunctionImport Name="Summary" IsComposable="true" ReturnType="Collection(RedaV1Model.Summary_Result)">
             <Parameter Name="BranchID" Mode="In" Type="Int32" />
@@ -1814,11 +1777,48 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             <End Role="Item" EntitySet="Items" />
             <End Role="Request" EntitySet="Requests" />
           </AssociationSet>
+          <EntitySet Name="vw_SaleInvoiceDetails" EntityType="RedaV1Model.vw_SaleInvoiceDetails" />
+          <EntitySet Name="Users" EntityType="RedaV1Model.User" />
+          <AssociationSet Name="FK_Expense_User" Association="RedaV1Model.FK_Expense_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Expense" EntitySet="Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Expense_User1" Association="RedaV1Model.FK_Expense_User1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Expense" EntitySet="Expenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MarqueeMessage_User" Association="RedaV1Model.FK_MarqueeMessage_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="MarqueeMessage" EntitySet="MarqueeMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseInvoice_User" Association="RedaV1Model.FK_PurchaseInvoice_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="PurchaseInvoice" EntitySet="PurchaseInvoices" />
+          </AssociationSet>
           <AssociationSet Name="FK_Request_User" Association="RedaV1Model.FK_Request_User">
             <End Role="User" EntitySet="Users" />
             <End Role="Request" EntitySet="Requests" />
           </AssociationSet>
-          <EntitySet Name="vw_SaleInvoiceDetails" EntityType="RedaV1Model.vw_SaleInvoiceDetails" />
+          <AssociationSet Name="FK_SaleInvoice_User" Association="RedaV1Model.FK_SaleInvoice_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="SaleInvoice" EntitySet="SaleInvoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shift_User" Association="RedaV1Model.FK_Shift_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Shift" EntitySet="Shifts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLogin_UserLogin" Association="RedaV1Model.FK_UserLogin_UserLogin">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserLogin" EntitySet="UserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserMessage_User" Association="RedaV1Model.FK_UserMessage_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserMessage" EntitySet="UserMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserPayment_User" Association="RedaV1Model.FK_UserPayment_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserPayment" EntitySet="UserPayments" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="ItemCategory">
           <Key>
@@ -2141,9 +2141,9 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <NavigationProperty Name="Branch" Relationship="RedaV1Model.FK_Expense_Branch" FromRole="Expense" ToRole="Branch" />
           <Property Name="InsertedUserId" Type="Int32" Nullable="false" />
           <Property Name="ShiftID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Shift" Relationship="RedaV1Model.FK_Expense_Shift" FromRole="Expense" ToRole="Shift" />
           <NavigationProperty Name="User" Relationship="RedaV1Model.FK_Expense_User" FromRole="Expense" ToRole="User" />
           <NavigationProperty Name="User1" Relationship="RedaV1Model.FK_Expense_User1" FromRole="Expense" ToRole="User" />
-          <NavigationProperty Name="Shift" Relationship="RedaV1Model.FK_Expense_Shift" FromRole="Expense" ToRole="Shift" />
         </EntityType>
         <Association Name="FK_Expense_Branch">
           <End Type="RedaV1Model.Branch" Role="Branch" Multiplicity="1" />
@@ -2625,93 +2625,6 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
-          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsEnable" Type="Boolean" />
-          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PushoverID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Expenses" Relationship="RedaV1Model.FK_Expense_User" FromRole="User" ToRole="Expense" />
-          <NavigationProperty Name="Expenses1" Relationship="RedaV1Model.FK_Expense_User1" FromRole="User" ToRole="Expense" />
-          <NavigationProperty Name="PurchaseInvoices" Relationship="RedaV1Model.FK_PurchaseInvoice_User" FromRole="User" ToRole="PurchaseInvoice" />
-          <NavigationProperty Name="SaleInvoices" Relationship="RedaV1Model.FK_SaleInvoice_User" FromRole="User" ToRole="SaleInvoice" />
-          <NavigationProperty Name="UserMessages" Relationship="RedaV1Model.FK_UserMessage_User" FromRole="User" ToRole="UserMessage" />
-          <NavigationProperty Name="MarqueeMessages" Relationship="RedaV1Model.FK_MarqueeMessage_User" FromRole="User" ToRole="MarqueeMessage" />
-          <Property Name="MaxExpensePerDay" Type="Int32" />
-          <Property Name="MaxExpensePerMonth" Type="Int32" />
-          <NavigationProperty Name="UserLogins" Relationship="RedaV1Model.FK_UserLogin_UserLogin" FromRole="User" ToRole="UserLogin" />
-          <NavigationProperty Name="Shifts" Relationship="RedaV1Model.FK_Shift_User" FromRole="User" ToRole="Shift" />
-          <Property Name="HourRate" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="UserPayments" Relationship="RedaV1Model.FK_UserPayment_User" FromRole="User" ToRole="UserPayment" />
-          <NavigationProperty Name="Requests" Relationship="RedaV1Model.FK_Request_User" FromRole="User" ToRole="Request" />
-        </EntityType>
-        <Association Name="FK_Expense_User">
-          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
-          <End Type="RedaV1Model.Expense" Role="Expense" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Expense">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Expense_User1">
-          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
-          <End Type="RedaV1Model.Expense" Role="Expense" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Expense">
-              <PropertyRef Name="InsertedUserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PurchaseInvoice_User">
-          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
-          <End Type="RedaV1Model.PurchaseInvoice" Role="PurchaseInvoice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PurchaseInvoice">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SaleInvoice_User">
-          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
-          <End Type="RedaV1Model.SaleInvoice" Role="SaleInvoice" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="SaleInvoice">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserMessage_User">
-          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
-          <End Type="RedaV1Model.UserMessage" Role="UserMessage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="UserMessage">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="vw_PushoverMessage">
           <Key>
             <PropertyRef Name="UserID" />
@@ -2752,18 +2665,6 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MarqueeMessage_User">
-          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
-          <End Type="RedaV1Model.MarqueeMessage" Role="MarqueeMessage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="MarqueeMessage">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="UserLogin">
           <Key>
             <PropertyRef Name="ID" />
@@ -2786,18 +2687,6 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             </Principal>
             <Dependent Role="UserLogin">
               <PropertyRef Name="BranchID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserLogin_UserLogin">
-          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
-          <End Type="RedaV1Model.UserLogin" Role="UserLogin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="UserLogin">
-              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2833,8 +2722,8 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <Property Name="PackingMachine" Type="Boolean" />
           <NavigationProperty Name="Branch" Relationship="RedaV1Model.FK_Shift_Branch" FromRole="Shift" ToRole="Branch" />
           <NavigationProperty Name="Expenses" Relationship="RedaV1Model.FK_Expense_Shift" FromRole="Shift" ToRole="Expense" />
-          <NavigationProperty Name="User" Relationship="RedaV1Model.FK_Shift_User" FromRole="Shift" ToRole="User" />
           <NavigationProperty Name="ShiftUsers" Relationship="RedaV1Model.FK_ShiftUser_Shift" FromRole="Shift" ToRole="ShiftUser" />
+          <NavigationProperty Name="User" Relationship="RedaV1Model.FK_Shift_User" FromRole="Shift" ToRole="User" />
         </EntityType>
         <Association Name="FK_Shift_Branch">
           <End Type="RedaV1Model.Branch" Role="Branch" Multiplicity="1" />
@@ -2857,18 +2746,6 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             </Principal>
             <Dependent Role="Expense">
               <PropertyRef Name="ShiftID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Shift_User">
-          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
-          <End Type="RedaV1Model.Shift" Role="Shift" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Shift">
-              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2911,18 +2788,6 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <Property Name="Desciption" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="RedaV1Model.FK_UserPayment_User" FromRole="UserPayment" ToRole="User" />
         </EntityType>
-        <Association Name="FK_UserPayment_User">
-          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
-          <End Type="RedaV1Model.UserPayment" Role="UserPayment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="UserPayment">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="vw_ShiftUser">
           <Key>
             <PropertyRef Name="ShiftID" />
@@ -2970,10 +2835,10 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Branch" Relationship="RedaV1Model.FK_Request_Branch" FromRole="Request" ToRole="Branch" />
           <NavigationProperty Name="Item" Relationship="RedaV1Model.FK_Request_Item" FromRole="Request" ToRole="Item" />
-          <NavigationProperty Name="User" Relationship="RedaV1Model.FK_Request_User" FromRole="Request" ToRole="User" />
           <Property Name="CustomerMobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RequestByCustomer" Type="Boolean" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="RedaV1Model.FK_Request_User" FromRole="Request" ToRole="User" />
         </EntityType>
         <EntityType Name="vw_Request">
           <Key>
@@ -3027,6 +2892,91 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="vw_SaleInvoiceDetails">
+          <Key>
+            <PropertyRef Name="SaleInvoiceID" />
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="SaleInvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsEnable" Type="Boolean" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PushoverID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaxExpensePerDay" Type="Int32" />
+          <Property Name="MaxExpensePerMonth" Type="Int32" />
+          <Property Name="HourRate" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Expenses" Relationship="RedaV1Model.FK_Expense_User" FromRole="User" ToRole="Expense" />
+          <NavigationProperty Name="Expenses1" Relationship="RedaV1Model.FK_Expense_User1" FromRole="User" ToRole="Expense" />
+          <NavigationProperty Name="MarqueeMessages" Relationship="RedaV1Model.FK_MarqueeMessage_User" FromRole="User" ToRole="MarqueeMessage" />
+          <NavigationProperty Name="PurchaseInvoices" Relationship="RedaV1Model.FK_PurchaseInvoice_User" FromRole="User" ToRole="PurchaseInvoice" />
+          <NavigationProperty Name="Requests" Relationship="RedaV1Model.FK_Request_User" FromRole="User" ToRole="Request" />
+          <NavigationProperty Name="SaleInvoices" Relationship="RedaV1Model.FK_SaleInvoice_User" FromRole="User" ToRole="SaleInvoice" />
+          <NavigationProperty Name="Shifts" Relationship="RedaV1Model.FK_Shift_User" FromRole="User" ToRole="Shift" />
+          <NavigationProperty Name="UserLogins" Relationship="RedaV1Model.FK_UserLogin_UserLogin" FromRole="User" ToRole="UserLogin" />
+          <NavigationProperty Name="UserMessages" Relationship="RedaV1Model.FK_UserMessage_User" FromRole="User" ToRole="UserMessage" />
+          <NavigationProperty Name="UserPayments" Relationship="RedaV1Model.FK_UserPayment_User" FromRole="User" ToRole="UserPayment" />
+        </EntityType>
+        <Association Name="FK_Expense_User">
+          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
+          <End Type="RedaV1Model.Expense" Role="Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Expense_User1">
+          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
+          <End Type="RedaV1Model.Expense" Role="Expense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Expense">
+              <PropertyRef Name="InsertedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MarqueeMessage_User">
+          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
+          <End Type="RedaV1Model.MarqueeMessage" Role="MarqueeMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MarqueeMessage">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseInvoice_User">
+          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
+          <End Type="RedaV1Model.PurchaseInvoice" Role="PurchaseInvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PurchaseInvoice">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Request_User">
           <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
           <End Type="RedaV1Model.Request" Role="Request" Multiplicity="*" />
@@ -3039,16 +2989,66 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="vw_SaleInvoiceDetails">
-          <Key>
-            <PropertyRef Name="SaleInvoiceID" />
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="ItemID" />
-          </Key>
-          <Property Name="SaleInvoiceID" Type="Int32" Nullable="false" />
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ItemID" Type="Int32" Nullable="false" />
-        </EntityType>
+        <Association Name="FK_SaleInvoice_User">
+          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
+          <End Type="RedaV1Model.SaleInvoice" Role="SaleInvoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SaleInvoice">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shift_User">
+          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
+          <End Type="RedaV1Model.Shift" Role="Shift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Shift">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLogin_UserLogin">
+          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
+          <End Type="RedaV1Model.UserLogin" Role="UserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserLogin">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserMessage_User">
+          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
+          <End Type="RedaV1Model.UserMessage" Role="UserMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserMessage">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserPayment_User">
+          <End Type="RedaV1Model.User" Role="User" Multiplicity="1" />
+          <End Type="RedaV1Model.UserPayment" Role="UserPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserPayment">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3524,24 +3524,6 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="RedaV1Model.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="HourRate" ColumnName="HourRate" />
-                <ScalarProperty Name="MaxExpensePerMonth" ColumnName="MaxExpensePerMonth" />
-                <ScalarProperty Name="MaxExpensePerDay" ColumnName="MaxExpensePerDay" />
-                <ScalarProperty Name="PushoverID" ColumnName="PushoverID" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
-                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vw_PushoverMessage">
             <EntityTypeMapping TypeName="RedaV1Model.vw_PushoverMessage">
               <MappingFragment StoreEntitySet="vw_PushoverMessage">
@@ -3711,6 +3693,24 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
                 <ScalarProperty Name="ItemID" ColumnName="ItemID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="SaleInvoiceID" ColumnName="SaleInvoiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="RedaV1Model.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="HourRate" ColumnName="HourRate" />
+                <ScalarProperty Name="MaxExpensePerMonth" ColumnName="MaxExpensePerMonth" />
+                <ScalarProperty Name="MaxExpensePerDay" ColumnName="MaxExpensePerDay" />
+                <ScalarProperty Name="PushoverID" ColumnName="PushoverID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

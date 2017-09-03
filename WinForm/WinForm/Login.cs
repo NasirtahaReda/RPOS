@@ -275,7 +275,7 @@ namespace WinForm
                 if (cmbBranches.GetSelectedDataRow() != null)
                 {
                     int BranchID = Convert.ToInt32(cmbBranches.GetColumnValue("ID").ToString());
-                    if (BranchID != 0)
+                    if (true)
                     {
                         string branchName = cmbBranches.GetColumnValue("BranchName").ToString();
                         string address = cmbBranches.GetColumnValue("Address").ToString();
@@ -283,20 +283,25 @@ namespace WinForm
                         this.Text = branchName + " : " + address;
 
 
+                        if (BranchID == 0)
+                        {
+                            defaultLookAndFeel1.LookAndFeel.SkinName = "Lilian";// "Summer 2008";// "Office 2010 Blue";
+                        }
+                        else
                         if (BranchID == 1)
                         {
                             defaultLookAndFeel1.LookAndFeel.SkinName = "Xmas 2008 Blue";// "Office 2007 Green";
                         }
                         else
                             if (BranchID == 2)
-                            {
-                                defaultLookAndFeel1.LookAndFeel.SkinName = "Springtime";// "Valentine";
-                            }
-                            else
+                        {
+                            defaultLookAndFeel1.LookAndFeel.SkinName = "Springtime";// "Valentine";
+                        }
+                        else
                                 if (BranchID == 3)
-                                {
-                                    defaultLookAndFeel1.LookAndFeel.SkinName = "Summer 2008";// "Office 2010 Blue";
-                                }
+                        {
+                            defaultLookAndFeel1.LookAndFeel.SkinName = "Dark Side";// "Lilian";// "Money Twins";// "Foggy";//"DevExpress Style";//
+                        }
                     }
                 }
             }

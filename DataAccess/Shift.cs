@@ -49,7 +49,7 @@ namespace DataAccess
     
         public virtual Branch Branch { get; set; }
         public virtual ICollection<Expense> Expenses { get; set; }
-        public virtual User User { get; set; }
         public virtual ICollection<ShiftUser> ShiftUsers { get; set; }
+        public virtual User User { get; set; }
     }
 }

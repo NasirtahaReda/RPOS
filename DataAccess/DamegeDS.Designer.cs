@@ -301,6 +301,8 @@ namespace DataAccess {
             
             private global::System.Data.DataColumn columnReda1;
             
+            private global::System.Data.DataColumn columnReda3;
+            
             private global::System.Data.DataColumn columnReda2;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -426,6 +428,14 @@ namespace DataAccess {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Reda3Column {
+                get {
+                    return this.columnReda3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Reda2Column {
                 get {
                     return this.columnReda2;
@@ -469,7 +479,7 @@ namespace DataAccess {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DamegeDTRow AddDamegeDTRow(string ReceiveQuantity, string CurrentQuanity, string ItemID, string PurchaseInvoiceDetailID, string PurchaseInvoiceID, string Quantity, string PurchasePrice, string BranchID, string ID, string Name, string Reda1, string Reda2) {
+            public DamegeDTRow AddDamegeDTRow(string ReceiveQuantity, string CurrentQuanity, string ItemID, string PurchaseInvoiceDetailID, string PurchaseInvoiceID, string Quantity, string PurchasePrice, string BranchID, string ID, string Name, string Reda1, string Reda3, string Reda2) {
                 DamegeDTRow rowDamegeDTRow = ((DamegeDTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ReceiveQuantity,
@@ -483,6 +493,7 @@ namespace DataAccess {
                         ID,
                         Name,
                         Reda1,
+                        Reda3,
                         Reda2};
                 rowDamegeDTRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDamegeDTRow);
@@ -517,6 +528,7 @@ namespace DataAccess {
                 this.columnID = base.Columns["ID"];
                 this.columnName = base.Columns["Name"];
                 this.columnReda1 = base.Columns["Reda1"];
+                this.columnReda3 = base.Columns["Reda3"];
                 this.columnReda2 = base.Columns["Reda2"];
             }
             
@@ -545,6 +557,8 @@ namespace DataAccess {
                 base.Columns.Add(this.columnName);
                 this.columnReda1 = new global::System.Data.DataColumn("Reda1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReda1);
+                this.columnReda3 = new global::System.Data.DataColumn("Reda3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReda3);
                 this.columnReda2 = new global::System.Data.DataColumn("Reda2", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReda2);
             }
@@ -865,6 +879,22 @@ namespace DataAccess {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Reda3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDamegeDT.Reda3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Reda3\' in table \'DamegeDT\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDamegeDT.Reda3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Reda2 {
                 get {
                     try {
@@ -1009,6 +1039,18 @@ namespace DataAccess {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetReda1Null() {
                 this[this.tableDamegeDT.Reda1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReda3Null() {
+                return this.IsNull(this.tableDamegeDT.Reda3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReda3Null() {
+                this[this.tableDamegeDT.Reda3Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

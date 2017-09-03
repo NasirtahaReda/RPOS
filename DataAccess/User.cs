@@ -18,14 +18,14 @@ namespace DataAccess
         {
             this.Expenses = new HashSet<Expense>();
             this.Expenses1 = new HashSet<Expense>();
-            this.PurchaseInvoices = new HashSet<PurchaseInvoice>();
-            this.SaleInvoices = new HashSet<SaleInvoice>();
-            this.UserMessages = new HashSet<UserMessage>();
             this.MarqueeMessages = new HashSet<MarqueeMessage>();
-            this.UserLogins = new HashSet<UserLogin>();
-            this.Shifts = new HashSet<Shift>();
-            this.UserPayments = new HashSet<UserPayment>();
+            this.PurchaseInvoices = new HashSet<PurchaseInvoice>();
             this.Requests = new HashSet<Request>();
+            this.SaleInvoices = new HashSet<SaleInvoice>();
+            this.Shifts = new HashSet<Shift>();
+            this.UserLogins = new HashSet<UserLogin>();
+            this.UserMessages = new HashSet<UserMessage>();
+            this.UserPayments = new HashSet<UserPayment>();
         }
     
         public int ID { get; set; }
@@ -43,13 +43,13 @@ namespace DataAccess
     
         public virtual ICollection<Expense> Expenses { get; set; }
         public virtual ICollection<Expense> Expenses1 { get; set; }
-        public virtual ICollection<PurchaseInvoice> PurchaseInvoices { get; set; }
-        public virtual ICollection<SaleInvoice> SaleInvoices { get; set; }
-        public virtual ICollection<UserMessage> UserMessages { get; set; }
         public virtual ICollection<MarqueeMessage> MarqueeMessages { get; set; }
-        public virtual ICollection<UserLogin> UserLogins { get; set; }
-        public virtual ICollection<Shift> Shifts { get; set; }
-        public virtual ICollection<UserPayment> UserPayments { get; set; }
+        public virtual ICollection<PurchaseInvoice> PurchaseInvoices { get; set; }
         public virtual ICollection<Request> Requests { get; set; }
+        public virtual ICollection<SaleInvoice> SaleInvoices { get; set; }
+        public virtual ICollection<Shift> Shifts { get; set; }
+        public virtual ICollection<UserLogin> UserLogins { get; set; }
+        public virtual ICollection<UserMessage> UserMessages { get; set; }
+        public virtual ICollection<UserPayment> UserPayments { get; set; }
     }
 }
