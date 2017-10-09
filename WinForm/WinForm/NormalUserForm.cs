@@ -36,7 +36,8 @@ using WhatsAppApi.Account;
 using WhatsAppApi.Response;
 using System.IO;
 using DevExpress.XtraTab;
-using DataAccess; 
+using DataAccess;
+using DevExpress.Skins;
 
 namespace WinForm
 {
@@ -104,7 +105,13 @@ namespace WinForm
                 xtraTabPage1.Text = "فاتورة " + pageIndex++;
                 xtraTabPage1.Controls[0].Dock = DockStyle.Fill;
                 count = 70;
-               
+
+                SkinContainerCollection skins = SkinManager.Default.Skins;
+                for (int i = 0; i < skins.Count; i++)
+                {
+                    cmbTheme.Properties.Items.Add(skins[i].SkinName);
+                }
+
             }
             catch (Exception ex)
             {
@@ -1098,7 +1105,7 @@ namespace WinForm
             {
                 if (MessageBox.Show("خروج من النظام؟", "نظام رضا بوكشوب", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
-                    if (xtraTabControl1.TabPages.Count > 1)
+                    if (xtraTabControl1.TabPages.Count > 2)
                     {
                         MessageBox.Show("توجد فواتير لم يتم إغلاقها", "لا يمكن قفل النظام");
                         return;
@@ -2092,6 +2099,22 @@ namespace WinForm
                 {
                     MessageBox.Show("توجد فواتير لم يتم إغلاقها", "لا يمكن قفل النظام");
                     e.Cancel = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+            }
+        }
+
+        private void cmbTheme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbTheme.EditValue != null && cmbTheme.EditValue.ToString() != string.Empty)
+                {
+                    string selectedSkin = cmbTheme.EditValue.ToString();
+                    defaultLookAndFeel1.LookAndFeel.SkinName = selectedSkin;
                 }
             }
             catch (Exception ex)

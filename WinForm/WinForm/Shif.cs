@@ -285,8 +285,8 @@ namespace WinForm
                 {
                     
 
-                    //Close shift for all users in shift
-                    var shiftUsers = db.ShiftUsers.Where(s => s.ShiftID == _shift.ID);
+                    //Close shift for logged in users in shift
+                    var shiftUsers = db.ShiftUsers.Where(s => s.ShiftID == _shift.ID && s.Flag == 0);
                     foreach (DataAccess.ShiftUser shiftUser in shiftUsers)
                     {
                         shiftUser.LogoutTime = DateTime.Now;

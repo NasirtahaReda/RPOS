@@ -665,7 +665,7 @@ namespace WinForm
         public static string ShowDialog(string text, string caption)
         {
             Form prompt = new Form();
-            prompt.RightToLeft = RightToLeft.Yes;
+            prompt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             prompt.RightToLeftLayout = true;
             prompt.Width = 500;
             prompt.Height = 150;
@@ -675,7 +675,7 @@ namespace WinForm
             Label textLabel = new Label() { Left = 50, Top = 20, Text = text };
             TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
             textBox.TextAlign = HorizontalAlignment.Center;
-            textBox.RightToLeft = RightToLeft.Yes;
+            textBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 
             textBox.PasswordChar = '#';
             Button confirmation = new Button() { Text = "دخول", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };

@@ -146,7 +146,7 @@ namespace WinForm
                         var catId = Convert.ToInt32(cmbCategory.GetColumnValue("ID"));
                         var code = cmbCategory.GetColumnValue("code").ToString();
                         int count = db.Items.Where(s => s.CategoryID == catId).Count();
-                        string BarcodeText = "7" + code + "-" + (count + 1).ToString("000");
+                        string BarcodeText = "7" + code /*+ "-"*/ + (count + 1).ToString("000");
                         item.BarcodeText = BarcodeText;
                         item.Symbology = "Code128";
                         isNew = false;

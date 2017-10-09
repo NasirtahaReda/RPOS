@@ -65,6 +65,7 @@
             // 
             // pictureEdit1
             // 
+            this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureEdit1.EditValue = global::RedaPOS.Properties.Resources.SC1;
             this.pictureEdit1.Location = new System.Drawing.Point(571, 406);
             this.pictureEdit1.Name = "pictureEdit1";
@@ -73,12 +74,14 @@
             this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit1.Properties.ShowMenu = false;
+            this.pictureEdit1.Properties.ZoomAccelerationFactor = 1D;
             this.pictureEdit1.Size = new System.Drawing.Size(160, 48);
             this.pictureEdit1.TabIndex = 11;
             // 
             // pictureEdit2
             // 
-            this.pictureEdit2.EditValue = global::RedaPOS.Properties.Resources.Mainplash1;
+            this.pictureEdit2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureEdit2.EditValue = global::RedaPOS.Properties.Resources.Mainplash2;
             this.pictureEdit2.Location = new System.Drawing.Point(12, 7);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.AllowFocused = false;
@@ -87,6 +90,7 @@
             this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
             this.pictureEdit2.Properties.ShowMenu = false;
             this.pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit2.Properties.ZoomAccelerationFactor = 1D;
             this.pictureEdit2.Size = new System.Drawing.Size(719, 341);
             this.pictureEdit2.TabIndex = 9;
             // 

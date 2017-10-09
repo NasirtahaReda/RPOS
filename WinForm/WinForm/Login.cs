@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using RedaPOS;
 using System.Reflection;
 using System.Data.SqlClient;
-
+using DevExpress.Skins;
 
 namespace WinForm
 {
@@ -35,6 +35,11 @@ namespace WinForm
                 AssemblyFileVersionAttribute assemblyVersion = executingAssembly.GetCustomAttribute<AssemblyFileVersionAttribute>();
                 this.Text = assembly.Title + " " + assemblyVersion.Version;// +" ( " + UserData.Default.UserName + " ) ";// +branch.BranchName;
 
+                SkinContainerCollection skins = SkinManager.Default.Skins;
+                for (int i = 0; i < skins.Count; i++)
+                {
+                    cmbTheme.Properties.Items.Add(skins[i].SkinName);
+                }
 
                 LoadData();
             }
@@ -283,25 +288,25 @@ namespace WinForm
                         this.Text = branchName + " : " + address;
 
 
-                        if (BranchID == 0)
-                        {
-                            defaultLookAndFeel1.LookAndFeel.SkinName = "Lilian";// "Summer 2008";// "Office 2010 Blue";
-                        }
-                        else
-                        if (BranchID == 1)
-                        {
-                            defaultLookAndFeel1.LookAndFeel.SkinName = "Xmas 2008 Blue";// "Office 2007 Green";
-                        }
-                        else
-                            if (BranchID == 2)
-                        {
-                            defaultLookAndFeel1.LookAndFeel.SkinName = "Springtime";// "Valentine";
-                        }
-                        else
-                                if (BranchID == 3)
-                        {
-                            defaultLookAndFeel1.LookAndFeel.SkinName = "Dark Side";// "Lilian";// "Money Twins";// "Foggy";//"DevExpress Style";//
-                        }
+                        //if (BranchID == 0)
+                        //{
+                        //    defaultLookAndFeel1.LookAndFeel.SkinName = "Lilian";// "Summer 2008";// "Office 2010 Blue";
+                        //}
+                        //else
+                        //if (BranchID == 1)
+                        //{
+                        //    defaultLookAndFeel1.LookAndFeel.SkinName = "Xmas 2008 Blue";// "Office 2007 Green";
+                        //}
+                        //else
+                        //    if (BranchID == 2)
+                        //{
+                        //    defaultLookAndFeel1.LookAndFeel.SkinName = "Springtime";// "Valentine";
+                        //}
+                        //else
+                        //        if (BranchID == 3)
+                        //{
+                        //    defaultLookAndFeel1.LookAndFeel.SkinName = "Dark Side";// "Lilian";// "Money Twins";// "Foggy";//"DevExpress Style";//
+                        //}
                     }
                 }
             }
@@ -387,6 +392,22 @@ namespace WinForm
                 txtPassword.Focus();
             }
             catch(Exception ex)
+            {
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+            }
+        }
+
+        private void cmbTheme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbTheme.EditValue != null && cmbTheme.EditValue.ToString() != string.Empty)
+                {
+                    string selectedSkin = cmbTheme.EditValue.ToString();
+                    defaultLookAndFeel1.LookAndFeel.SkinName = selectedSkin;
+                }
+            }
+            catch (Exception ex)
             {
                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }

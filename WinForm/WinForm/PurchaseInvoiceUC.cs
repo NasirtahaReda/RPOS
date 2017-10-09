@@ -47,6 +47,10 @@ namespace WinForm
 
         private void btnGetAll_Click(object sender, EventArgs e)
         {
+            GetInvoices();
+        }
+        void GetInvoices()
+        {
             try
             {
                 if (rbSearchByDate.Checked)
@@ -70,10 +74,9 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
-
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -235,17 +238,27 @@ namespace WinForm
             {
                 if (e.KeyCode == Keys.Delete)// && e.Modifiers == Keys.Control)
                 {
-                    if (MessageBox.Show("حذف ?", "تأكيد الحذف", MessageBoxButtons.YesNo) != DialogResult.Yes)
-                        return;
-
                     DataAccess.PurchaseInvoice currentRow = (DataAccess.PurchaseInvoice)gridView1.GetFocusedRow();
 
-                    if (currentRow.Flag == 1)
+
+                    //if (currentRow.Flag == 1)
                     {
                         MessageBox.Show("You can not delete closed invoice", "Delete Invoice", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         return;
                     }
 
+                    if (MessageBox.Show("الفاتورة تحتوي علي "+ currentRow.PurchaseInvoiceDetails.Count + "\n\n\n هل انت متأكد من حذف الفاتورة؟ ", "تأكيد الحذف", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                        return;
+
+                    //for (int i = 0; i < currentRow.PurchaseInvoiceDetails.Count; i++)
+                    //{
+                    //    currentRow.PurchaseInvoiceDetails.re
+                    //}
+                    foreach (var item in currentRow.PurchaseInvoiceDetails.ToList())
+                    {
+                        db.PurchaseInvoiceDetails.Remove(item);
+                    }
+                    
                     db.PurchaseInvoices.Remove(currentRow);
                     if (db.SaveChanges() > 0)
                     {
@@ -253,6 +266,7 @@ namespace WinForm
 
                         ////parent.ShowMessageInStatusBar("Item Deleted", 9000);
                     }
+                    GetInvoices();
                 }
             }
             catch (Exception ex)
