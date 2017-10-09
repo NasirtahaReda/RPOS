@@ -1303,6 +1303,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>localDB.mdf</DependentUpon>
     </Content>
+    <Content Include="readme.txt" />
     <Content Include="Resources\Print1.png" />
     <None Include="Resources\barcode-icon.png" />
     <None Include="Images\Mainplash.png" />
