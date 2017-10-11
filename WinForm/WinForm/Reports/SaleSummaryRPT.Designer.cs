@@ -72,12 +72,12 @@
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.txtTotal = new DevExpress.XtraReports.UI.XRLabel();
             this.txtDiscount = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.txtNet = new DevExpress.XtraReports.UI.XRLabel();
             this.calculatedField1 = new DevExpress.XtraReports.UI.CalculatedField();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.efDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -460,6 +460,8 @@
             // 
             // xrLabel2
             // 
+            this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Date", "{0:d/MM/yyyy}")});
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold);
             this.xrLabel2.ForeColor = System.Drawing.Color.Maroon;
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(188.7082F, 7.999992F);
@@ -512,10 +514,6 @@
             this.DataField.ForeColor = System.Drawing.Color.Black;
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(DataAccess.vw_SaleReport);
             // 
             // txtTotal
             // 
@@ -572,6 +570,10 @@
             this.calculatedField1.DataSource = this.efDataSource1;
             this.calculatedField1.Expression = "[].Sum([vw_SaleReport.Total]) - [].Sum([vw_SaleReport.Discount])";
             this.calculatedField1.Name = "calculatedField1";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(DataAccess.vw_SaleReport);
             // 
             // SaleSummaryRPT
             // 
