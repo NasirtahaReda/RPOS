@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using RedaPOS;
 using System.Reflection;
 using System.Data.SqlClient;
-
+using DevExpress.Skins;
 
 namespace WinForm
 {
@@ -14,7 +14,7 @@ namespace WinForm
 
     public partial class Login : DevExpress.XtraEditors.XtraForm
     {
-        
+
         SqlConnectionStringBuilder sqlBulider = new SqlConnectionStringBuilder();
         DataAccess.RedaV1Entities db = null;// new DataAccess.RedaV1Entities(ModuleClass.Connect());
         [DllImport("kernel32.dll", SetLastError = true)]
@@ -25,28 +25,33 @@ namespace WinForm
             try
             {
                 InitializeComponent();
-               //string connString = ModuleClass.Connect();
-               //DataAccess.RedaV1Entities db = ModuleClass.GetConnection();//= new DataAccess.RedaV1Entities(ModuleClass.Connect());
+                //string connString = ModuleClass.Connect();
+                //DataAccess.RedaV1Entities db = ModuleClass.GetConnection();//= new DataAccess.RedaV1Entities(ModuleClass.Connect());
                 db = ModuleClass.GetConnection();
                 DevExpress.UserSkins.BonusSkins.Register();
-                
+
                 Assembly executingAssembly = Assembly.GetExecutingAssembly();
                 AssemblyTitleAttribute assembly = executingAssembly.GetCustomAttribute<AssemblyTitleAttribute>();
                 AssemblyFileVersionAttribute assemblyVersion = executingAssembly.GetCustomAttribute<AssemblyFileVersionAttribute>();
                 this.Text = assembly.Title + " " + assemblyVersion.Version;// +" ( " + UserData.Default.UserName + " ) ";// +branch.BranchName;
 
+                SkinContainerCollection skins = SkinManager.Default.Skins;
+                for (int i = 0; i < skins.Count; i++)
+                {
+                    cmbTheme.Properties.Items.Add(skins[i].SkinName);
+                }
 
                 LoadData();
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
 
         }
         private void Login_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void labelControl2_Click(object sender, EventArgs e)
@@ -61,13 +66,13 @@ namespace WinForm
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-                               
+
             try
             {
                 if (!dxErrorProvider1.HasErrors)
                 {
-                    
-                    int userId =Convert.ToInt32(txtUserName.EditValue);
+
+                    int userId = Convert.ToInt32(txtUserName.EditValue);
                     int branchID = Convert.ToInt32(cmbBranches.EditValue);
                     int year = DateTime.Now.Year;
                     int month = DateTime.Now.Month;
@@ -76,7 +81,7 @@ namespace WinForm
                     string password = txtPassword.EditValue.ToString().ToLower();
                     var ValidUser = db.Users.Where(s => s.ID == userId && s.Password.ToLower() == password).SingleOrDefault();
                     if (ValidUser != null)
-                    
+
                     {
                         if (chLogAsAdmin.Checked)
                         {
@@ -94,7 +99,7 @@ namespace WinForm
                         else //Other users
                         {
                             //Check if there is a shift still open by other users
-                           
+
                             var existingShift = db.Shifts.Where(s => s.Flag == 0 && s.BranchID == branchID).SingleOrDefault();
                             if (existingShift != null)
                             {
@@ -106,9 +111,9 @@ namespace WinForm
                                 else
                                 {
                                     ModuleClass.shiftID = existingShift.ID;
-                           WriteSesssion(ValidUser, true, "دخول متكرر");
+                                    WriteSesssion(ValidUser, true, "دخول متكرر");
                                     this.Hide();
-                                    
+
                                     new NormalUserForm(db).Show();
                                 }
                             }
@@ -118,11 +123,11 @@ namespace WinForm
                                 this.Hide();
                                 new Shif(true).ShowDialog();
                             }
-                          
+
 
 
                         }
-                       
+
                     }
                     else
                     {
@@ -132,7 +137,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
 
 
@@ -141,7 +146,7 @@ namespace WinForm
         {
             UserData.Default.UserName = ValidUser.UserName;
             UserData.Default.UserID = ValidUser.ID.ToString();
-           // UserData.Default.Password = ValidUser.Password;
+            // UserData.Default.Password = ValidUser.Password;
             string BranchID = cmbBranches.GetColumnValue("ID").ToString();
             UserData.Default.BranchID = BranchID;
             UserData.Default.Save();
@@ -172,7 +177,7 @@ namespace WinForm
                 ////            message = login.Date.Day.ToString("00") + "/" + login.Date.Month.ToString("00") + "-" + login.Date.Hour.ToString("00") + ":" + login.Date.Minute.ToString("00") + " :" + ValidUser.UserName + "   : دخول" + " " + UserData.Default.BranchName + " from pc:  " + System.Environment.MachineName;
                 ////           // title = "دخول";
                 ////        }
-                       
+
                 ////       // string EmailReceivers = recervers;// UserData.Default.EmailReceivers;
                 ////        Thread whatsApplThread = new Thread(() => PushMessage.SendSignOnMessage(message, UserData.Default.BranchName, login.Date, ValidUser.UserName));
                 ////        whatsApplThread.Start();
@@ -187,67 +192,67 @@ namespace WinForm
                 ////}
             }
         }
-//        public void SendEmail(DataAccess.UserLogin login, DataAccess.User ValidUser)
-//        {
-//            string smtpAddress = "smtp.gmail.com";
-//            // int portNumber = 587;
-//            bool enableSSL = true;
-//            string emailFrom = "redasudani@gmail.com";
-//            string password = "gqaz1tahaz";
-//            string emailTo = "NasirTaha@gmail.com";
-//            string subject = "Reda "+UserData.Default.BranchID;
-//            string body = "";
-//            string pc = System.Environment.MachineName;
-//            if (login.Type)//Login Out
-//            {
-//                body = login.Date.Day.ToString("00") + "/" + login.Date.Month.ToString("00") + "-" + login.Date.Hour.ToString("00") + ":" + login.Date.Minute.ToString("00") + " :" + ValidUser.UserName + " :خروج" + "- " + UserData.Default.BranchName + "-" + "  " + pc;
-//            }
-//            else//Login In
-//            {
-//                body = login.Date.Day.ToString("00") + "/" + login.Date.Month.ToString("00") + "-" + login.Date.Hour.ToString("00") + ":" + login.Date.Minute.ToString("00") + " :" + ValidUser.UserName + "   : دخول" + " " + UserData.Default.BranchName + " from pc:  " + pc;
-//            }
-
-           
-//            try
-//            {
-//#if !DEBUG
-//                Thread thread = new Thread(() => ModuleClass.SendWhatsAppMessage("ALL", body));
-//                thread.Start();
-//#endif
-//            }
-//            catch (Exception ex)
-//            {
-//                //Do nothing 
-//            }
-//            using (MailMessage mail = new MailMessage())
-//            {
-//                mail.From = new MailAddress(emailFrom);
-//                mail.To.Add(emailTo);
-//                mail.To.Add("sheble233@gmail.com");
-//                mail.Subject = body;
-//                mail.Body = body;
-//                mail.IsBodyHtml = true;
-
-//                using (SmtpClient smtp = new SmtpClient(smtpAddress))//, portNumber))
-//                {
-//                    try
-//                    {
-//#if !DEBUG
-//                            smtp.UseDefaultCredentials = false;
-//                            smtp.Credentials = new NetworkCredential(emailFrom, password);
-//                            smtp.EnableSsl = enableSSL;
-//                            smtp.Send(mail);
-//#endif
+        //        public void SendEmail(DataAccess.UserLogin login, DataAccess.User ValidUser)
+        //        {
+        //            string smtpAddress = "smtp.gmail.com";
+        //            // int portNumber = 587;
+        //            bool enableSSL = true;
+        //            string emailFrom = "redasudani@gmail.com";
+        //            string password = "gqaz1tahaz";
+        //            string emailTo = "NasirTaha@gmail.com";
+        //            string subject = "Reda "+UserData.Default.BranchID;
+        //            string body = "";
+        //            string pc = System.Environment.MachineName;
+        //            if (login.Type)//Login Out
+        //            {
+        //                body = login.Date.Day.ToString("00") + "/" + login.Date.Month.ToString("00") + "-" + login.Date.Hour.ToString("00") + ":" + login.Date.Minute.ToString("00") + " :" + ValidUser.UserName + " :خروج" + "- " + UserData.Default.BranchName + "-" + "  " + pc;
+        //            }
+        //            else//Login In
+        //            {
+        //                body = login.Date.Day.ToString("00") + "/" + login.Date.Month.ToString("00") + "-" + login.Date.Hour.ToString("00") + ":" + login.Date.Minute.ToString("00") + " :" + ValidUser.UserName + "   : دخول" + " " + UserData.Default.BranchName + " from pc:  " + pc;
+        //            }
 
 
-//                    }
-//                    catch (Exception ex)
-//                    {
-//                        //Do nothing 
-//                    }
-//                }
-//            }
-//        }
+        //            try
+        //            {
+        //#if !DEBUG
+        //                Thread thread = new Thread(() => ModuleClass.SendWhatsAppMessage("ALL", body));
+        //                thread.Start();
+        //#endif
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                //Do nothing 
+        //            }
+        //            using (MailMessage mail = new MailMessage())
+        //            {
+        //                mail.From = new MailAddress(emailFrom);
+        //                mail.To.Add(emailTo);
+        //                mail.To.Add("sheble233@gmail.com");
+        //                mail.Subject = body;
+        //                mail.Body = body;
+        //                mail.IsBodyHtml = true;
+
+        //                using (SmtpClient smtp = new SmtpClient(smtpAddress))//, portNumber))
+        //                {
+        //                    try
+        //                    {
+        //#if !DEBUG
+        //                            smtp.UseDefaultCredentials = false;
+        //                            smtp.Credentials = new NetworkCredential(emailFrom, password);
+        //                            smtp.EnableSsl = enableSSL;
+        //                            smtp.Send(mail);
+        //#endif
+
+
+        //                    }
+        //                    catch (Exception ex)
+        //                    {
+        //                        //Do nothing 
+        //                    }
+        //                }
+        //            }
+        //        }
 
 
 
@@ -256,7 +261,7 @@ namespace WinForm
 
         }
 
-       
+
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
@@ -283,32 +288,32 @@ namespace WinForm
                         this.Text = branchName + " : " + address;
 
 
-                        if (BranchID == 0)
-                        {
-                            defaultLookAndFeel1.LookAndFeel.SkinName = "Lilian";// "Summer 2008";// "Office 2010 Blue";
-                        }
-                        else
-                        if (BranchID == 1)
-                        {
-                            defaultLookAndFeel1.LookAndFeel.SkinName = "Xmas 2008 Blue";// "Office 2007 Green";
-                        }
-                        else
-                            if (BranchID == 2)
-                        {
-                            defaultLookAndFeel1.LookAndFeel.SkinName = "Springtime";// "Valentine";
-                        }
-                        else
-                                if (BranchID == 3)
-                        {
-                            defaultLookAndFeel1.LookAndFeel.SkinName = "Dark Side";// "Lilian";// "Money Twins";// "Foggy";//"DevExpress Style";//
-                        }
+                        //if (BranchID == 0)
+                        //{
+                        //    defaultLookAndFeel1.LookAndFeel.SkinName = "Lilian";// "Summer 2008";// "Office 2010 Blue";
+                        //}
+                        //else
+                        //if (BranchID == 1)
+                        //{
+                        //    defaultLookAndFeel1.LookAndFeel.SkinName = "Xmas 2008 Blue";// "Office 2007 Green";
+                        //}
+                        //else
+                        //    if (BranchID == 2)
+                        //{
+                        //    defaultLookAndFeel1.LookAndFeel.SkinName = "Springtime";// "Valentine";
+                        //}
+                        //else
+                        //        if (BranchID == 3)
+                        //{
+                        //    defaultLookAndFeel1.LookAndFeel.SkinName = "Dark Side";// "Lilian";// "Money Twins";// "Foggy";//"DevExpress Style";//
+                        //}
                     }
                 }
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
-                
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+
             }
         }
 
@@ -334,7 +339,7 @@ namespace WinForm
 
 
             SYSTEMTIME st = new SYSTEMTIME();
-            st.wYear =(short) dbDate.Year; // must be short
+            st.wYear = (short)dbDate.Year; // must be short
             st.wMonth = (short)dbDate.Month;
             st.wDay = (short)dbDate.Day;
             st.wHour = (short)dbDate.Hour;
@@ -352,31 +357,31 @@ namespace WinForm
             try
             {
                 //DateTime serverTime = GetServerTime();
-               
-              
-                 
-                      //  db = ModuleClass.GetConnection();// new DataAccess.RedaV1Entities(ModuleClass.Connect());
-                        branchBindingSource.DataSource = db.Branches.ToList();
-                        userBindingSource1.DataSource = db.Users.Where(s=> s.IsEnable != false).ToList();
-                        if (UserData.Default.UserID != null)// && UserData.Default.UserID is int)
-                        {
-                            int userId = 0;
-                            Int32.TryParse(UserData.Default.UserID, out userId);
 
-                            txtUserName.EditValue = userId;
 
-                        }
 
-                        int BranchID = 0;
-                        Int32.TryParse(UserData.Default.BranchID, out BranchID);
+                //  db = ModuleClass.GetConnection();// new DataAccess.RedaV1Entities(ModuleClass.Connect());
+                branchBindingSource.DataSource = db.Branches.ToList();
+                userBindingSource1.DataSource = db.Users.Where(s => s.IsEnable != false).ToList();
+                if (UserData.Default.UserID != null)// && UserData.Default.UserID is int)
+                {
+                    int userId = 0;
+                    Int32.TryParse(UserData.Default.UserID, out userId);
 
-                        cmbBranches.EditValue = BranchID;
-                        cmbBranches.EditValue = -1;
-                        cmbBranches.EditValue = BranchID;
-                        
-                    
-                    
-              
+                    txtUserName.EditValue = userId;
+
+                }
+
+                int BranchID = 0;
+                Int32.TryParse(UserData.Default.BranchID, out BranchID);
+
+                cmbBranches.EditValue = BranchID;
+                cmbBranches.EditValue = -1;
+                cmbBranches.EditValue = BranchID;
+
+
+
+
                 //int BranchID =Convert.ToInt32(UserData.Default.BranchID);// Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["BranchID"]);
 #if DEBUG
 
@@ -386,7 +391,23 @@ namespace WinForm
 #endif
                 txtPassword.Focus();
             }
-            catch(Exception ex)
+            catch (Exception ex)
+            {
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+            }
+        }
+
+        private void cmbTheme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbTheme.EditValue != null && cmbTheme.EditValue.ToString() != string.Empty)
+                {
+                    string selectedSkin = cmbTheme.EditValue.ToString();
+                    defaultLookAndFeel1.LookAndFeel.SkinName = selectedSkin;
+                }
+            }
+            catch (Exception ex)
             {
                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }

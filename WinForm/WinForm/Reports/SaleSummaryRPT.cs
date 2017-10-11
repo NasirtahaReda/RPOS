@@ -39,6 +39,7 @@ namespace WinForm.Reports
 
         private void xrTableCell14_PreviewDoubleClick(object sender, PreviewMouseEventArgs e)
         {
+            /*
             DataAccess.RedaV1Entities db = ModuleClass.GetConnection();//= new DataAccess.RedaV1Entities(ModuleClass.Connect());
          int invoiceID = Convert.ToInt32(e.Brick.Text);
 
@@ -50,7 +51,6 @@ namespace WinForm.Reports
 
             try
             {
-              //  string InvoicePrinter = System.Configuration.ConfigurationManager.AppSettings["InvoicePrinter"];
                 ReportPrintTool tool = new ReportPrintTool(rpt);
                 tool.ShowPreview();
             }
@@ -58,6 +58,7 @@ namespace WinForm.Reports
             {
                 MessageBox.Show(ex.Message);
             }
+            */
         }
 
     }

@@ -84,7 +84,7 @@ namespace WinForm.Reports
                 rpt.DataSource = list.ToList();
                 try
                 {
-                    ReportPrintTool tool = new ReportPrintTool(rpt);
+                        ReportPrintTool tool = new ReportPrintTool(rpt);
                     tool.ShowPreview();
                 }
                 catch (Exception ex)

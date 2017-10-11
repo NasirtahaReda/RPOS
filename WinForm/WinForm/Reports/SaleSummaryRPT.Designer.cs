@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.DataAccess.EntityFramework.EFConnectionParameters efConnectionParameters1 = new DevExpress.DataAccess.EntityFramework.EFConnectionParameters();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary4 = new DevExpress.XtraReports.UI.XRSummary();
@@ -44,7 +43,7 @@
             this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.efDataSource1 = new DevExpress.DataAccess.EntityFramework.EFDataSource();
+            this.efDataSource1 = new DevExpress.DataAccess.EntityFramework.EFDataSource(this.components);
             this.pageHeaderBand1 = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -210,10 +209,8 @@
             // 
             // efDataSource1
             // 
-            ////efConnectionParameters1.ConnectionStringName = "RedaV1Entities";
-            ////efConnectionParameters1.Source = typeof(DataAccess.RedaV1Entities);
-            ////this.efDataSource1.ConnectionParameters = efConnectionParameters1;
-            ////this.efDataSource1.Name = "efDataSource1";
+            this.efDataSource1.ConnectionParameters = null;
+            this.efDataSource1.Name = "efDataSource1";
             // 
             // pageHeaderBand1
             // 
@@ -463,8 +460,6 @@
             // 
             // xrLabel2
             // 
-            this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Date", "{0:d/MM/yyyy}")});
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold);
             this.xrLabel2.ForeColor = System.Drawing.Color.Maroon;
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(188.7082F, 7.999992F);
@@ -599,7 +594,7 @@
             this.FieldCaption,
             this.PageInfo,
             this.DataField});
-            this.Version = "15.1";
+            this.Version = "17.1";
             this.AfterPrint += new System.EventHandler(this.SaleSummaryRPT_AfterPrint);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.efDataSource1)).EndInit();
