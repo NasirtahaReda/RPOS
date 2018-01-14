@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemUC));
             this.groupControlMain = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -70,10 +70,12 @@
             this.colHidden = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnGetAll = new DevExpress.XtraEditors.SimpleButton();
             this.groupControlSearch = new DevExpress.XtraEditors.GroupControl();
+            this.btnShowHidden = new DevExpress.XtraEditors.SimpleButton();
             this.chHidden = new DevExpress.XtraEditors.CheckEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar3 = new DevExpress.XtraBars.Bar();
@@ -86,8 +88,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new DevExpress.XtraEditors.ButtonEdit();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnShowHidden = new DevExpress.XtraEditors.SimpleButton();
-            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
+            this.cbPrintPrice = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlMain)).BeginInit();
             this.groupControlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -108,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chHidden.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPrintPrice.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControlMain
@@ -313,7 +315,7 @@
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "Delete", -1, true, true, false, editorButtonImageOptions1)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEdit1_ButtonClick);
@@ -353,16 +355,17 @@
             // repositoryItemButtonEditPrintBarcode
             // 
             this.repositoryItemButtonEditPrintBarcode.AutoHeight = false;
-            toolTipItem4.Text = "طباعة بار كود للصنف";
-            superToolTip4.Items.Add(toolTipItem4);
-            toolTipItem5.Text = "عرض بيانات الصنف للتعديل (السعر ، الأسم ) أو إخفاء الصنف";
-            superToolTip5.Items.Add(toolTipItem5);
-            toolTipItem6.Text = "يمكن إخفاء أو إظهار الصنف";
-            superToolTip6.Items.Add(toolTipItem6);
+            editorButtonImageOptions2.Image = global::RedaPOS.Properties.Resources.barcode_icon;
+            toolTipItem1.Text = "طباعة بار كود للصنف";
+            superToolTip1.Items.Add(toolTipItem1);
+            toolTipItem2.Text = "عرض بيانات الصنف للتعديل (السعر ، الأسم ) أو إخفاء الصنف";
+            superToolTip2.Items.Add(toolTipItem2);
+            toolTipItem3.Text = "يمكن إخفاء أو إظهار الصنف";
+            superToolTip3.Items.Add(toolTipItem3);
             this.repositoryItemButtonEditPrintBarcode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::RedaPOS.Properties.Resources.barcode_icon, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, superToolTip4, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, superToolTip5, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Minus, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, superToolTip6, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions2, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, superToolTip1),
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions3, DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, superToolTip2),
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions4, DevExpress.XtraEditors.Controls.ButtonPredefines.Minus, superToolTip3)});
             this.repositoryItemButtonEditPrintBarcode.Name = "repositoryItemButtonEditPrintBarcode";
             this.repositoryItemButtonEditPrintBarcode.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEditPrintBarcode.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEditPrintBarcode_ButtonClick);
@@ -444,8 +447,8 @@
             // btnSave
             // 
             this.btnSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.ImageOptions.Image")));
+            this.btnSave.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnSave.Location = new System.Drawing.Point(175, 6);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(90, 64);
@@ -457,8 +460,8 @@
             // btnGetAll
             // 
             this.btnGetAll.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.btnGetAll.Image = ((System.Drawing.Image)(resources.GetObject("btnGetAll.Image")));
-            this.btnGetAll.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnGetAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGetAll.ImageOptions.Image")));
+            this.btnGetAll.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnGetAll.Location = new System.Drawing.Point(70, 6);
             this.btnGetAll.Name = "btnGetAll";
             this.btnGetAll.Size = new System.Drawing.Size(90, 64);
@@ -469,6 +472,7 @@
             // 
             // groupControlSearch
             // 
+            this.groupControlSearch.Controls.Add(this.cbPrintPrice);
             this.groupControlSearch.Controls.Add(this.btnShowHidden);
             this.groupControlSearch.Controls.Add(this.chHidden);
             this.groupControlSearch.Controls.Add(this.btnAdd);
@@ -481,6 +485,18 @@
             this.groupControlSearch.Size = new System.Drawing.Size(1013, 69);
             this.groupControlSearch.TabIndex = 5;
             this.groupControlSearch.Text = "groupControl1";
+            // 
+            // btnShowHidden
+            // 
+            this.btnShowHidden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowHidden.Location = new System.Drawing.Point(536, 14);
+            this.btnShowHidden.Name = "btnShowHidden";
+            this.btnShowHidden.Size = new System.Drawing.Size(151, 42);
+            this.btnShowHidden.TabIndex = 3;
+            this.btnShowHidden.Text = "عرض الأصناف المخفية فقط";
+            this.btnShowHidden.ToolTip = "هذا الخيار يمكنك من عرض الأصناف المخفية فقط";
+            this.btnShowHidden.ToolTipController = this.toolTipController1;
+            this.btnShowHidden.Click += new System.EventHandler(this.btnShowHidden_Click);
             // 
             // chHidden
             // 
@@ -528,13 +544,13 @@
             this.lblMessage.Caption = "   ";
             this.lblMessage.Id = 0;
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // barDockControlTop
             // 
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Size = new System.Drawing.Size(1013, 0);
             // 
             // barDockControlBottom
@@ -542,6 +558,7 @@
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 400);
+            this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(1013, 25);
             // 
             // barDockControlLeft
@@ -549,6 +566,7 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 400);
             // 
             // barDockControlRight
@@ -556,13 +574,14 @@
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1013, 0);
+            this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 400);
             // 
             // btnAdd
             // 
             this.btnAdd.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.btnAdd.Image = global::RedaPOS.Properties.Resources.Add64;
-            this.btnAdd.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAdd.ImageOptions.Image = global::RedaPOS.Properties.Resources.Add64;
+            this.btnAdd.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnAdd.Location = new System.Drawing.Point(5, 7);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(64, 64);
@@ -600,17 +619,18 @@
             // 
             this.timer1.Interval = 1350;
             // 
-            // btnShowHidden
+            // cbPrintPrice
             // 
-            this.btnShowHidden.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnShowHidden.Location = new System.Drawing.Point(536, 14);
-            this.btnShowHidden.Name = "btnShowHidden";
-            this.btnShowHidden.Size = new System.Drawing.Size(151, 42);
-            this.btnShowHidden.TabIndex = 3;
-            this.btnShowHidden.Text = "عرض الأصناف المخفية فقط";
-            this.btnShowHidden.ToolTip = "هذا الخيار يمكنك من عرض الأصناف المخفية فقط";
-            this.btnShowHidden.ToolTipController = this.toolTipController1;
-            this.btnShowHidden.Click += new System.EventHandler(this.btnShowHidden_Click);
+            this.cbPrintPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbPrintPrice.Location = new System.Drawing.Point(383, 33);
+            this.cbPrintPrice.Name = "cbPrintPrice";
+            this.cbPrintPrice.Properties.Appearance.Options.UseTextOptions = true;
+            this.cbPrintPrice.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.cbPrintPrice.Properties.Caption = "طباعة  السعر";
+            this.cbPrintPrice.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.cbPrintPrice.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cbPrintPrice.Size = new System.Drawing.Size(90, 19);
+            this.cbPrintPrice.TabIndex = 15;
             // 
             // ItemUC
             // 
@@ -648,7 +668,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.chHidden.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbPrintPrice.Properties)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -702,5 +724,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colHidden;
         private DevExpress.XtraEditors.SimpleButton btnShowHidden;
         private DevExpress.Utils.ToolTipController toolTipController1;
+        private DevExpress.XtraEditors.CheckEdit cbPrintPrice;
     }
 }

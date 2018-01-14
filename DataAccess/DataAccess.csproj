@@ -64,7 +64,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DamegeDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DollarRate.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Expense.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialSummary_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Inventory.cs">

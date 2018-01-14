@@ -12,12 +12,22 @@ namespace WinForm.Reports
         {
             InitializeComponent();
         }
-        public ZebraBarcodeLabelRPT(string barcode, string Name, string price)
+        public ZebraBarcodeLabelRPT(string barcode, string Name, string price, bool printPrice)
         {
             InitializeComponent();
             txtBarcode.Text = barcode;
             txtName.Text = Name;
-            txtPrice.Text = price;
+            if (printPrice)
+            {
+                txtPrice.Text = price;
+                
+            }
+            else
+            {
+                txtPrice.Text = "";
+                lblCurrency.Text = "";
+            }
+
         }
 
     }

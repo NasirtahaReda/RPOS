@@ -71,6 +71,7 @@ namespace DataAccess
         public virtual DbSet<vw_Request> vw_Request { get; set; }
         public virtual DbSet<vw_SaleInvoiceDetails> vw_SaleInvoiceDetails { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<DollarRate> DollarRates { get; set; }
     
         [DbFunction("RedaV1Entities", "ItemMovement")]
         public virtual IQueryable<ItemMovement_Result> ItemMovement(Nullable<int> itemID)
@@ -98,6 +99,16 @@ namespace DataAccess
                 new ObjectParameter("To", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<Summary_Result>("[RedaV1Entities].[Summary](@BranchID, @From, @To)", branchIDParameter, fromParameter, toParameter);
+        }
+    
+        [DbFunction("RedaV1Entities", "FinancialSummary")]
+        public virtual IQueryable<FinancialSummary_Result> FinancialSummary(Nullable<System.DateTime> from)
+        {
+            var fromParameter = from.HasValue ?
+                new ObjectParameter("From", from) :
+                new ObjectParameter("From", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FinancialSummary_Result>("[RedaV1Entities].[FinancialSummary](@From)", fromParameter);
         }
     }
 }

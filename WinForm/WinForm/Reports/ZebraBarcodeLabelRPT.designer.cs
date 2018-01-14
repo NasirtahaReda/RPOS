@@ -33,7 +33,7 @@
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.txtBarcode = new DevExpress.XtraReports.UI.XRBarCode();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblCurrency = new DevExpress.XtraReports.UI.XRLabel();
             this.txtPrice = new DevExpress.XtraReports.UI.XRLabel();
             this.txtName = new DevExpress.XtraReports.UI.XRLabel();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -52,7 +52,7 @@
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.txtBarcode,
             this.xrLabel2,
-            this.xrLabel1,
+            this.lblCurrency,
             this.txtPrice,
             this.txtName});
             this.Detail.HeightF = 100F;
@@ -86,27 +86,27 @@
             this.xrLabel2.Text = "رضا بوكشوب";
             this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
-            // xrLabel1
+            // lblCurrency
             // 
-            this.xrLabel1.AutoWidth = true;
-            this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(81.5897F, 68F);
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(13.39334F, 15F);
-            this.xrLabel1.StylePriority.UseFont = false;
-            this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.Text = "ج";
-            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.lblCurrency.AutoWidth = true;
+            this.lblCurrency.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblCurrency.LocationFloat = new DevExpress.Utils.PointFloat(81.5897F, 68F);
+            this.lblCurrency.Name = "lblCurrency";
+            this.lblCurrency.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblCurrency.SizeF = new System.Drawing.SizeF(13.39334F, 15F);
+            this.lblCurrency.StylePriority.UseFont = false;
+            this.lblCurrency.StylePriority.UseTextAlignment = false;
+            this.lblCurrency.Text = "ج";
+            this.lblCurrency.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // txtPrice
             // 
             this.txtPrice.AutoWidth = true;
             this.txtPrice.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold);
-            this.txtPrice.LocationFloat = new DevExpress.Utils.PointFloat(95.10169F, 68F);
+            this.txtPrice.LocationFloat = new DevExpress.Utils.PointFloat(94.98303F, 68F);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.txtPrice.SizeF = new System.Drawing.SizeF(45.77332F, 15F);
+            this.txtPrice.SizeF = new System.Drawing.SizeF(45.89198F, 15F);
             this.txtPrice.StylePriority.UseFont = false;
             this.txtPrice.StylePriority.UseTextAlignment = false;
             this.txtPrice.Text = "123.59";
@@ -140,7 +140,7 @@
             this.PageHeight = 100;
             this.PageWidth = 150;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
-            this.Version = "15.1";
+            this.Version = "17.1";
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -151,7 +151,7 @@
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.XtraReports.UI.XRLabel txtPrice;
         private DevExpress.XtraReports.UI.XRBarCode txtBarcode;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
+        private DevExpress.XtraReports.UI.XRLabel lblCurrency;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel txtName;
     }

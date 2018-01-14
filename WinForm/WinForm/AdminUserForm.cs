@@ -2230,5 +2230,15 @@ namespace WinForm
         {
             AddControl(new TransferedInvoiceUC(), "فواتير التحويل");
         }
+
+        private void btnDollarRate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            new DollarRateForm().ShowDialog();
+        }
+
+        private void btnDialyFinancialReport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            new ShiftSummaryReportOptions().ShowDialog();
+        }
     }
 }

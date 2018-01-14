@@ -362,7 +362,7 @@ namespace WinForm
             bool result = true;
             var item = db.Items.Where(s => s.ID == detail.ItemID).SingleOrDefault();
 
-            ZebraBarcodeLabelRPT rpt = new ZebraBarcodeLabelRPT(item.BarcodeText, item.Name, item.SalePrice.ToString());// detail.SalePrice.ToString());
+            ZebraBarcodeLabelRPT rpt = new ZebraBarcodeLabelRPT(item.BarcodeText, item.Name, item.SalePrice.ToString(), cbPrintPrice.Checked);// detail.SalePrice.ToString());
             // rpt.DataSource = list;
             ReportPrintTool tool = new ReportPrintTool(rpt);
             rpt.PrintingSystem.StartPrint += new DevExpress.XtraPrinting.PrintDocumentEventHandler(PrintingSystem_StartPrint);
@@ -378,7 +378,7 @@ namespace WinForm
             bool result = true;
 
 
-            ZebraBarcodeLabelRPT rpt = new ZebraBarcodeLabelRPT(BarcodeText, Name, SalePrice.ToString());// detail.SalePrice.ToString());
+            ZebraBarcodeLabelRPT rpt = new ZebraBarcodeLabelRPT(BarcodeText, Name, SalePrice.ToString(), cbPrintPrice.Checked);// detail.SalePrice.ToString());
             ReportPrintTool tool = new ReportPrintTool(rpt);
             rpt.PrintingSystem.StartPrint += new DevExpress.XtraPrinting.PrintDocumentEventHandler(PrintingSystem_StartPrint);
             NoOfCopies = copies;// detail.Quantity;

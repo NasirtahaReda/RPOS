@@ -33,6 +33,14 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.Company' does not have a primar
           <Property Name="password" Type="nvarchar" MaxLength="50" />
           <Property Name="HourRate" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
+        <EntityType Name="DollarRate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Rate" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
         <EntityType Name="Expense">
           <Key>
             <PropertyRef Name="ID" />
@@ -81,6 +89,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.Company' does not have a primar
           <Property Name="OutOfMarket" Type="bit" />
           <Property Name="QuickCode" Type="int" />
           <Property Name="Hidden" Type="bit" Nullable="false" />
+          <Property Name="IsDollarBased" Type="bit" />
         </EntityType>
         <EntityType Name="ItemBarcode">
           <Key>
@@ -931,7 +940,9 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PurchaseInvoiceDetails_PurchaseInvoice">
-          <End Role="PurchaseInvoice" Type="Self.PurchaseInvoice" Multiplicity="1" />
+          <End Role="PurchaseInvoice" Type="Self.PurchaseInvoice" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PurchaseInvoiceDetails" Type="Self.PurchaseInvoiceDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PurchaseInvoice">
@@ -1158,6 +1169,30 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="FinancialSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="From" Type="datetime" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="TotalUserCash" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="ExpensesTotal" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="DiscountTotal" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="TotalElectricityAmount" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="TotalSale" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="TotalService" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="TotalPurchase" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="TotalSalaries" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="dateFrom" Type="datetime" />
+                <Property Name="dateTo" Type="datetime" />
+                <Property Name="TotalScanner" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="TotalPrint" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="TotalPhotoCopy" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="TotalOther" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="TotalPacking" Type="decimal" Precision="18" Scale="0" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
         <Function Name="ItemMovement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ItemID" Type="int" Mode="In" />
           <ReturnType>
@@ -1195,6 +1230,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
         </Function>
         <EntityContainer Name="RedaV1ModelStoreContainer">
           <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DollarRate" EntityType="Self.DollarRate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Expense" EntityType="Self.Expense" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
@@ -1819,6 +1855,10 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             <End Role="User" EntitySet="Users" />
             <End Role="UserPayment" EntitySet="UserPayments" />
           </AssociationSet>
+          <FunctionImport Name="FinancialSummary" IsComposable="true" ReturnType="Collection(RedaV1Model.FinancialSummary_Result)">
+          <Parameter Name="From" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="DollarRates" EntityType="RedaV1Model.DollarRate" />
           </EntityContainer>
         <EntityType Name="ItemCategory">
           <Key>
@@ -2516,6 +2556,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <Property Name="QuickCode" Type="Int32" />
           <NavigationProperty Name="Requests" Relationship="RedaV1Model.FK_Request_Item" FromRole="Item" ToRole="Request" />
           <Property Name="Hidden" Type="Boolean" Nullable="false" />
+          <Property Name="IsDollarBased" Type="Boolean" />
         </EntityType>
         <Association Name="FK_Item_ItemCategory">
           <End Type="RedaV1Model.ItemCategory" Role="ItemCategory" Multiplicity="1" />
@@ -3049,6 +3090,31 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="FinancialSummary_Result">
+          <Property Type="Decimal" Name="TotalUserCash" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="ExpensesTotal" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="DiscountTotal" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TotalElectricityAmount" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TotalSale" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TotalService" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TotalPurchase" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TotalSalaries" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="dateFrom" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="dateTo" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="TotalScanner" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TotalPrint" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TotalPhotoCopy" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TotalOther" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="TotalPacking" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <EntityType Name="DollarRate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Rate" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3473,6 +3539,7 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
           <EntitySetMapping Name="Items">
             <EntityTypeMapping TypeName="RedaV1Model.Item">
               <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="IsDollarBased" ColumnName="IsDollarBased" />
                 <ScalarProperty Name="Hidden" ColumnName="Hidden" />
                 <ScalarProperty Name="QuickCode" ColumnName="QuickCode" />
                 <ScalarProperty Name="OutOfMarket" ColumnName="OutOfMarket" />
@@ -3711,6 +3778,36 @@ warning 6002: The table/view 'DB_98398_reda3.dbo.vw_TopSale' does not have a pri
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FinancialSummary" FunctionName="RedaV1Model.Store.FinancialSummary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RedaV1Model.FinancialSummary_Result">
+                <ScalarProperty Name="TotalUserCash" ColumnName="TotalUserCash" />
+                <ScalarProperty Name="ExpensesTotal" ColumnName="ExpensesTotal" />
+                <ScalarProperty Name="DiscountTotal" ColumnName="DiscountTotal" />
+                <ScalarProperty Name="TotalElectricityAmount" ColumnName="TotalElectricityAmount" />
+                <ScalarProperty Name="TotalSale" ColumnName="TotalSale" />
+                <ScalarProperty Name="TotalService" ColumnName="TotalService" />
+                <ScalarProperty Name="TotalPurchase" ColumnName="TotalPurchase" />
+                <ScalarProperty Name="TotalSalaries" ColumnName="TotalSalaries" />
+                <ScalarProperty Name="dateFrom" ColumnName="dateFrom" />
+                <ScalarProperty Name="dateTo" ColumnName="dateTo" />
+                <ScalarProperty Name="TotalScanner" ColumnName="TotalScanner" />
+                <ScalarProperty Name="TotalPrint" ColumnName="TotalPrint" />
+                <ScalarProperty Name="TotalPhotoCopy" ColumnName="TotalPhotoCopy" />
+                <ScalarProperty Name="TotalOther" ColumnName="TotalOther" />
+                <ScalarProperty Name="TotalPacking" ColumnName="TotalPacking" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="DollarRates">
+            <EntityTypeMapping TypeName="RedaV1Model.DollarRate">
+              <MappingFragment StoreEntitySet="DollarRate">
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

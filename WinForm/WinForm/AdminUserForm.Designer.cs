@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::RedaPOS.SplashScreen2), true, true);
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions5 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions7 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminUserForm));
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -147,6 +147,7 @@
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.btnQuickCode = new DevExpress.XtraBars.BarButtonItem();
             this.btnAddMoney = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDollarRate = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -155,6 +156,8 @@
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnDialyFinancialReport = new DevExpress.XtraBars.BarButtonItem();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceSaleInvoice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceInventory)).BeginInit();
@@ -195,6 +198,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // splashScreenManager1
@@ -264,9 +268,9 @@
             this.hideContainerLeft.Controls.Add(this.dockPanelHoulSearch);
             this.hideContainerLeft.Controls.Add(this.panelContainer1);
             this.hideContainerLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.hideContainerLeft.Location = new System.Drawing.Point(0, 120);
+            this.hideContainerLeft.Location = new System.Drawing.Point(0, 141);
             this.hideContainerLeft.Name = "hideContainerLeft";
-            this.hideContainerLeft.Size = new System.Drawing.Size(19, 565);
+            this.hideContainerLeft.Size = new System.Drawing.Size(19, 544);
             // 
             // dockPanelHoulSearch
             // 
@@ -509,7 +513,7 @@
             // 
             // btnShiftReport
             // 
-            this.btnShiftReport.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnShiftReport.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnShiftReport.Location = new System.Drawing.Point(152, 43);
             this.btnShiftReport.Name = "btnShiftReport";
             this.btnShiftReport.Size = new System.Drawing.Size(106, 94);
@@ -558,7 +562,7 @@
             // 
             // btnUserPaymentReport
             // 
-            this.btnUserPaymentReport.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnUserPaymentReport.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnUserPaymentReport.Location = new System.Drawing.Point(152, 159);
             this.btnUserPaymentReport.Name = "btnUserPaymentReport";
             this.btnUserPaymentReport.Size = new System.Drawing.Size(106, 94);
@@ -569,7 +573,7 @@
             // 
             // btnExpenseRPT
             // 
-            this.btnExpenseRPT.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnExpenseRPT.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnExpenseRPT.Location = new System.Drawing.Point(10, 43);
             this.btnExpenseRPT.Name = "btnExpenseRPT";
             this.btnExpenseRPT.Size = new System.Drawing.Size(106, 94);
@@ -601,7 +605,7 @@
             // 
             // btnShowUserLogin
             // 
-            this.btnShowUserLogin.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnShowUserLogin.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnShowUserLogin.Location = new System.Drawing.Point(10, 159);
             this.btnShowUserLogin.Name = "btnShowUserLogin";
             this.btnShowUserLogin.Size = new System.Drawing.Size(106, 94);
@@ -612,7 +616,7 @@
             // 
             // btnSaleSummaryReport
             // 
-            this.btnSaleSummaryReport.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnSaleSummaryReport.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnSaleSummaryReport.Location = new System.Drawing.Point(10, 275);
             this.btnSaleSummaryReport.Name = "btnSaleSummaryReport";
             this.btnSaleSummaryReport.Size = new System.Drawing.Size(106, 94);
@@ -621,8 +625,8 @@
             // 
             // btnStockReport
             // 
-            this.btnStockReport.Image = ((System.Drawing.Image)(resources.GetObject("btnStockReport.Image")));
-            this.btnStockReport.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnStockReport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnStockReport.ImageOptions.Image")));
+            this.btnStockReport.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnStockReport.Location = new System.Drawing.Point(10, 391);
             this.btnStockReport.Name = "btnStockReport";
             this.btnStockReport.Size = new System.Drawing.Size(106, 94);
@@ -661,7 +665,7 @@
             this.cmbBranches.Location = new System.Drawing.Point(443, 26);
             this.cmbBranches.Name = "cmbBranches";
             this.cmbBranches.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, editorButtonImageOptions1)});
             this.cmbBranches.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Address", "Address", 49, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -699,7 +703,7 @@
             this.cmbUsers.Location = new System.Drawing.Point(327, 26);
             this.cmbUsers.Name = "cmbUsers";
             this.cmbUsers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, editorButtonImageOptions2)});
             this.cmbUsers.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 34, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("UserName", "User Name", 62, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
@@ -717,8 +721,8 @@
             // 
             // btnSaleInvoiceSearch
             // 
-            this.btnSaleInvoiceSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSaleInvoiceSearch.Image")));
-            this.btnSaleInvoiceSearch.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnSaleInvoiceSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSaleInvoiceSearch.ImageOptions.Image")));
+            this.btnSaleInvoiceSearch.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnSaleInvoiceSearch.Location = new System.Drawing.Point(8, 55);
             this.btnSaleInvoiceSearch.Name = "btnSaleInvoiceSearch";
             this.btnSaleInvoiceSearch.Size = new System.Drawing.Size(67, 36);
@@ -734,7 +738,7 @@
             this.cmbSaleInvoiceDateFrom.Location = new System.Drawing.Point(211, 26);
             this.cmbSaleInvoiceDateFrom.Name = "cmbSaleInvoiceDateFrom";
             this.cmbSaleInvoiceDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, editorButtonImageOptions3)});
             this.cmbSaleInvoiceDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbSaleInvoiceDateFrom.Properties.Mask.EditMask = "";
@@ -840,10 +844,10 @@
             // 
             this.repositoryItemButtonEditSaleInvoice.AutoHeight = false;
             this.repositoryItemButtonEditSaleInvoice.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "عرض الفاتورة", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "عرض الفاتورة", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Right, "فاتورة A4", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Undo, "ارجاع الفاتورة", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "ارجاع الفاتورة", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down, "طباعه", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "طباعه", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "عرض الفاتورة", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "عرض الفاتورة"),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Right, "فاتورة A4", -1, true, true, false, editorButtonImageOptions5),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Undo, "ارجاع الفاتورة", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "ارجاع الفاتورة"),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down, "طباعه", -1, true, true, false, editorButtonImageOptions7, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "طباعه")});
             this.repositoryItemButtonEditSaleInvoice.Name = "repositoryItemButtonEditSaleInvoice";
             this.repositoryItemButtonEditSaleInvoice.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEditSaleInvoice.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEditSaleInvoice_ButtonClick);
@@ -896,14 +900,14 @@
             this.dockPanel2_Container.Controls.Add(this.btnChangePassword);
             this.dockPanel2_Container.Controls.Add(this.btnClose);
             this.dockPanel2_Container.Controls.Add(this.btnShowCalculator);
-            this.dockPanel2_Container.Location = new System.Drawing.Point(4, 25);
+            this.dockPanel2_Container.Location = new System.Drawing.Point(4, 26);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(1207, 118);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(1207, 117);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // btnExpenses
             // 
-            this.btnExpenses.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnExpenses.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnExpenses.Location = new System.Drawing.Point(752, 14);
             this.btnExpenses.Name = "btnExpenses";
             this.btnExpenses.Size = new System.Drawing.Size(83, 94);
@@ -913,7 +917,7 @@
             // 
             // btnTransfer
             // 
-            this.btnTransfer.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnTransfer.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnTransfer.Location = new System.Drawing.Point(647, 14);
             this.btnTransfer.Name = "btnTransfer";
             this.btnTransfer.Size = new System.Drawing.Size(83, 94);
@@ -923,8 +927,8 @@
             // 
             // btnChangePassword
             // 
-            this.btnChangePassword.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePassword.Image")));
-            this.btnChangePassword.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnChangePassword.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePassword.ImageOptions.Image")));
+            this.btnChangePassword.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnChangePassword.Location = new System.Drawing.Point(962, 14);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(83, 94);
@@ -934,8 +938,8 @@
             // 
             // btnClose
             // 
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.ImageOptions.Image")));
+            this.btnClose.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnClose.Location = new System.Drawing.Point(1067, 14);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(83, 94);
@@ -948,8 +952,8 @@
             // 
             // btnShowCalculator
             // 
-            this.btnShowCalculator.Image = ((System.Drawing.Image)(resources.GetObject("btnShowCalculator.Image")));
-            this.btnShowCalculator.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnShowCalculator.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnShowCalculator.ImageOptions.Image")));
+            this.btnShowCalculator.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnShowCalculator.Location = new System.Drawing.Point(857, 14);
             this.btnShowCalculator.Margin = new System.Windows.Forms.Padding(10);
             this.btnShowCalculator.Name = "btnShowCalculator";
@@ -974,11 +978,11 @@
             this.xtraTabControl1.AppearancePage.Header.Options.UseFont = true;
             this.xtraTabControl1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeader;
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(19, 120);
+            this.xtraTabControl1.Location = new System.Drawing.Point(19, 141);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1215, 418);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1215, 397);
             this.xtraTabControl1.TabIndex = 7;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -991,7 +995,7 @@
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.xtraTabPage1.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.xtraTabPage1.Size = new System.Drawing.Size(1209, 384);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1209, 363);
             this.xtraTabPage1.Tag = "=";
             this.xtraTabPage1.Text = "xtraTabPage1";
             this.xtraTabPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.xtraTabPage1_Paint);
@@ -1000,7 +1004,7 @@
             // 
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.PageVisible = false;
-            this.xtraTabPage2.Size = new System.Drawing.Size(1209, 384);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1209, 363);
             this.xtraTabPage2.Tag = "+";
             this.xtraTabPage2.Text = "+";
             // 
@@ -1036,25 +1040,27 @@
             this.barButtonItem8,
             this.barButtonItem9,
             this.btnQuickCode,
-            this.btnAddMoney});
+            this.btnAddMoney,
+            this.btnDollarRate,
+            this.btnDialyFinancialReport});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 11;
+            this.ribbonControl1.MaxItemId = 13;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
+            this.ribbonControl1.QuickToolbarItemLinks.Add(this.btnSaleInvoice);
+            this.ribbonControl1.QuickToolbarItemLinks.Add(this.barButtonItem8);
+            this.ribbonControl1.QuickToolbarItemLinks.Add(this.barButtonItem9);
             this.ribbonControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ribbonControl1.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.ShowOnMultiplePages;
-            this.ribbonControl1.Size = new System.Drawing.Size(1234, 120);
-            this.ribbonControl1.Toolbar.ItemLinks.Add(this.btnSaleInvoice);
-            this.ribbonControl1.Toolbar.ItemLinks.Add(this.barButtonItem8);
-            this.ribbonControl1.Toolbar.ItemLinks.Add(this.barButtonItem9);
+            this.ribbonControl1.Size = new System.Drawing.Size(1234, 141);
             // 
             // barButtonItem1
             // 
             this.barButtonItem1.Caption = "الأصناف";
             this.barButtonItem1.Id = 1;
-            this.barButtonItem1.LargeGlyph = global::RedaPOS.Properties.Resources.Items;
+            this.barButtonItem1.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.Items;
             this.barButtonItem1.Name = "barButtonItem1";
             // 
             // barButtonItem2
@@ -1085,7 +1091,7 @@
             // 
             this.barButtonItem6.Caption = "عرض فواتير المشتروات";
             this.barButtonItem6.Id = 6;
-            this.barButtonItem6.LargeGlyph = global::RedaPOS.Properties.Resources.category;
+            this.barButtonItem6.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.category;
             this.barButtonItem6.Name = "barButtonItem6";
             this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
@@ -1093,7 +1099,7 @@
             // 
             this.btnNewPurchaseInvoice.Caption = "فاتورة مشتروات جديدة";
             this.btnNewPurchaseInvoice.Id = 7;
-            this.btnNewPurchaseInvoice.LargeGlyph = global::RedaPOS.Properties.Resources.Add64;
+            this.btnNewPurchaseInvoice.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.Add64;
             this.btnNewPurchaseInvoice.Name = "btnNewPurchaseInvoice";
             this.btnNewPurchaseInvoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNewPurchaseInvoice_ItemClick);
             // 
@@ -1101,7 +1107,7 @@
             // 
             this.btnItems.Caption = "عرض الأصناف";
             this.btnItems.Id = 8;
-            this.btnItems.LargeGlyph = global::RedaPOS.Properties.Resources.category_item_select;
+            this.btnItems.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.category_item_select;
             this.btnItems.Name = "btnItems";
             this.btnItems.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItems_ItemClick);
             // 
@@ -1109,7 +1115,7 @@
             // 
             this.btnItemCategory2.Caption = "أنواع الأصناف";
             this.btnItemCategory2.Id = 9;
-            this.btnItemCategory2.LargeGlyph = global::RedaPOS.Properties.Resources.category;
+            this.btnItemCategory2.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.category;
             this.btnItemCategory2.Name = "btnItemCategory2";
             this.btnItemCategory2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItemCategory2_ItemClick);
             // 
@@ -1117,7 +1123,7 @@
             // 
             this.btnNewItem.Caption = "صنف جديد";
             this.btnNewItem.Id = 10;
-            this.btnNewItem.LargeGlyph = global::RedaPOS.Properties.Resources.add_icon;
+            this.btnNewItem.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.add_icon;
             this.btnNewItem.Name = "btnNewItem";
             this.btnNewItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNewItem_ItemClick);
             // 
@@ -1125,14 +1131,14 @@
             // 
             this.barButtonItem12.Caption = "تحويل جديد";
             this.barButtonItem12.Id = 12;
-            this.barButtonItem12.LargeGlyph = global::RedaPOS.Properties.Resources.add_icon;
+            this.barButtonItem12.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.add_icon;
             this.barButtonItem12.Name = "barButtonItem12";
             // 
             // btnViewTransferInvoices
             // 
             this.btnViewTransferInvoices.Caption = "عرض فواتير التحويل";
             this.btnViewTransferInvoices.Id = 13;
-            this.btnViewTransferInvoices.LargeGlyph = global::RedaPOS.Properties.Resources.Transfer;
+            this.btnViewTransferInvoices.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.Transfer;
             this.btnViewTransferInvoices.Name = "btnViewTransferInvoices";
             this.btnViewTransferInvoices.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnViewTransferInvoices_ItemClick);
             // 
@@ -1140,14 +1146,14 @@
             // 
             this.btnExpenses2.Caption = "عرض المصروفات";
             this.btnExpenses2.Id = 14;
-            this.btnExpenses2.LargeGlyph = global::RedaPOS.Properties.Resources.money;
+            this.btnExpenses2.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.money;
             this.btnExpenses2.Name = "btnExpenses2";
             // 
             // btnNewExpense
             // 
             this.btnNewExpense.Caption = "مصروف جديد";
             this.btnNewExpense.Id = 15;
-            this.btnNewExpense.LargeGlyph = global::RedaPOS.Properties.Resources.add_icon;
+            this.btnNewExpense.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.add_icon;
             this.btnNewExpense.Name = "btnNewExpense";
             this.btnNewExpense.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNewExpense_ItemClick);
             // 
@@ -1155,7 +1161,7 @@
             // 
             this.btnPassword.Caption = "بيانات المستخدم";
             this.btnPassword.Id = 16;
-            this.btnPassword.LargeGlyph = global::RedaPOS.Properties.Resources.password_icon;
+            this.btnPassword.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.password_icon;
             this.btnPassword.Name = "btnPassword";
             this.btnPassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPassword_ItemClick);
             // 
@@ -1163,7 +1169,7 @@
             // 
             this.btnShiftClose.Caption = "خروج";
             this.btnShiftClose.Id = 17;
-            this.btnShiftClose.LargeGlyph = global::RedaPOS.Properties.Resources.Logout_icon;
+            this.btnShiftClose.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.Logout_icon;
             this.btnShiftClose.Name = "btnShiftClose";
             this.btnShiftClose.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnShiftClose_ItemClick);
             // 
@@ -1171,7 +1177,7 @@
             // 
             this.btnDamege.Caption = "عرض فواتير التالف";
             this.btnDamege.Id = 19;
-            this.btnDamege.LargeGlyph = global::RedaPOS.Properties.Resources.trash_icon;
+            this.btnDamege.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.trash_icon;
             this.btnDamege.Name = "btnDamege";
             this.btnDamege.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDamege_ItemClick);
             // 
@@ -1179,16 +1185,16 @@
             // 
             this.btnNewDamege.Caption = "فاتورة تالف جديدة";
             this.btnNewDamege.Id = 20;
-            this.btnNewDamege.LargeGlyph = global::RedaPOS.Properties.Resources.add_icon;
+            this.btnNewDamege.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.add_icon;
             this.btnNewDamege.Name = "btnNewDamege";
             this.btnNewDamege.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNewDamege_ItemClick);
             // 
             // btnPayment
             // 
             this.btnPayment.Caption = "المنصرفات الرئيسية";
-            this.btnPayment.Glyph = global::RedaPOS.Properties.Resources.payment;
             this.btnPayment.Id = 1;
-            this.btnPayment.LargeGlyph = global::RedaPOS.Properties.Resources.payment;
+            this.btnPayment.ImageOptions.Image = global::RedaPOS.Properties.Resources.payment;
+            this.btnPayment.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.payment;
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPayment_ItemClick);
             // 
@@ -1196,7 +1202,7 @@
             // 
             this.btnSettings.Caption = "الضبط";
             this.btnSettings.Id = 2;
-            this.btnSettings.LargeGlyph = global::RedaPOS.Properties.Resources.Settings_icon;
+            this.btnSettings.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.Settings_icon;
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSettings_ItemClick);
             // 
@@ -1204,7 +1210,7 @@
             // 
             this.btnInventory.Caption = "الجرد";
             this.btnInventory.Id = 3;
-            this.btnInventory.LargeGlyph = global::RedaPOS.Properties.Resources.clock_icon;
+            this.btnInventory.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.clock_icon;
             this.btnInventory.Name = "btnInventory";
             this.btnInventory.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInventory_ItemClick);
             // 
@@ -1212,7 +1218,7 @@
             // 
             this.btnDashboard.Caption = "لوحة التقارير";
             this.btnDashboard.Id = 4;
-            this.btnDashboard.LargeGlyph = global::RedaPOS.Properties.Resources.dashboard_icon2;
+            this.btnDashboard.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.dashboard_icon2;
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDashboard_ItemClick);
             // 
@@ -1220,7 +1226,7 @@
             // 
             this.btnPushover.Caption = "Push Over";
             this.btnPushover.Id = 5;
-            this.btnPushover.LargeGlyph = global::RedaPOS.Properties.Resources.PushOver;
+            this.btnPushover.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.PushOver;
             this.btnPushover.Name = "btnPushover";
             this.btnPushover.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPushover_ItemClick);
             // 
@@ -1254,7 +1260,7 @@
             // 
             this.btnQuickCode.Caption = "الأرقام السريعة";
             this.btnQuickCode.Id = 9;
-            this.btnQuickCode.LargeGlyph = global::RedaPOS.Properties.Resources.Fast_icon;
+            this.btnQuickCode.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.Fast_icon;
             this.btnQuickCode.Name = "btnQuickCode";
             this.btnQuickCode.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuickCode_ItemClick);
             // 
@@ -1262,9 +1268,17 @@
             // 
             this.btnAddMoney.Caption = "إضافة ساعات للموظف";
             this.btnAddMoney.Id = 10;
-            this.btnAddMoney.LargeGlyph = global::RedaPOS.Properties.Resources.Add_Money;
+            this.btnAddMoney.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.Add_Money;
             this.btnAddMoney.Name = "btnAddMoney";
             this.btnAddMoney.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddMoney_ItemClick);
+            // 
+            // btnDollarRate
+            // 
+            this.btnDollarRate.Caption = "سعر الدولار";
+            this.btnDollarRate.Id = 11;
+            this.btnDollarRate.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.Dollar;
+            this.btnDollarRate.Name = "btnDollarRate";
+            this.btnDollarRate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDollarRate_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -1285,9 +1299,11 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnPassword);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnShiftClose);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnSettings);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnDashboard);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnPushover);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnDashboard);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnAddMoney);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnDollarRate);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnDialyFinancialReport);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "الرئيسية";
             // 
@@ -1334,6 +1350,23 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnInventory);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "الجرد";
+            // 
+            // btnDialyFinancialReport
+            // 
+            this.btnDialyFinancialReport.ActAsDropDown = true;
+            this.btnDialyFinancialReport.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.btnDialyFinancialReport.Caption = "التقرير المالي اليومي";
+            this.btnDialyFinancialReport.DropDownControl = this.galleryDropDown1;
+            this.btnDialyFinancialReport.Id = 12;
+            this.btnDialyFinancialReport.ImageOptions.Image = global::RedaPOS.Properties.Resources.Cash;
+            this.btnDialyFinancialReport.ImageOptions.LargeImage = global::RedaPOS.Properties.Resources.Cash;
+            this.btnDialyFinancialReport.Name = "btnDialyFinancialReport";
+            this.btnDialyFinancialReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDialyFinancialReport_ItemClick);
+            // 
+            // galleryDropDown1
+            // 
+            this.galleryDropDown1.Name = "galleryDropDown1";
+            this.galleryDropDown1.Ribbon = this.ribbonControl1;
             // 
             // AdminUserForm
             // 
@@ -1392,6 +1425,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1513,5 +1547,8 @@
         private DevExpress.XtraBars.BarButtonItem btnQuickCode;
         private DevExpress.XtraEditors.SimpleButton btnUserPaymentReport;
         private DevExpress.XtraBars.BarButtonItem btnAddMoney;
+        private DevExpress.XtraBars.BarButtonItem btnDollarRate;
+        private DevExpress.XtraBars.BarButtonItem btnDialyFinancialReport;
+        private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;
     }
 }

@@ -168,5 +168,44 @@ namespace WinForm.Reports
         {
 
         }
+
+        private void btnExpenses_Daily_RPT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Expense_PerDayRPT rpt = new Expense_PerDayRPT();
+
+
+                DateTime from = new DateTime(cmbFrom.DateTime.Year, cmbFrom.DateTime.Month, cmbFrom.DateTime.Day, 0, 0, 0);
+                DateTime to = new DateTime(cmbFrom.DateTime.Year, cmbFrom.DateTime.Month, cmbFrom.DateTime.Day, 23, 59, 59);
+
+                var list = db.vw_Expense.Where(s => s.Date >= from && s.Date <= to);
+                
+               
+                if (list.Any())
+                {
+                    rpt.DataSource = list.ToList();
+                    rpt.parameterFromDate.Value = cmbFrom.DateTime;
+                    try
+                    {
+                        ReportPrintTool tool = new ReportPrintTool(rpt);
+                        tool.ShowPreview();
+                    }
+                    catch (Exception ex)
+                    {
+                        ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("لا توجد منصرفات في هذا التاريخ");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+            }
+        }
     }
 }

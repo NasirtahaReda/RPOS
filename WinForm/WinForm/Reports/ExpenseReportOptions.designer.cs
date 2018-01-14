@@ -43,6 +43,7 @@
             this.cbEnableShifUser = new DevExpress.XtraEditors.CheckEdit();
             this.cbEnableBranch = new DevExpress.XtraEditors.CheckEdit();
             this.cbEnableExpenseUser = new DevExpress.XtraEditors.CheckEdit();
+            this.btnExpenses_Daily_RPT = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.cmbUsersRPT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbFrom.Properties.CalendarTimeProperties)).BeginInit();
@@ -62,11 +63,11 @@
             this.btnShowReport.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.btnShowReport.Appearance.Options.UseFont = true;
             this.btnShowReport.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnShowReport.Image = global::RedaPOS.Properties.Resources.Reports_icon;
-            this.btnShowReport.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.btnShowReport.Location = new System.Drawing.Point(0, 230);
+            this.btnShowReport.ImageOptions.Image = global::RedaPOS.Properties.Resources.Reports_icon;
+            this.btnShowReport.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.btnShowReport.Location = new System.Drawing.Point(0, 284);
             this.btnShowReport.Name = "btnShowReport";
-            this.btnShowReport.Size = new System.Drawing.Size(344, 75);
+            this.btnShowReport.Size = new System.Drawing.Size(368, 75);
             this.btnShowReport.TabIndex = 0;
             this.btnShowReport.Text = "عرض التقرير";
             this.btnShowReport.Click += new System.EventHandler(this.btnShowReport_Click);
@@ -75,7 +76,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(91, 156);
+            this.label3.Location = new System.Drawing.Point(113, 156);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 5;
@@ -132,7 +133,9 @@
             this.cmbFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbFrom.Properties.DisplayFormat.FormatString = "";
+            this.cmbFrom.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.cmbFrom.Properties.EditFormat.FormatString = "";
+            this.cmbFrom.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.cmbFrom.Size = new System.Drawing.Size(100, 20);
             this.cmbFrom.TabIndex = 4;
             this.cmbFrom.EditValueChanged += new System.EventHandler(this.cmbFrom_EditValueChanged);
@@ -140,7 +143,7 @@
             // cmbTo
             // 
             this.cmbTo.EditValue = null;
-            this.cmbTo.Location = new System.Drawing.Point(48, 172);
+            this.cmbTo.Location = new System.Drawing.Point(70, 172);
             this.cmbTo.Name = "cmbTo";
             this.cmbTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -239,11 +242,25 @@
             this.cbEnableExpenseUser.TabIndex = 54;
             this.cbEnableExpenseUser.CheckedChanged += new System.EventHandler(this.cbEnableExpenseUser_CheckedChanged);
             // 
+            // btnExpenses_Daily_RPT
+            // 
+            this.btnExpenses_Daily_RPT.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.btnExpenses_Daily_RPT.Appearance.Options.UseFont = true;
+            this.btnExpenses_Daily_RPT.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnExpenses_Daily_RPT.ImageOptions.Image = global::RedaPOS.Properties.Resources.Reports_icon;
+            this.btnExpenses_Daily_RPT.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.btnExpenses_Daily_RPT.Location = new System.Drawing.Point(0, 209);
+            this.btnExpenses_Daily_RPT.Name = "btnExpenses_Daily_RPT";
+            this.btnExpenses_Daily_RPT.Size = new System.Drawing.Size(368, 75);
+            this.btnExpenses_Daily_RPT.TabIndex = 0;
+            this.btnExpenses_Daily_RPT.Text = "عرض التقرير اليومي";
+            this.btnExpenses_Daily_RPT.Click += new System.EventHandler(this.btnExpenses_Daily_RPT_Click);
+            // 
             // ExpenseReportOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 305);
+            this.ClientSize = new System.Drawing.Size(368, 359);
             this.Controls.Add(this.cbEnableExpenseUser);
             this.Controls.Add(this.cbEnableBranch);
             this.Controls.Add(this.cbEnableShifUser);
@@ -252,6 +269,7 @@
             this.Controls.Add(this.cmbUsersRPT);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnExpenses_Daily_RPT);
             this.Controls.Add(this.btnShowReport);
             this.Controls.Add(this.cmbFrom);
             this.Controls.Add(this.cmbTo);
@@ -292,5 +310,6 @@
         private DevExpress.XtraEditors.CheckEdit cbEnableShifUser;
         private DevExpress.XtraEditors.CheckEdit cbEnableBranch;
         private DevExpress.XtraEditors.CheckEdit cbEnableExpenseUser;
+        private DevExpress.XtraEditors.SimpleButton btnExpenses_Daily_RPT;
     }
 }
