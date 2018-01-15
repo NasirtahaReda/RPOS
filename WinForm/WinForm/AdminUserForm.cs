@@ -34,11 +34,11 @@ using WhatsAppApi.Account;
 using WhatsAppApi.Response;
 using System.IO;
 using DevExpress.XtraTab;
-using DataAccess; 
+using DataAccess;
 
 namespace WinForm
 {
-   
+
     public partial class AdminUserForm : DevExpress.XtraEditors.XtraForm
     {
         //bool refreshFastItem = false;
@@ -57,50 +57,50 @@ namespace WinForm
         bool normalLogout = false;
         WhatsApp wa = null;
         Encoding tmpEncoding = Encoding.UTF8;
-            string nickname = "WhatsApiNet";
-            string sender = "249912313059"; // Mobile number with country code (but without + or 00)
-            string password = "lyrHVvFrk2rw+vt8VpGmykPJizw=";//v2 password
-            string target = "00249919400092";// Mobile number to send the message to
-        ////public AdminUserForm()
-        ////{
-        ////    InitializeComponent();
-        ////    branchID = Convert.ToInt32(UserData.Default.BranchID);
-           
+        string nickname = "WhatsApiNet";
+        string sender = "249912313059"; // Mobile number with country code (but without + or 00)
+        string password = "lyrHVvFrk2rw+vt8VpGmykPJizw=";//v2 password
+        string target = "00249919400092";// Mobile number to send the message to
+                                         ////public AdminUserForm()
+                                         ////{
+                                         ////    InitializeComponent();
+                                         ////    branchID = Convert.ToInt32(UserData.Default.BranchID);
+
         ////}
 
-            public AdminUserForm(DataAccess.RedaV1Entities db)
+        public AdminUserForm(DataAccess.RedaV1Entities db)
         {
             InitializeComponent();
             this.db = db;
-                Assembly executingAssembly = Assembly.GetExecutingAssembly();
+            Assembly executingAssembly = Assembly.GetExecutingAssembly();
             AssemblyTitleAttribute assembly = executingAssembly.GetCustomAttribute<AssemblyTitleAttribute>();
             AssemblyFileVersionAttribute assemblyVersion = executingAssembly.GetCustomAttribute<AssemblyFileVersionAttribute>();
             string title = assembly.Title + " " + assemblyVersion.Version + " ( " + UserData.Default.UserName + " ) ";// +branch.BranchName;
             var users = from s in db.Users where s.IsAdmin == false select s;
             userBindingSource.DataSource = users.ToList();
             branchBindingSource.DataSource = db.Branches.ToList();
-       //     _saleInvoiceType = saleInvoiceType;
-          //  _Transfer = Transfer;
-          ////  _trnasferFrom = trnasferFrom;
+            //     _saleInvoiceType = saleInvoiceType;
+            //  _Transfer = Transfer;
+            ////  _trnasferFrom = trnasferFrom;
             ////  _trnasferTo = trnasferTo;
             branchID = Convert.ToInt32(UserData.Default.BranchID);
 
             bindingSourceNoVisibleItems.DataSource = db.vw_Inventory.Where(s => s.BarcodeText.StartsWith("0000") && s.BranchID == branchID).ToList();
-            
+
             ////if(saleInvoiceType == SaleInvoiceType.Transfer)
             ////{
             ////    var from = db.Branches.Where(s => s.ID == _trnasferFrom).SingleOrDefault();
             ////    var to = db.Branches.Where(s => s.ID == _trnasferTo).SingleOrDefault();
             ////    branchID = trnasferFrom;
             ////    this.Text = "التحويل من " + from.BranchName + "  الي "+ to.BranchName;
-              
+
             ////}
             ////else
             ////    if (saleInvoiceType == SaleInvoiceType.Sale)
             ////{
-                int branchId = Convert.ToInt32(UserData.Default.BranchID);
-               this.Text = "فاتورة بيع - :" + db.Branches.Where(s => s.ID == branchId).Select(s => s.BranchName).SingleOrDefault()+ " - " + title;
-               
+            int branchId = Convert.ToInt32(UserData.Default.BranchID);
+            this.Text = "فاتورة بيع - :" + db.Branches.Where(s => s.ID == branchId).Select(s => s.BranchName).SingleOrDefault() + " - " + title;
+
             ////}
             ////if (saleInvoiceType == SaleInvoiceType.Expire)
             ////{
@@ -108,21 +108,21 @@ namespace WinForm
             ////    this.Text = "فاتورة تالف - :" + db.Branches.Where(s => s.ID == branchId).Select(s => s.BranchName).SingleOrDefault();
 
             ////}
-           
-            bindingSourceTempItems.DataSource = db.vw_TempItem.Where(s => s.BranchID == branchID).ToList() ;// db.vw_TempItem.Local.ToBindingList();
-            
-            
 
-           
+            bindingSourceTempItems.DataSource = db.vw_TempItem.Where(s => s.BranchID == branchID).ToList();// db.vw_TempItem.Local.ToBindingList();
+
+
+
+
 
             //Load default tabe
             items = db.Items.ToList();
-          // SaleInvoiceForm_Tab newtab = new SaleInvoiceForm_Tab(db, items, new DataAccess.SaleInvoice(), true, SaleInvoiceType.Sale);
+            // SaleInvoiceForm_Tab newtab = new SaleInvoiceForm_Tab(db, items, new DataAccess.SaleInvoice(), true, SaleInvoiceType.Sale);
             AdminDashboard newtab = new AdminDashboard();
             xtraTabPage1.Controls.Add(newtab);
             xtraTabPage1.Text = "شاشة المراقبة ";
             xtraTabPage1.Controls[0].Dock = DockStyle.Fill;
-                
+
 
         }
 
@@ -137,7 +137,7 @@ namespace WinForm
                 dockPanelReport.Visibility = DevExpress.XtraBars.Docking.DockVisibility.Visible;
                 dockPanelOperations.Visibility = DevExpress.XtraBars.Docking.DockVisibility.Visible;          
 #endif
-               
+
                 ////if(_saleInvoiceType != SaleInvoiceType.Sale)
                 ////{
                 ////    dockPanelReport.Visibility = DevExpress.XtraBars.Docking.DockVisibility.Hidden;
@@ -145,19 +145,19 @@ namespace WinForm
                 ////}
 
                 //SetupWhatsApp();
-            
-              
+
+
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
         #region WhatsApp
-        private  void SetupWhatsApp()
+        private void SetupWhatsApp()
         {
-            
+
 
             wa = new WhatsApp(sender, password, nickname, true);
             System.Console.OutputEncoding = Encoding.Default;
@@ -397,7 +397,8 @@ namespace WinForm
                 catch (ThreadAbortException)
                 {
                 }
-            }) { IsBackground = true };
+            })
+            { IsBackground = true };
             thRecv.Start();
 
             WhatsUserManager usrMan = new WhatsUserManager();
@@ -526,7 +527,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -549,18 +550,18 @@ namespace WinForm
         //    PrintInvoice(true);
         //}
 
-       
 
-       
+
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-          ////  lblMessage.Text = "";
+            ////  lblMessage.Text = "";
             timer1.Stop();
         }
         public void ShowMessageInStatusBar(String Message, int time)
         {
-          ////  lblMessage.Text = Message;
+            ////  lblMessage.Text = Message;
             timer1.Interval = time;
             timer1.Start();
         }
@@ -585,7 +586,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -696,7 +697,7 @@ namespace WinForm
 
         }
 
-     
+
 
         private void txtSearch_EditValueChanged(object sender, EventArgs e)
         {
@@ -776,11 +777,11 @@ namespace WinForm
 
         }
 
-      
 
-       
 
-       
+
+
+
 
         private void gridControl2_Click(object sender, EventArgs e)
         {
@@ -795,21 +796,21 @@ namespace WinForm
             }
         }
 
-      
-       
-        
 
-    
+
+
+
+
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             try
             {
-               
+
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -827,7 +828,7 @@ namespace WinForm
             return unitPrice * quantity;
         }
 
-    
+
         private void gridView1_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             //calculateInvoiceTotal();
@@ -852,7 +853,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -883,12 +884,12 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
 
             }
         }
 
-  
+
         private void txtBar_Enter(object sender, EventArgs e)
         {
             SetKeyboardLayout(GetInputLanguageByName("en"));
@@ -912,17 +913,17 @@ namespace WinForm
             InputLanguage.CurrentInputLanguage = layout;
         }
 
-   
+
         private void txtSearch_Leave(object sender, EventArgs e)
         {
             //SetKeyboardLayout(GetInputLanguageByName("En"));
         }
 
-        
+
 
         private void pivotGridControl1_CellDoubleClick(object sender, DevExpress.XtraPivotGrid.PivotCellEventArgs e)
         {
-            
+
         }
 
         private void pivotGridControl1_CellClick(object sender, DevExpress.XtraPivotGrid.PivotCellEventArgs e)
@@ -930,7 +931,7 @@ namespace WinForm
 
         }
 
-   
+
         private void pivotGridControl1_DoubleClick(object sender, EventArgs e)
         {
             PivotGridControl pivotGridControl = (PivotGridControl)sender;
@@ -947,11 +948,11 @@ namespace WinForm
             info.GroupText = info.EditValue.ToString();// string.Format(view.GroupFormat, info.Column.Caption, info.EditValue, s);
         }
 
-  
+
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-           
+
         }
 
         private void btnAddTempItem_Click(object sender, EventArgs e)
@@ -963,11 +964,11 @@ namespace WinForm
                 //dbContext.vw_TempItem.Load();
                 //bindingSourceTempItems.DataSource = dbContext.vw_TempItem.Local.ToBindingList();
                 bindingSourceTempItems.DataSource = db.vw_TempItem.Where(s => s.BranchID == branchID).ToList();
-                
+
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -1010,7 +1011,7 @@ namespace WinForm
             catch (Exception ex)
             {
                 MessageBox.Show("Test");
-                
+
             }
         }
 
@@ -1022,9 +1023,9 @@ namespace WinForm
         private void btnNoVisible_Click(object sender, EventArgs e)
         {
             try
-            
+
             {
-                
+
 
                 ////int itemId = Convert.ToInt32(cmbNoVisible.EditValue);
                 ////Decimal salePrice = Convert.ToDecimal(txtNovisiblePrice.EditValue);
@@ -1032,7 +1033,7 @@ namespace WinForm
                 ////string Remarks = txtNoVisibleRemark.EditValue.ToString();
                 ////int Quanitity = Convert.ToInt32(txtNoVisibleQuantity.EditValue);
 
-              
+
                 ////if (cmbNoVisible.GetSelectedDataRow() is DataAccess.vw_Inventory)// cmbNoVisible.Text != null && cmbNoVisible.Text != "صنف بدون باركود")
                 ////{
                 ////    DataAccess.SaleInvoiceDetail newRow = details.AddNew();
@@ -1060,7 +1061,7 @@ namespace WinForm
 
 
                 ////}
-             
+
 
                 ////calculateInvoiceTotal();
                 ////gridViewInvoice.FocusedRowHandle = gridViewInvoice.RowCount - 1;
@@ -1068,7 +1069,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -1093,7 +1094,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
 
             }
         }
@@ -1106,7 +1107,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
 
             }
         }
@@ -1118,19 +1119,19 @@ namespace WinForm
                 if (MessageBox.Show("خروج من النظام؟", "نظام رضا بوكشوب", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                 {
 
-                    int userID= Convert.ToInt32(UserData.Default.UserID);
-                DataAccess.UserLogin login = db.UserLogins.Where(s => s.UserID == userID).LastOrDefault();
-                login.LogOut = DateTime.Now;
-                if (db.SaveChanges() > 0)
-                {
-                    this.Hide();
-                    new Login().ShowDialog();
-                }   
+                    int userID = Convert.ToInt32(UserData.Default.UserID);
+                    DataAccess.UserLogin login = db.UserLogins.Where(s => s.UserID == userID).LastOrDefault();
+                    login.LogOut = DateTime.Now;
+                    if (db.SaveChanges() > 0)
+                    {
+                        this.Hide();
+                        new Login().ShowDialog();
+                    }
                     normalLogout = true;
                     ////try
                     ////{
                     ////    Thread thread = new Thread(() => SendEmail(login, db.Users.Where(s => s.ID == login.UserID).SingleOrDefault()));
-                        
+
                     ////    thread.Start();
                     ////}
                     ////catch (Exception ex)
@@ -1144,7 +1145,7 @@ namespace WinForm
                     }
                     else
                     {
-                       
+
                         if (new Shif(false).ShowDialog() == System.Windows.Forms.DialogResult.OK)
                         {
                             this.Close();
@@ -1154,76 +1155,76 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
 
             }
 
         }
         public void SendEmail(DataAccess.UserLogin login, DataAccess.User ValidUser)
         {
-////            string smtpAddress = "smtp.gmail.com";
-////            // int portNumber = 587;
-////            bool enableSSL = true;
-////            string emailFrom = "redasudani@gmail.com";
-////            string password = "gqaz1tahaz";
-////            string emailTo = "NasirTaha@gmail.com";
-////            string subject = "Reda 1";
-////            string body = "";
-////            string pc = System.Environment.MachineName;
-////            string title = "";
-////            if (login.Type)//Login Out
-////            {
-////                body = login.Date.Day.ToString("00") + "/" + login.Date.Month.ToString("00") + "-" + login.Date.Hour.ToString("00") + ":" + login.Date.Minute.ToString("00") + " :" + ValidUser.UserName + " :خروج" + "  Reda " + UserData.Default.BranchID + "  " + pc;
-////                title = "خروج";
-////            }
-////            else//Login In
-////            {
-////                body = login.Date.Day.ToString("00") + "/" + login.Date.Month.ToString("00") + "-" + login.Date.Hour.ToString("00") + ":" + login.Date.Minute.ToString("00") + " :" + ValidUser.UserName + " : دخول" + " Reda " + UserData.Default.BranchID + "  " + pc;
-////                title = "دخول";
-////            }
-////            using (MailMessage mail = new MailMessage())
-////            {
-////                mail.From = new MailAddress(emailFrom);
-////                mail.To.Add(emailTo);
+            ////            string smtpAddress = "smtp.gmail.com";
+            ////            // int portNumber = 587;
+            ////            bool enableSSL = true;
+            ////            string emailFrom = "redasudani@gmail.com";
+            ////            string password = "gqaz1tahaz";
+            ////            string emailTo = "NasirTaha@gmail.com";
+            ////            string subject = "Reda 1";
+            ////            string body = "";
+            ////            string pc = System.Environment.MachineName;
+            ////            string title = "";
+            ////            if (login.Type)//Login Out
+            ////            {
+            ////                body = login.Date.Day.ToString("00") + "/" + login.Date.Month.ToString("00") + "-" + login.Date.Hour.ToString("00") + ":" + login.Date.Minute.ToString("00") + " :" + ValidUser.UserName + " :خروج" + "  Reda " + UserData.Default.BranchID + "  " + pc;
+            ////                title = "خروج";
+            ////            }
+            ////            else//Login In
+            ////            {
+            ////                body = login.Date.Day.ToString("00") + "/" + login.Date.Month.ToString("00") + "-" + login.Date.Hour.ToString("00") + ":" + login.Date.Minute.ToString("00") + " :" + ValidUser.UserName + " : دخول" + " Reda " + UserData.Default.BranchID + "  " + pc;
+            ////                title = "دخول";
+            ////            }
+            ////            using (MailMessage mail = new MailMessage())
+            ////            {
+            ////                mail.From = new MailAddress(emailFrom);
+            ////                mail.To.Add(emailTo);
 
-////                mail.To.Add("sheble233@gmail.com");
-////                mail.Subject = body;
-////                mail.Body = body;
-////                mail.IsBodyHtml = true;
-                
-               
-////                ////try
-////                ////{
-
-////                ////    Thread thread = new Thread(() => PushMessage.SendPush_Message("", body, title));
-////                ////    thread.Start();
+            ////                mail.To.Add("sheble233@gmail.com");
+            ////                mail.Subject = body;
+            ////                mail.Body = body;
+            ////                mail.IsBodyHtml = true;
 
 
-////                ////}
-////                ////catch (Exception ex)
-////                ////{
-////                ////    //Do nothing 
-////                ////}
+            ////                ////try
+            ////                ////{
 
-////                using (SmtpClient smtp = new SmtpClient(smtpAddress))//, portNumber))
-////                {
-////                    try
-////                    {
-////#if !DEBUG
-////                            smtp.UseDefaultCredentials = false;
-////                            smtp.Credentials = new NetworkCredential(emailFrom, password);
-////                            smtp.EnableSsl = enableSSL;
-////                            smtp.Send(mail);
+            ////                ////    Thread thread = new Thread(() => PushMessage.SendPush_Message("", body, title));
+            ////                ////    thread.Start();
 
-                        
-////#endif
-////                    }
-////                    catch (Exception ex)
-////                    {
-////                        //Do nothing 
-////                    }
-////                }
-////            }
+
+            ////                ////}
+            ////                ////catch (Exception ex)
+            ////                ////{
+            ////                ////    //Do nothing 
+            ////                ////}
+
+            ////                using (SmtpClient smtp = new SmtpClient(smtpAddress))//, portNumber))
+            ////                {
+            ////                    try
+            ////                    {
+            ////#if !DEBUG
+            ////                            smtp.UseDefaultCredentials = false;
+            ////                            smtp.Credentials = new NetworkCredential(emailFrom, password);
+            ////                            smtp.EnableSsl = enableSSL;
+            ////                            smtp.Send(mail);
+
+
+            ////#endif
+            ////                    }
+            ////                    catch (Exception ex)
+            ////                    {
+            ////                        //Do nothing 
+            ////                    }
+            ////                }
+            ////            }
         }
         private void btnStockReport_Click(object sender, EventArgs e)
         {
@@ -1242,7 +1243,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
 
             }
         }
@@ -1277,7 +1278,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
 
             }
         }
@@ -1304,7 +1305,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
         private void btnShowPurchaseInvoices_Click(object sender, EventArgs e)
@@ -1326,7 +1327,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
         private void btnItemCategory_Click(object sender, EventArgs e)
@@ -1342,7 +1343,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
         private void btnItems_Click(object sender, EventArgs e)
@@ -1364,10 +1365,10 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
-        
+
         private void btnExpenses_Click(object sender, EventArgs e)
         {
             try
@@ -1378,7 +1379,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
         private void btnTransfer_Click(object sender, EventArgs e)
@@ -1391,7 +1392,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -1404,7 +1405,7 @@ namespace WinForm
                 if (e.KeyCode == Keys.Enter && txtSearchAllBranch.Text.Length > 2)
                 {
                     string query = txtSearchAllBranch.Text;
-                   // int ReorderPoint = Convert.ToInt32(txtReorderPoint.EditValue);
+                    // int ReorderPoint = Convert.ToInt32(txtReorderPoint.EditValue);
                     var list = from s in db.vw_Inventory where s.Name.Contains(query) select s;
                     vwInventoryBindingSource.DataSource = list.ToList();
                 }
@@ -1415,26 +1416,26 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
         private void gridView3_GroupRowExpanding(object sender, DevExpress.XtraGrid.Views.Base.RowAllowEventArgs e)
         {
             //gridViewFastItems.CollapseAllGroups();
-            
+
         }
 
         private void gridViewFastItems_DoubleClick(object sender, EventArgs e)
         {
             try
             {
-               
-              
+
+
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -1448,7 +1449,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -1459,37 +1460,37 @@ namespace WinForm
                 ExpenseReportOptions frm = new ExpenseReportOptions();
                 frm.ShowDialog();
 
-               //// ExpenseRPT rpt = new ExpenseRPT();
-               ////// string BranchName = cmbBranch.GetColumnValue("BranchName").ToString();
-               ////// rpt.parameterBranchName.Value = BranchName;
-               //// int userId = Convert.ToInt32(UserData.Default.UserID);
-               //// var list = db.vw_Expense.Where(s => s.BranchID == branchID && s.InsertedUserId == userId && s.Date.Year == cmbDate.DateTime.Year && s.Date.Month == cmbDate.DateTime.Month && s.Date.Day == cmbDate.DateTime.Day);
-               //// if (list.Any())
-               //// {
-               ////     rpt.DataSource = list.ToList();
-               ////     rpt.parameterBranchName.Value = UserData.Default.BranchID;
-               ////     rpt.parameterFromDate.Value = DateTime.Now;
-               ////     rpt.parameterToDate.Value = UserData.Default.UserName;
+                //// ExpenseRPT rpt = new ExpenseRPT();
+                ////// string BranchName = cmbBranch.GetColumnValue("BranchName").ToString();
+                ////// rpt.parameterBranchName.Value = BranchName;
+                //// int userId = Convert.ToInt32(UserData.Default.UserID);
+                //// var list = db.vw_Expense.Where(s => s.BranchID == branchID && s.InsertedUserId == userId && s.Date.Year == cmbDate.DateTime.Year && s.Date.Month == cmbDate.DateTime.Month && s.Date.Day == cmbDate.DateTime.Day);
+                //// if (list.Any())
+                //// {
+                ////     rpt.DataSource = list.ToList();
+                ////     rpt.parameterBranchName.Value = UserData.Default.BranchID;
+                ////     rpt.parameterFromDate.Value = DateTime.Now;
+                ////     rpt.parameterToDate.Value = UserData.Default.UserName;
 
-               
-               ////     try
-               ////     {
-               ////         ReportPrintTool tool = new ReportPrintTool(rpt);
-               ////         tool.ShowPreview();
-               ////     }
-               ////     catch (Exception ex)
-               ////     {
-               ////          ModuleClass.ShowMessage(this, ex, "خطأ", null);
-               ////     }
-               //// }
-               //// else
-               //// {
-               ////     MessageBox.Show("لا توجد منصرفات في هذا التاريخ");
-               //// }
+
+                ////     try
+                ////     {
+                ////         ReportPrintTool tool = new ReportPrintTool(rpt);
+                ////         tool.ShowPreview();
+                ////     }
+                ////     catch (Exception ex)
+                ////     {
+                ////          ModuleClass.ShowMessage(this, ex, "خطأ", null);
+                ////     }
+                //// }
+                //// else
+                //// {
+                ////     MessageBox.Show("لا توجد منصرفات في هذا التاريخ");
+                //// }
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -1497,11 +1498,11 @@ namespace WinForm
         {
             try
             {
-              //  new AdminUserForm(new DataAccess.SaleInvoice(), true, SaleInvoiceType.Expire).Show();
+                //  new AdminUserForm(new DataAccess.SaleInvoice(), true, SaleInvoiceType.Expire).Show();
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -1521,14 +1522,14 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
         void FillSaleInvoiceGrid()
         {
             try
             {
-               
+
                 int userID = Convert.ToInt32(cmbUsers.GetColumnValue("ID"));
 
                 DateTime date = cmbSaleInvoiceDateFrom.DateTime;
@@ -1550,11 +1551,11 @@ namespace WinForm
 
                 decimal? totalOfSale = (from s in list select s.Total).Sum();
                 int noOfInvoices = (from s in list where s.Flag == 1 select s.Total).Count();
-              
+
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
 
 
@@ -1579,84 +1580,85 @@ namespace WinForm
                     }
                     catch (Exception ex)
                     {
-                         ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                        ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
                     }
                 }
                 else
                     if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Undo)
+                {
+                    var currentRow = (DataAccess.vw_SaleReport)gridViewSaleInvoice.GetFocusedRow();
+                    if (currentRow.Flag == 1)
                     {
-                        var currentRow = (DataAccess.vw_SaleReport)gridViewSaleInvoice.GetFocusedRow();
-                        if (currentRow.Flag == 1)
+                        //     if (MessageBox.Show("هل أنت متأكد من إرجاع الفاتور؟", "إرجاع الفاتور", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
                         {
-                            //     if (MessageBox.Show("هل أنت متأكد من إرجاع الفاتور؟", "إرجاع الفاتور", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-                            {
-                                var row = (DataAccess.vw_SaleReport)gridViewSaleInvoice.GetFocusedRow();
-                                SaleRpt rpt = new SaleRpt(Convert.ToDecimal(currentRow.Discount), Convert.ToDecimal(currentRow.Total), 0, 0, currentRow.ID.ToString(), currentRow.UserName.ToString());
-                                var list = db.vw_Sale2.Where(s => s.SaleInvoiceID == row.ID).ToList<DataAccess.vw_Sale2>();
-                                new ReturnForm(list, currentRow.ID).ShowDialog();
-                                FillSaleInvoiceGrid();
+                            var row = (DataAccess.vw_SaleReport)gridViewSaleInvoice.GetFocusedRow();
+                            SaleRpt rpt = new SaleRpt(Convert.ToDecimal(currentRow.Discount), Convert.ToDecimal(currentRow.Total), 0, 0, currentRow.ID.ToString(), currentRow.UserName.ToString());
+                            var list = db.vw_Sale2.Where(s => s.SaleInvoiceID == row.ID).ToList<DataAccess.vw_Sale2>();
+                            new ReturnForm(list, currentRow.ID).ShowDialog();
+                            FillSaleInvoiceGrid();
 
-                                
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("لا يمكن ارجاع الفاتوره");
+
                         }
                     }
                     else
+                    {
+                        MessageBox.Show("لا يمكن ارجاع الفاتوره");
+                    }
+                }
+                else
                         if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Down)
+                {
+                    var currentRow = (DataAccess.vw_SaleReport)gridViewSaleInvoice.GetFocusedRow();
+                    if (currentRow != null)
+                    {
+                        var row = (DataAccess.vw_SaleReport)gridViewSaleInvoice.GetFocusedRow();
+                        SaleRpt rpt = new SaleRpt(Convert.ToDecimal(currentRow.Discount), Convert.ToDecimal(currentRow.Total), 0, 0, currentRow.ID.ToString(), currentRow.UserName.ToString());
+                        var list = db.vw_Sale2.Where(s => s.SaleInvoiceID == row.ID).ToList<DataAccess.vw_Sale2>();
+
+
+                        rpt.DataSource = list.ToList();
+                        ReportPrintTool tool = new ReportPrintTool(rpt);
+                        string InvoicePrinter = db.Companies.Take(1).SingleOrDefault().InvoicePrinter;// System.Configuration.ConfigurationManager.AppSettings["InvoicePrinter"];
+                        if (InvoicePrinter == "")
                         {
-                            var currentRow = (DataAccess.vw_SaleReport)gridViewSaleInvoice.GetFocusedRow();
-                            if (currentRow != null)
-                            {
-                                var row = (DataAccess.vw_SaleReport)gridViewSaleInvoice.GetFocusedRow();
-                                SaleRpt rpt = new SaleRpt(Convert.ToDecimal(currentRow.Discount), Convert.ToDecimal(currentRow.Total), 0, 0, currentRow.ID.ToString(), currentRow.UserName.ToString());
-                                var list = db.vw_Sale2.Where(s => s.SaleInvoiceID == row.ID).ToList<DataAccess.vw_Sale2>();
+                            tool.Print();
+                        }
+                        else
+                        {
+                            tool.Print(InvoicePrinter);
+                        }
+                    }
 
-
-                                rpt.DataSource = list.ToList();
-                                ReportPrintTool tool = new ReportPrintTool(rpt);
-                                string InvoicePrinter = db.Companies.Take(1).SingleOrDefault().InvoicePrinter;// System.Configuration.ConfigurationManager.AppSettings["InvoicePrinter"];
-                                if (InvoicePrinter == "")
-                                {
-                                    tool.Print();
-                                }
-                                else
-                                {
-                                    tool.Print(InvoicePrinter);
-                                }
-                            }
-
-                        }else
+                }
+                else
                             if (e.Button.Kind == DevExpress.XtraEditors.Controls.ButtonPredefines.Right)
-                            {
-                                //DataAccess.RedaV1Entities db = new DataAccess.RedaV1Entities(ModuleClass.Connect());
-                                var row = (DataAccess.vw_SaleReport)gridViewSaleInvoice.GetFocusedRow();
-                                int invoiceID = row.ID;
+                {
+                    //DataAccess.RedaV1Entities db = new DataAccess.RedaV1Entities(ModuleClass.Connect());
+                    var row = (DataAccess.vw_SaleReport)gridViewSaleInvoice.GetFocusedRow();
+                    int invoiceID = row.ID;
 
-                                var currentRow = db.vw_SaleReport.Where(s => s.ID == invoiceID).SingleOrDefault(); //(DataAccess.vw_SaleReport)gridViewSaleInvoice.GetFocusedRow();
-                                SaleFullRpt rpt = new SaleFullRpt(Convert.ToDecimal(currentRow.Discount), Convert.ToDecimal(currentRow.Total), currentRow.ID.ToString(), currentRow.UserName.ToString());
-                                var list = from s in db.vw_Sale2 where s.SaleInvoiceID == invoiceID select s;
-                                rpt.DataSource = list.ToList();
+                    var currentRow = db.vw_SaleReport.Where(s => s.ID == invoiceID).SingleOrDefault(); //(DataAccess.vw_SaleReport)gridViewSaleInvoice.GetFocusedRow();
+                    SaleFullRpt rpt = new SaleFullRpt(Convert.ToDecimal(currentRow.Discount), Convert.ToDecimal(currentRow.Total), currentRow.ID.ToString(), currentRow.UserName.ToString());
+                    var list = from s in db.vw_Sale2 where s.SaleInvoiceID == invoiceID select s;
+                    rpt.DataSource = list.ToList();
 
 
-                                try
-                                {
-                                    //  string InvoicePrinter = System.Configuration.ConfigurationManager.AppSettings["InvoicePrinter"];
-                                    ReportPrintTool tool = new ReportPrintTool(rpt);
-                                    tool.ShowPreview();
-                                }
-                                catch (Exception ex)
-                                {
-                                     ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
-                                }
-                            }
+                    try
+                    {
+                        //  string InvoicePrinter = System.Configuration.ConfigurationManager.AppSettings["InvoicePrinter"];
+                        ReportPrintTool tool = new ReportPrintTool(rpt);
+                        tool.ShowPreview();
+                    }
+                    catch (Exception ex)
+                    {
+                        ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                    }
+                }
 
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
 
             }
         }
@@ -1678,11 +1680,11 @@ namespace WinForm
                 {
                     //rpt.DataSource = list.ToList();
                     //int branchId = list.First().BranchID;
-                   // int UserId = list.First().UserId;
+                    // int UserId = list.First().UserId;
                     rpt.parameterBranchName.Value = db.Branches.Where(s => s.ID == branchID).SingleOrDefault().BranchName;
-                    rpt.parameterUserName.Value = db.Users.Where(s => s.ID == userId ).SingleOrDefault().UserName;
-                         rpt.RequestParameters = false;
-                         rpt.DataSource = list.ToList();
+                    rpt.parameterUserName.Value = db.Users.Where(s => s.ID == userId).SingleOrDefault().UserName;
+                    rpt.RequestParameters = false;
+                    rpt.DataSource = list.ToList();
                     //rpt.parameterBranchName.Value = UserData.Default.BranchID;
                     //rpt.parameterDate.Value = cmbDate.DateTime;
                     //rpt.parameterInsertedUser.Value = UserData.Default.UserName;
@@ -1693,7 +1695,7 @@ namespace WinForm
                     }
                     catch (Exception ex)
                     {
-                         ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                        ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
                     }
                 }
                 else
@@ -1703,7 +1705,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -1711,11 +1713,11 @@ namespace WinForm
         {
             try
             {
-                
+
                 //if(query.Length>=2)
                 //{
                 //    var list = db.vw_Sale2.Where(s => s.Name.Contains(query));
- 
+
                 //}
             }
             catch (Exception ex)
@@ -1743,7 +1745,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -1753,7 +1755,7 @@ namespace WinForm
             {
 #if !DEBUG
 
-                 string password = Prompt.ShowDialog("كلمة المرور:", "شاشة مخصصة");
+                string password = Prompt.ShowDialog("كلمة المرور:", "شاشة مخصصة");
                 if (password.ToLower() == "1qaz")
                 {
                     XtraForm frm = new XtraForm();
@@ -1780,11 +1782,11 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
-        
+
 
         private void dockPanelOperations_Click(object sender, EventArgs e)
         {
@@ -1794,13 +1796,13 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
         private void txtWhatsAppMessage_Enter(object sender, EventArgs e)
         {
-          
+
         }
 
 
@@ -1855,7 +1857,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -1864,12 +1866,12 @@ namespace WinForm
 
         }
         // <previewPanel>
-        
-      
+
+
 
         private void flyoutPanel1_ButtonClick(object sender, DevExpress.Utils.FlyoutPanelButtonClickEventArgs e)
         {
-           
+
         }
 
         private void cmbNoVisible_EditValueChanged(object sender, EventArgs e)
@@ -1880,7 +1882,7 @@ namespace WinForm
                 ////{
                 ////    decimal salePrice = Convert.ToDecimal(cmbNoVisible.GetColumnValue("SalePrice"));
                 ////    txtNovisiblePrice.EditValue = salePrice;
-                    
+
                 ////    string Name = Convert.ToString(cmbNoVisible.GetColumnValue("Name"));
                 ////    if (Name == "صنف بدون باركود")
                 ////    {
@@ -1892,14 +1894,14 @@ namespace WinForm
                 ////        txtNoVisibleRemark.Text = Name;// cmbNoVisible.Text;
                 ////        txtNoVisibleQuantity.Focus();
                 ////    }
-                   
 
-                    
+
+
                 ////}
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -1924,8 +1926,8 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
-                
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+
             }
         }
 
@@ -1937,7 +1939,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -1992,7 +1994,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
 
             }
         }
@@ -2016,9 +2018,10 @@ namespace WinForm
                     xtraTabControl1.TabPages.Add(newTab);
                     xtraTabControl1.SelectedTabPage = newTab;
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -2046,7 +2049,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
 
             }
         }
@@ -2060,14 +2063,14 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
         private void btnItems_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             AddControl(new ItemUC(), "الأصناف");
-                
+
         }
 
         private void btnItemCategory2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -2083,7 +2086,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -2109,7 +2112,7 @@ namespace WinForm
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 
@@ -2123,11 +2126,11 @@ namespace WinForm
             try
             {
                 AddControl(new SaleInvoiceForm_Tab(db, items, new DataAccess.SaleInvoice(), true, SaleInvoiceType.Expire), "فاتورة تالف جديدة");
-            //    new SaleInvoiceForm(new DataAccess.SaleInvoice(), true, SaleInvoiceType.Expire).Show();
+                //    new SaleInvoiceForm(new DataAccess.SaleInvoice(), true, SaleInvoiceType.Expire).Show();
             }
             catch (Exception ex)
             {
-                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
+                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
 

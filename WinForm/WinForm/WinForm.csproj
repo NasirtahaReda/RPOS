@@ -196,6 +196,27 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="ModuleClass.cs" />
+    <Compile Include="Reports\Expense_PerDayRPT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Expense_PerDayRPT.Designer.cs">
+      <DependentUpon>Expense_PerDayRPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FinancialDailyRPT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\FinancialDailyRPT.Designer.cs">
+      <DependentUpon>FinancialDailyRPT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SaleSummaryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ShiftSummaryReportOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ShiftSummaryReportOptions.Designer.cs">
+      <DependentUpon>ShiftSummaryReportOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransferedInvoiceUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -787,6 +808,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Expense_PerDayRPT.resx">
+      <DependentUpon>Expense_PerDayRPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FinancialDailyRPT.resx">
+      <DependentUpon>FinancialDailyRPT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SaleSummaryReport.resx">
+      <DependentUpon>SaleSummaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ShiftSummaryReportOptions.resx">
+      <DependentUpon>ShiftSummaryReportOptions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransferedInvoiceUC.resx">
       <DependentUpon>TransferedInvoiceUC.cs</DependentUpon>

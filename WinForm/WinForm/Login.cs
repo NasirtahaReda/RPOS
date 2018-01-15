@@ -412,21 +412,5 @@ namespace WinForm
                 ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
             }
         }
-
-        private void cmbTheme_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cmbTheme.EditValue != null && cmbTheme.EditValue.ToString() != string.Empty)
-                {
-                    string selectedSkin = cmbTheme.EditValue.ToString();
-                    defaultLookAndFeel1.LookAndFeel.SkinName = selectedSkin;
-                }
-            }
-            catch (Exception ex)
-            {
-                ModuleClass.ShowExceptionMessage(this, ex, "خطأ", null);
-            }
-        }
     }
 }
