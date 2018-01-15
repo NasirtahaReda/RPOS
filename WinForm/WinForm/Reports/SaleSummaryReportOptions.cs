@@ -76,15 +76,15 @@ namespace WinForm.Reports
                 //    {
                 //        list = from s in list orderby s.CurrentQuanity descending select s;
                 //    }
-                   
+
                 //}
-                SaleSummaryRPT rpt = new SaleSummaryRPT();
+                RedaPOS.Reports.SaleSummaryReport rpt = new RedaPOS.Reports.SaleSummaryReport();
                 string BranchName = cmbBranch.GetColumnValue("BranchName").ToString();
                 rpt.parameterBranchName.Value = BranchName;
                 rpt.DataSource = list.ToList();
                 try
                 {
-                    ReportPrintTool tool = new ReportPrintTool(rpt);
+                        ReportPrintTool tool = new ReportPrintTool(rpt);
                     tool.ShowPreview();
                 }
                 catch (Exception ex)

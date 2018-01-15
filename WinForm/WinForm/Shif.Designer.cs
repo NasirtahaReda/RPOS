@@ -491,6 +491,18 @@
             this.btnExpenseReport.Text = "تقرير المنصرفات";
             this.btnExpenseReport.Click += new System.EventHandler(this.btnExpenseReport_Click);
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Enabled = false;
+            this.simpleButton1.Image = global::RedaPOS.Properties.Resources.Back;
+            this.simpleButton1.Location = new System.Drawing.Point(24, 511);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(78, 70);
+            this.simpleButton1.StyleController = this.dataLayoutControl1;
+            this.simpleButton1.TabIndex = 25;
+            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // txtNoOfElectricityInvoiceNet
             // 
             this.txtNoOfElectricityInvoiceNet.Location = new System.Drawing.Point(31, 141);
@@ -559,6 +571,30 @@
             this.textEdit1.Size = new System.Drawing.Size(50, 20);
             this.textEdit1.StyleController = this.dataLayoutControl1;
             this.textEdit1.TabIndex = 19;
+            // 
+            // btnShiftClose
+            // 
+            this.btnShiftClose.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnShiftClose.Image = global::RedaPOS.Properties.Resources.switch_off_icon;
+            this.btnShiftClose.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+            this.btnShiftClose.Location = new System.Drawing.Point(449, 511);
+            this.btnShiftClose.Name = "btnShiftClose";
+            this.btnShiftClose.Size = new System.Drawing.Size(156, 70);
+            this.btnShiftClose.StyleController = this.dataLayoutControl1;
+            this.btnShiftClose.TabIndex = 18;
+            this.btnShiftClose.Text = "قفل الورديه";
+            this.btnShiftClose.Click += new System.EventHandler(this.btnShiftClose_Click);
+            // 
+            // btnShiftStart
+            // 
+            this.btnShiftStart.Image = global::RedaPOS.Properties.Resources.switch_on_icon;
+            this.btnShiftStart.Location = new System.Drawing.Point(894, 511);
+            this.btnShiftStart.Name = "btnShiftStart";
+            this.btnShiftStart.Size = new System.Drawing.Size(159, 70);
+            this.btnShiftStart.StyleController = this.dataLayoutControl1;
+            this.btnShiftStart.TabIndex = 17;
+            this.btnShiftStart.Text = "بدء الورديه";
+            this.btnShiftStart.Click += new System.EventHandler(this.btnShiftStart_Click);
             // 
             // txtUserCash
             // 
@@ -1499,99 +1535,7 @@
             this.simpleSeparator4.AllowHotTrack = false;
             this.simpleSeparator4.Location = new System.Drawing.Point(657, 0);
             this.simpleSeparator4.Name = "simpleSeparator4";
-            this.simpleSeparator4.Size = new System.Drawing.Size(2, 165);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            this.errorProvider1.RightToLeft = true;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.ImageOptions.Image = global::RedaPOS.Properties.Resources.Refresh_icon;
-            this.btnRefresh.Location = new System.Drawing.Point(861, 177);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(204, 38);
-            this.btnRefresh.StyleController = this.dataLayoutControl1;
-            this.btnRefresh.TabIndex = 48;
-            this.btnRefresh.Text = "حساب";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // shiftBindingSource
-            // 
-            this.shiftBindingSource.DataSource = typeof(DataAccess.Shift);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Enabled = false;
-            this.simpleButton1.ImageOptions.Image = global::RedaPOS.Properties.Resources.Back;
-            this.simpleButton1.Location = new System.Drawing.Point(24, 511);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(78, 70);
-            this.simpleButton1.StyleController = this.dataLayoutControl1;
-            this.simpleButton1.TabIndex = 25;
-            this.simpleButton1.Text = "simpleButton1";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // btnShiftClose
-            // 
-            this.btnShiftClose.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnShiftClose.ImageOptions.Image = global::RedaPOS.Properties.Resources.switch_off_icon;
-            this.btnShiftClose.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-            this.btnShiftClose.Location = new System.Drawing.Point(449, 511);
-            this.btnShiftClose.Name = "btnShiftClose";
-            this.btnShiftClose.Size = new System.Drawing.Size(156, 70);
-            this.btnShiftClose.StyleController = this.dataLayoutControl1;
-            this.btnShiftClose.TabIndex = 18;
-            this.btnShiftClose.Text = "قفل الورديه";
-            this.btnShiftClose.Click += new System.EventHandler(this.btnShiftClose_Click);
-            // 
-            // btnShiftStart
-            // 
-            this.btnShiftStart.ImageOptions.Image = global::RedaPOS.Properties.Resources.switch_on_icon;
-            this.btnShiftStart.Location = new System.Drawing.Point(894, 511);
-            this.btnShiftStart.Name = "btnShiftStart";
-            this.btnShiftStart.Size = new System.Drawing.Size(159, 70);
-            this.btnShiftStart.StyleController = this.dataLayoutControl1;
-            this.btnShiftStart.TabIndex = 17;
-            this.btnShiftStart.Text = "بدء الورديه";
-            this.btnShiftStart.Click += new System.EventHandler(this.btnShiftStart_Click);
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.btnShiftStart;
-            this.layoutControlItem3.Location = new System.Drawing.Point(870, 0);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(163, 74);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(163, 74);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(163, 74);
-            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.btnShiftClose;
-            this.layoutControlItem4.Location = new System.Drawing.Point(425, 0);
-            this.layoutControlItem4.MaxSize = new System.Drawing.Size(160, 74);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(160, 74);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(160, 74);
-            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // layoutControlItem11
-            // 
-            this.layoutControlItem11.Control = this.simpleButton1;
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem11.MaxSize = new System.Drawing.Size(82, 74);
-            this.layoutControlItem11.MinSize = new System.Drawing.Size(82, 74);
-            this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(82, 74);
-            this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem11.TextVisible = false;
+            this.simpleSeparator4.Size = new System.Drawing.Size(2, 162);
             // 
             // layoutControlItem28
             // 

@@ -120,13 +120,117 @@
   <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="xrLabel4.Text" xml:space="preserve">
-    <value>فرع 1: شمبات جنوب - محطة اللورد جوار صيدلية منة الله - ت: 0185217010 
-فرع 2: شمبات شمال   - مربع 14 مقابل اسكريم لولو -        ت: 0185217014 
-Redabookshop@gmail.com                  (+249)الإدارة: 912313059 
-www.Facebook.com/Redabookshop                                               </value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="xrPictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="xrPictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAS3SURBVHhe7ZrfaxxVFMfXaB+KP2gfhD6oVNFWqEUhIZ0f
+        W/dFUSjtU3Z2ZndJVLAtaMH20basoIhS/FHInbm7NJSWPpWap9D/pVVLC5EGapRWE62tqefMnpbM7tnJ
+        3MnM7kbuB75kSe79njt37z33x6Sg0Wg0Go1Go9FocqdUajxhes1XLdc/UKzKg5Ynj6HCz/A7q+bvLJcv
+        Pk7F/x8Uq/5W2wsOmV5w2XbFHduTD2LlyNtQfg47pTR1dgvZbDyM+vTLpivPGJ78m33QBDIc8Rf8bEEn
+        vkS2w4/1wZmnLS/4zvDE/c4HSivoxHswVU6VytNPUZjhxK75Bgzh69xDZCHDkT9brhyjcMOFVQ3esx3x
+        D9fwbCXuwgirUdjhwHblJ3xjFQSdB8P8Jsp0xC1Mhr3zh1iBRPkxhR8s4TfPNjKB8KHdoFmsBvboweYm
+        snzEnkqwna0XSqwMfCS053zaYS8WILuPkhVLsdLawddtC0fIWh65MV47/UzahIcrhOEF42TVE9PxX+Pq
+        rxYmxrfr55+kKv0DsvH3XIOSCOqeI5tY8Nvl6jP6mqr0hze94JX1rPPFavMtsooFEqLJ1e8STEPMF1Qt
+        f6BhM2xDEgo3S2T1CGPim82wmlyA3LAIWoJyy71XAU5+QFb5gnt7tYZ1SiySVQTc+/PlE2sZ8xLZ5QfM
+        38NMcBXNk1UEGFWfMmWVZHryfbLLj/BUxwRXENsBMPxPMGWVBJ04S3b5gOd5GP5/cMEVxHeAJ092lFMW
+        LIm/FRqNEbLMHrzM4AIrip8CrmwwZZW1t956kSyzB29tuKBxKrryXTjGbnuo4sTMs2QXAY+647XWc3j2
+        x5sh3ARBpxzhPOOE8cgye9JkaqvaeoOqK4MHHs4zVq6courZA0nmGBs0Tm5rF1VXBjrgNOsZIxw1VD17
+        0nQAHmioujLpVpwcj8lwdP2QD9pb60lKMJx/5DxjlecUgAD7uwKuIei0o/CtTMLQrOP53XTlPrKLYFTl
+        brxbWC1Ycu9xnnEyPf8dsswezM5cUBVZjrxKdhGgc45z5VWV66EIX1q07+354Elkuv41sosAf1v3Rsiu
+        yF8LhQePkWU+wHCeY4MnFByjb5BVBPD9jCuvpIq8RHb5kSYRRhX8QlYRYAp8zpdXUTBJdvmBr6vojQ3T
+        gCQSC2QVAU5yX/Llk0os9e3FCQRsdTcgocJ52g2MrK/Y8gkFI2iarPIH9+tpb4ONSvA72USATdYprnwy
+        ibt7K+J5suoPaRuMx2myiAB/+7azbGK58guy6R843/BKmm1QvJbJIgIkMOV9Pwo2PlfwPpFs+gvs7sZw
+        +HEN6ymYOlQ9As5htnyMwmTsBK+TxWDA7S10wgrXQFaO/JeqRrDdwGfL9xL4FKvNMlUfLDAHP1LqBE/O
+        d8p0/D/hJ1e2W/DwMGUOUfjhAEfC+q7Lkykc9m7gUNjhov0qS/zENTwLYcIb+JxfC3xRGW5qUr815gSJ
+        Fpa6gWX7NITv9tuJbbn7gZJKLIWrQ7n5AtluPMJ/msILDk/O4r09/6CrJRbhyPwD3uz0bW/fNxqNEbwi
+        w1sbfEC8wAyvvuEz/q59mZHzeV6j0Wg0Go1Go9EUCoXCf2X4vvjG56w4AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="xrLabel4.Text" xml:space="preserve">
+    <value>فرع 1: شمبات جنوب - محطة اللورد جوار صيدلية منة الله -            ت: 0185217010 
+فرع 2: شمبات شمال   - مربع 14 مقابل اسكريم لولو -                   ت: 0185217014 
+فرع 3: بحري المزاد   - شرق ملاعب خماسيات ميدان التحرير-        ت: 0185323441 
+                        (+249)الإدارة: 912313059 
+                                             </value>
+  </data>
   <data name="xrPictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHEAAABxCAYAAADifkzQAAAABGdBTUEAALGPC/xhBQAAFIpJREFUeF7t

@@ -355,7 +355,7 @@ namespace WinForm
                             PushMessage.SendShiftCloseMessage(insertedUser, message);
                             Thread.Sleep(1500);
 
-                            var list2 = db.vw_ShiftUser.Where(s => s.ShiftID == _shift.ID && s.Flag == 0).ToList();
+                            var list2 = db.vw_ShiftUser.Where(s => s.ShiftID == _shift.ID /*&& s.Flag == 0*/).ToList();
                             string UserStatusMessage = "   الوضع المالي للموظفين بالوردية" + Environment.NewLine;
                             List<string> userIDs = new List<string>();
                             foreach (var su in list2)

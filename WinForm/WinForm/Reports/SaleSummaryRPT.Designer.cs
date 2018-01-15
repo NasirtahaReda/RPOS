@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.DataAccess.EntityFramework.EFConnectionParameters efConnectionParameters1 = new DevExpress.DataAccess.EntityFramework.EFConnectionParameters();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary4 = new DevExpress.XtraReports.UI.XRSummary();
@@ -44,7 +43,7 @@
             this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.efDataSource1 = new DevExpress.DataAccess.EntityFramework.EFDataSource();
+            this.efDataSource1 = new DevExpress.DataAccess.EntityFramework.EFDataSource(this.components);
             this.pageHeaderBand1 = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -73,12 +72,12 @@
             this.FieldCaption = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.DataField = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.txtTotal = new DevExpress.XtraReports.UI.XRLabel();
             this.txtDiscount = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.txtNet = new DevExpress.XtraReports.UI.XRLabel();
             this.calculatedField1 = new DevExpress.XtraReports.UI.CalculatedField();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.efDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -210,10 +209,8 @@
             // 
             // efDataSource1
             // 
-            ////efConnectionParameters1.ConnectionStringName = "RedaV1Entities";
-            ////efConnectionParameters1.Source = typeof(DataAccess.RedaV1Entities);
-            ////this.efDataSource1.ConnectionParameters = efConnectionParameters1;
-            ////this.efDataSource1.Name = "efDataSource1";
+            this.efDataSource1.ConnectionParameters = null;
+            this.efDataSource1.Name = "efDataSource1";
             // 
             // pageHeaderBand1
             // 
@@ -518,10 +515,6 @@
             this.DataField.Name = "DataField";
             this.DataField.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = typeof(DataAccess.vw_SaleReport);
-            // 
             // txtTotal
             // 
             this.txtTotal.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
@@ -578,6 +571,10 @@
             this.calculatedField1.Expression = "[].Sum([vw_SaleReport.Total]) - [].Sum([vw_SaleReport.Discount])";
             this.calculatedField1.Name = "calculatedField1";
             // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(DataAccess.vw_SaleReport);
+            // 
             // SaleSummaryRPT
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -599,7 +596,7 @@
             this.FieldCaption,
             this.PageInfo,
             this.DataField});
-            this.Version = "15.1";
+            this.Version = "17.1";
             this.AfterPrint += new System.EventHandler(this.SaleSummaryRPT_AfterPrint);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.efDataSource1)).EndInit();
