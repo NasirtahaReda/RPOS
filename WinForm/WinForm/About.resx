@@ -118,7 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="memoEdit1.EditValue" xml:space="preserve">
-    <value>النسخة 11.3:
+    <value>النسخة 12.0:
+ - التحويل الي السيرفر الخاص
+ - إضافة التقرير المالي اليومي
+ - إضافة التقرير اليومي للمنصرفات
+ 
+=============================================
+
+النسخة 11.3:
  - إمكانية طباعة الباركود بدون السعر
 
 
